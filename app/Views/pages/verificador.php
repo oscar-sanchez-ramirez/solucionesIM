@@ -56,7 +56,7 @@ $clave= explode("#", $custom);
 $SID = $clave[0];
 $ClaveVenta = openssl_decrypt($clave[1], $CODE, $KEY);
 
-
+print_r($ClaveVenta);
 
 curl_close($venta);
 curl_close($Login);
@@ -65,15 +65,10 @@ curl_close($Login);
 
 if($state == "approved"){
     $mensajePaypal = "<h3>Pago aprovado</h3>";
+    echo $mensajePaypal."<br>";
+    echo "Por la cantidad de: ".number_format($total, 2)." ".$currency;
 }else{
-    $mensajePaypal = "<h3>Hay un problema con el pago</h3>";
+    $mensajePaypal = "<h3>Hay un problema con su pago, no fue aprovado</h3>";
 }
 
-echo $mensajePaypal;
-
-
-
-
-
-?>
 

@@ -48,6 +48,7 @@
 
 
 
+
     <div class="container margen">
         <div class="jumbotron sombra">
             <h1 class="display-4 text-center">Soluciones <span class="text-success">IM</span></h1>
@@ -58,11 +59,12 @@
 
                 <?php foreach ($usuarios as $usuario) : ?>
                     <h4 class="text-info"><?= $usuario['nombre'] ?> <?= $usuario['apellidos'] ?></h4>
-                    <a class="" href="#"><?= $usuario['email'] ?></a>
+                    <a class="" href="#"><?= $usuario['email'] ?></a> <br><br>
+                    <h5 class="text-danger">Total a pagar: $<?= number_format($total, 2) ?></h5>
                 <?php endforeach; ?>
             </div>
             <hr class="my-4">
-            <p class="lead">Tu pago del mes: <span class="text-success">$<?= number_format($total, 2) ?></span></p>
+            <p class="lead">Tu pago del mes: <span class="text-success">$<?= number_format($pagoMes, 2) ?></span></p>
             <div id="paypal-button-container"></div>
             <hr class="my-4">
             <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
@@ -76,7 +78,7 @@
 
     <script>
         paypal.Button.render({
-            env: 'sandbox', // sandbox | production
+            env: 'production', // sandbox | production
             style: {
                 label: 'checkout', // checkout | credit | pay | buynow | generic
                 size: 'responsive', // small | medium | large | responsive
@@ -99,7 +101,7 @@
                     payment: {
                         transactions: [{
                             amount: {
-                                total: '<?= $total ?>',
+                                total: '<?= $pagoMes ?>',
                                 currency: 'MXN'
                             },
                             description: "Pago de servicios a Soluciones IM",

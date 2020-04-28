@@ -16,7 +16,7 @@ class Pagos extends BaseController
 
         $model = new UsuariosModel();
 		$data = ['usuarios' => $model->where('id', 17)->findAll(), 'title' => 'SolucionesIM' ,
-		'total' => 3850, 'KEY' => 'SolucionesIM', 'CODE' => 'AES-128-ECB', 'idVenta' => 1];
+		'pagoMes' => 3850, 'total' => 10500 ,'KEY' => 'SolucionesIM', 'CODE' => 'AES-128-ECB', 'idVenta' => 1];
 		return view('pages/pago_paypal', $data);
     }
     
