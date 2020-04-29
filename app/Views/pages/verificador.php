@@ -56,7 +56,7 @@ $clave= explode("#", $custom);
 $SID = $clave[0];
 $ClaveVenta = openssl_decrypt($clave[1], $CODE, $KEY);
 
-print_r($ClaveVenta);
+
 
 curl_close($venta);
 curl_close($Login);
