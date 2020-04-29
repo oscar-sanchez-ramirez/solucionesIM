@@ -43,7 +43,7 @@
         </div>
     </nav>
 
-<?php $idUser = $usuarios; ?>
+<?php $idUser = $usuarios[0]['id']; ?>
 
 
 
@@ -57,10 +57,11 @@
                 <h3>Datos del cliente:</h3>
 
 
-                
-                
+                <?php foreach ($usuarios as $usuario) : ?>
+                    <h4 class="text-info"><?= $usuario['nombre'] ?> <?= $usuario['apellidos'] ?></h4>
+                    <a class="" href="#"><?= $usuario['email'] ?></a> <br><br>
                     <h5 class="text-danger">Total a pagar: $<?= number_format($total, 2) ?></h5>
-                
+                <?php endforeach; ?>
             </div>
             <hr class="my-4">
             <p class="lead">Tu pago del mes: <span class="text-success">$<?= number_format($pagoMes, 2) ?></span></p>

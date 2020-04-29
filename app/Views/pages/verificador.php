@@ -70,5 +70,3 @@ if($state == "approved"){
 }else{
     $mensajePaypal = "<h3>Hay un problema con su pago, no fue aprovado</h3>";
 }
-
-
