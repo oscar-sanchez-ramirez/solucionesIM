@@ -254,7 +254,7 @@
 	</header>
 	<div class="heroe">
 
-		<h1>Ecommerce en desarollo </h1>
+		<h1>Ecommerce en Development</h1>
 
 	</div>
 
