@@ -13,13 +13,13 @@ class Pagos extends BaseController
 	{
 		if ($this->session->logged_in) {
 
-
+            
 			define("KEY", "SolucionesIM");
 			define("CODE", "AES-128-ECB");
-
+            $id = session('id');
 			$model = new UsuariosModel();
 			$data = [
-				'usuarios' => $model->where('id', 17)->findAll(), 'title' => 'SolucionesIM',
+				'usuarios' => $model->where('id', $id)->findAll(), 'title' => 'SolucionesIM',
 				'pagoMes' => 3850, 'total' => 10500, 'KEY' => 'SolucionesIM', 'CODE' => 'AES-128-ECB', 'idVenta' => 1
 			];
 
