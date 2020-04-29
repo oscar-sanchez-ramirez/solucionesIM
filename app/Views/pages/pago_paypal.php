@@ -31,10 +31,10 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
+                    <?= session('nombre') ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="<?= base_url('/perfil/signout') ?>">Salir</a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
@@ -78,7 +78,7 @@
 
     <script>
         paypal.Button.render({
-            env: 'production', // sandbox | production
+            env: 'sandbox', // sandbox | production
             style: {
                 label: 'checkout', // checkout | credit | pay | buynow | generic
                 size: 'responsive', // small | medium | large | responsive
@@ -104,7 +104,7 @@
                                 total: '<?= $pagoMes ?>',
                                 currency: 'MXN'
                             },
-                            description: "Pago de servicios a Soluciones IM",
+                            description: "$<?= $pagoMes ?> MXN, Pago de servicios a Soluciones IM",
                             custom: "<?= $idUser ?>#<?php echo openssl_encrypt($idVenta, $CODE, $KEY); ?>"
                         }]
                     }
