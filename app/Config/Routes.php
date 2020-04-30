@@ -44,6 +44,9 @@ $routes->get('/pagos', 'Pagos::index');
 
 $routes->get('/verificador', 'Verificador::index');
 
+$routes->get('/orden-pago', 'Ordenes::index');
+
+
 
 
 
