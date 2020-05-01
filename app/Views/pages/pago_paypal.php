@@ -43,7 +43,7 @@
         </div>
     </nav>
 
-<?php $idUser = $usuarios[0]['id']; ?>
+
 
 
 
@@ -105,7 +105,7 @@
                                 currency: 'MXN'
                             },
                             description: "$<?= $pagoMes ?> MXN, Pago de servicios a Soluciones IM",
-                            custom: "<?= $idUser ?>#<?php echo openssl_encrypt($idVenta, $CODE, $KEY); ?>"
+                            custom: "<?= session('id') ?>#<?php echo openssl_encrypt($idVenta, $CODE, $KEY); ?>"
                         }]
                     }
                 });
