@@ -37,14 +37,14 @@ $routes->get('/login', 'Home::login');
 $routes->post('/perfil', 'Perfil::signin');
 $routes->post('/perfil/signout', 'Perfil::signout');
 
-
-
 $routes->get('/pagos', 'Pagos::index');
-
 
 $routes->get('/verificador', 'Verificador::index');
 
-$routes->get('/orden-pago', 'Ordenes::index');
+$routes->get('/clientes', 'Clientes::index');
+
+$routes->get('/ordenes', 'Ordenes::index');
+
 
 
 
