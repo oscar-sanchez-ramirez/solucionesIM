@@ -25,7 +25,7 @@ class Perfil extends BaseController
             }
             $user['logged_in'] = true;
             $this->session->set($user);
-            return redirect()->to('/pagos');
+            return redirect()->to('/clientes');
         }
     }
 

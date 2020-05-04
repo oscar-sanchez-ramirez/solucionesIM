@@ -65,6 +65,7 @@ curl_close($Login);
 
 if($state == "approved"){
     $mensajePaypal = "<h3>Pago aprovado</h3>";
+    echo "id Venta: ".$ClaveVenta."<br>";
     echo $mensajePaypal."<br>";
     echo "Por la cantidad de: ".number_format($total, 2)." ".$currency;
 }else{

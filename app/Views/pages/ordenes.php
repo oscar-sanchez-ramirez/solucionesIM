@@ -1,16 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('templates/default') ?>
+<?= $this->section('content') ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<div class="container-fluid margen">
+  <h1 class="text-center text-primary">Ordenes de pago</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Pagos</th>
+        <th scope="col">Id Cliente</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($ordenes as $orden) : ?>
+        <tr>
+          <td>
+            <form action="<?= base_url('pagos') ?>" method="POST">
+              <input type="hidden" name="id_orden" value="<?= $orden['id_orden_pagos'] ?>">
+              <button type="submit" class="btn btn-success">Ver Pago</button>
+            </form>
+          </td>
+          <td><?= $orden['id_clientes'] ?></td>
+          <td>$<?= $orden['orden_total'] ?></td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
 
-<body>
-   <p> id_orden_pagos: <?= $ordenes[0]['id_orden_pagos'] ?>, id_cleintes: <?= $ordenes[0]['id_clientes'] ?>, orden_total:<?= $ordenes[0]['orden_total'] ?> </p>
-   <p> id_orden_pagos: <?= $ordenes[1]['id_orden_pagos'] ?>, id_cleintes: <?= $ordenes[1]['id_clientes'] ?>, orden_total:<?= $ordenes[1]['orden_total'] ?> </p>
 
-</body>
 
-</html>
+<?= $this->endSection() ?>
