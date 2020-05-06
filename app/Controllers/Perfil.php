@@ -25,6 +25,14 @@ class Perfil extends BaseController
             }
             $user['logged_in'] = true;
             $this->session->set($user);
+
+            if ($user['id_rol'] == 1) {
+                if ($user['email'] === 'admin@solucionesim.net') {
+                    $user['logged_admin'] = true;
+                    $this->session->set($user);
+                    return redirect()->to('/admin');
+                }
+            }
             return redirect()->to('/clientes');
         }
     }
@@ -34,4 +42,5 @@ class Perfil extends BaseController
         $this->session->destroy();
         return redirect()->to('/login');
     }
+    
 }

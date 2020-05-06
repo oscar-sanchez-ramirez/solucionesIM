@@ -33,6 +33,10 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/login', 'Home::login');
 
+$routes->get('/admin', 'Admin::index');
+$routes->get('/admin/crear-ordenes', 'Admin::create');
+
+
 
 $routes->post('/perfil', 'Perfil::signin');
 $routes->post('/perfil/signout', 'Perfil::signout');

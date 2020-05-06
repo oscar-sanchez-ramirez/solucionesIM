@@ -8,7 +8,7 @@
             <tr>
                 <th scope="col">Id Cliente</th>
                 <th scope="col">Id Usuario</th>
-                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
             </tr>
         </thead>
         <tbody>

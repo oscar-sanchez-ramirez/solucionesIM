@@ -1,0 +1,52 @@
+h1{
+    font-size: 80px; line-height:80px; color:white;
+}
+
+#logo{
+  margin: 0;
+min-height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+filter: brightness(20%);
+
+}
+
+#centro{
+  margin: 0;
+background-image: url('../img/oficina.jpg');
+padding: 300px 100px;
+text-align: center;
+background-position: center center;
+background-size: cover;
+padding: 300px 100px;
+position: relative;
+filter: brightness(62%);
+
+
+}
+p{
+    color: white;
+    
+}
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #4CAF50;
+}

@@ -18,14 +18,14 @@
 
                     <div class="form-label-group">
                         <input type="text" class="form-control" name="correo" id="correo" placeholder="Correo">
-                        <label for="correo" class="label">Correo</label>
+                        <!-- <label for="correo" class="label">Correo</label> -->
                     </div>
- 
+                    <br><br>
                     <div class="form-label-group">
                         <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
-                        <label for="password" class="label">Contraseña</label>
+                        <!-- <label for="password" class="label">Contraseña</label> -->
                     </div>
-
+                
                     <div class="form-group text-right">
                         <a href="<?= base_url('/recover') ?>" class="link">¡Olvidé mi contraseña!</a>
                     </div>
