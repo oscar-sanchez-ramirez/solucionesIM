@@ -9,7 +9,7 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Usuarios</a>
+                    <a class="nav-link" href="<?= base_url('/admin/crear-usuarios') ?>">Usuarios</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Clientes</a>

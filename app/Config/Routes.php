@@ -36,6 +36,11 @@ $routes->get('/login', 'Home::login');
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/crear-ordenes', 'Admin::create_ordenes');
 $routes->post('/admin/save-ordenes', 'Admin::save_ordenes');
+$routes->get('/admin/crear-usuarios', 'Admin::create_usuarios');
+$routes->post('/admin/save-usuarios', 'Admin::save_usuarios');
+
+
+
 
 
 

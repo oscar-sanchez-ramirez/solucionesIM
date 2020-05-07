@@ -17,6 +17,14 @@
             <?= session()->get('success') ?>
         </div>
     <?php endif; ?>
+    <?php if (session()->get('danger')) : ?>
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">
+                &times;
+            </button>
+            <?= session()->get('danger') ?>
+        </div>
+    <?php endif; ?>
 </div>
 
 <br>
