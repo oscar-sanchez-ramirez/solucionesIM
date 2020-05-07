@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\OrdenpagosModel;
+use App\Models\ClientesModel;
+
 
 
 use Config\Services;

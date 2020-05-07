@@ -34,7 +34,9 @@ $routes->get('/', 'Home::index');
 $routes->get('/login', 'Home::login');
 
 $routes->get('/admin', 'Admin::index');
-$routes->get('/admin/crear-ordenes', 'Admin::create');
+$routes->get('/admin/crear-ordenes', 'Admin::create_ordenes');
+$routes->post('/admin/save-ordenes', 'Admin::save_ordenes');
+
 
 
 
@@ -51,6 +53,9 @@ $routes->get('/ordenes', 'Ordenes::index');
 $routes->get('/pagos', 'Pagos::index');
 
 $routes->get('/verificador', 'Verificador::index');
+
+
+
 
 
 
