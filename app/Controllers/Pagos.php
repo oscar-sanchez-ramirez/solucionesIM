@@ -50,6 +50,8 @@ class Pagos extends BaseController
 		return redirect()->to('login');
 	}
 
+	
+
 
 
 	//--------------------------------------------------------------------
