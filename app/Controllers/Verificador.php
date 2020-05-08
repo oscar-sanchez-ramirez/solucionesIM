@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\OrdenpagosModel;
+
 class Verificador extends BaseController
 {
 	public function index()
@@ -54,8 +56,9 @@ class Verificador extends BaseController
 			$currency = $objDatosTransaccion->transactions[0]->amount->currency;
 			$custom = $objDatosTransaccion->transactions[0]->custom;
 
-			//print_r($custom);
+			$total_N =  $total;
 
+			//print_r($custom);
 			$clave = explode("#", $custom);
 
 			$CODE = 'AES-128-ECB';
@@ -66,19 +69,47 @@ class Verificador extends BaseController
 			curl_close($venta);
 			curl_close($Login);
 
+			$model = new OrdenpagosModel();
+			$orden = $model->where('id_orden_pagos', $ClaveVenta)->findAll();
+			$pagoTotal = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('orden_total');
+			$pagoMes = (int) $pagoTotal[0];
+
+
+
+			//$data['orden_total'] = $total_nuevo;
+
 			//echo $ClaveVenta;
-			$total_N = number_format($total, 2);
+			$msjpaypal = "";
+			$msj = "";
 			if ($state == 'approved') {
+
 				$msjpaypal = "Pago aprovado";
+                 
+				$state = 2;
+				$data['id_status_pago'] = $state;
+
+				if ($pagoMes != 0) {
+					$total_nuevo = ($pagoMes - $total_N);
+					$data['orden_total'] = $total_nuevo;
+
+					$state = 3;
+					$data['id_status_pago'] = $state;
+					if ($model->update($ClaveVenta, $data)) {
+						
+						$msj = "Pago actualizado";
+					}
+				}
 			} else {
 				$msjpaypal = "Hay un problema con su pago, no fue aprovado";
 			}
 
-			$data = [
+
+
+			$info = [
 				'title' => 'Comprobante PayPal', 'id' => $ClaveVenta, 'total' => $total_N,
-				'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email
+				'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email, 'msj' => $msj, 'orden' => $orden
 			];
-			return view('pages/verificador', $data);
+			return view('pages/verificador', $info);
 		}
 		return redirect()->to('login');
 	}
