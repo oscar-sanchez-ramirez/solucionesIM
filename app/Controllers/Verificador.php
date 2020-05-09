@@ -80,23 +80,27 @@ class Verificador extends BaseController
 
 			//echo $ClaveVenta;
 			$msjpaypal = "";
-			$msj = "";
+            $msj = "";
 			if ($state == 'approved') {
 
-				$msjpaypal = "Pago aprovado";
-                 
+				$msjpaypal = "Estatus: aprovado";
+
 				$state = 2;
 				$data['id_status_pago'] = $state;
 
-				if ($pagoMes != 0) {
+				if ($pagoMes > 0) {
+
 					$total_nuevo = ($pagoMes - $total_N);
 					$data['orden_total'] = $total_nuevo;
 
-					$state = 3;
-					$data['id_status_pago'] = $state;
+					if ($total_nuevo == 0) {
+						$state = 3;
+						$data['id_status_pago'] = $state;
+						$msjpaypal = "Estatus: completado";
+					}
 					if ($model->update($ClaveVenta, $data)) {
-						
-						$msj = "Pago actualizado";
+
+						$msj = "Pago realizado con exito";
 					}
 				}
 			} else {
@@ -107,7 +111,7 @@ class Verificador extends BaseController
 
 			$info = [
 				'title' => 'Comprobante PayPal', 'id' => $ClaveVenta, 'total' => $total_N,
-				'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email, 'msj' => $msj, 'orden' => $orden
+				'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email, 'orden' => $orden, 'msj' => $msj
 			];
 			return view('pages/verificador', $info);
 		}
