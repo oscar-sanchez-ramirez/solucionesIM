@@ -18,6 +18,11 @@ class Home extends BaseController
             return redirect()->to('clientes');
         }
         return view('pages/login');
-    }
+	}
+	
+	public function show(){
+		$data = ['title' => 'Home'];
+		return view('pages/home', $data);
+	}
 
 }

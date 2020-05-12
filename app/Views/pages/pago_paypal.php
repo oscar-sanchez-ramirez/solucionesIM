@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="jumbotron sombra ">
+            <div class="jumbotron sombra">
                 <h3 class="text-center">Soluciones <span class="text-success">IM</span></h3>
                 <br>
                 <div class="">
@@ -52,7 +52,7 @@
                 <div class="text-center">
                     <form action="<?= base_url('pagos/tarjeta') ?>" method="POST">
                         <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
-                        <button type="submit" class="btn btn-primary">Pagar con tarjeta</button>  
+                        <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fab fa-cc-stripe">&nbspPagar con tarjeta</i></button>  
                     </form>
                 </div>
                 <hr class="my-4">

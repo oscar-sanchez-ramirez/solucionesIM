@@ -33,7 +33,7 @@ class Perfil extends BaseController
                     return redirect()->to('/admin');
                 }
             }
-            return redirect()->to('/clientes');
+            return redirect()->to('/home');
         }
     }
 

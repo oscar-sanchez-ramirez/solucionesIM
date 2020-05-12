@@ -45,45 +45,60 @@ class Pagos extends BaseController
 
 	public function tarjeta()
 	{
-		$req = Services::request();
-		$idOrdenStripe = $req->getPost('id_orden_stripe');
+		if ($this->session->logged_in) {
+			$req = Services::request();
+			$idOrdenStripe = $req->getPost('id_orden_stripe');
 
 
-		$model = new OrdenpagosModel();
-		$idVe = $model->where('id_orden_pagos', $idOrdenStripe)->findColumn('id_orden_pagos');
-		$idVenta = (int) $idVe[0];
-		$data = ['ordenes' => $model->where('id_orden_pagos', $idOrdenStripe)->findAll(), 'title' => 'Stripe', 'idVenta' => $idVenta];
+			$model = new OrdenpagosModel();
+			$idVe = $model->where('id_orden_pagos', $idOrdenStripe)->findColumn('id_orden_pagos');
+			$idVenta = (int) $idVe[0];
+			$data = ['ordenes' => $model->where('id_orden_pagos', $idOrdenStripe)->findAll(), 'title' => 'Stripe', 'idVenta' => $idVenta];
 
-		return view('pages/pago_stripe', $data);
+			return view('pages/pago_stripe', $data);
+		}
+		return redirect()->to('login');
 	}
 
 	public function stripe()
 	{
-		$req = Services::request();
-		$id_venta = $req->getPost('id-venta');
+		if ($this->session->logged_in) {
+			$req = Services::request();
+			$id_venta = $req->getPost('id-venta');
 
-		$model = new OrdenpagosModel();
-		$pagoTotal = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_total');
-		$pagoMes = (int) $pagoTotal[0];
+			$model = new OrdenpagosModel();
+			$pagoTotal = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_total');
+			$pagoMes = (int) $pagoTotal[0];
+
+			require '../vendor/autoload.php';
+
+			\Stripe\Stripe::setApiKey("sk_test_wThLvIsqNPNfofKheRhOjHJt002ThKiwBj");
 
 
-		require '../vendor/autoload.php';
+			$token = $_POST["stripeToken"];
 
-		\Stripe\Stripe::setApiKey("sk_test_wThLvIsqNPNfofKheRhOjHJt002ThKiwBj");
+			$charge = \Stripe\Charge::create([
+				"amount" => $pagoMes,
+				"currency" => "usd",
+				"description" => "Pago en mi tienda...",
+				"source" => $token
+			]);
 
-		$token = $_POST["stripeToken"];
+			//echo "<pre>", print_r($charge), "</pre>";
 
-		$charge = \Stripe\Charge::create([
-			"amount" => $pagoMes,
-			"currency" => "usd",
-			"description" => "Pago en mi tienda...",
-			"source" => $token
-		]);
+			$id = $charge["id"];
+			$monto = $charge["amount"];
+			$moneda = $charge["currency"];
+			$descripcion = $charge["description"];
+			$status = $charge['outcome']['network_status'];
+			
+			$data = ['id' => $id, 'monto' => $monto, 'moneda' => $moneda, 'descripcion' => $descripcion, 'status' => $status ,'title' => 'Stripe'];
 
-		echo "<pre>", print_r($charge), "</pre>";
+			return view('pages/tarjeta', $data);
+			//return $charge;
 
-		//return view('pages/tarjeta', $data);
-		return $charge;
+		}
+		return redirect()->to('login');
 	}
 
 
