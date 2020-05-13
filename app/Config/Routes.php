@@ -32,19 +32,43 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/login', 'Home::login');
+$routes->get('/home', 'Home::show');
+
+$routes->get('/admin', 'Admin::index');
+$routes->get('/admin/crear-ordenes', 'Admin::create_ordenes');
+$routes->post('/admin/save-ordenes', 'Admin::save_ordenes');
+$routes->get('/admin/crear-usuarios', 'Admin::create_usuarios');
+$routes->post('/admin/save-usuarios', 'Admin::save_usuarios');
+
 
 
 $routes->post('/perfil', 'Perfil::signin');
 $routes->post('/perfil/signout', 'Perfil::signout');
 
+$routes->get('/clientes', 'Clientes::index');
+
+$routes->get('/ordenes', 'Ordenes::index');
+//$routes->get('/ordenes/pagos/(:num)', 'Ordenes::index/$1');
+
 
 
 $routes->get('/pagos', 'Pagos::index');
-
+$routes->get('/pagos/tarjeta', 'Pagos::tarjeta');
+//$routes->get('/pagos/stripe', 'Pagos::stripe');
 
 $routes->get('/verificador', 'Verificador::index');
 
-$routes->get('/orden-pago', 'Ordenes::index');
+$routes->get('/checador', 'Checador::index');
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,29 +1,29 @@
-<?php namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\UsuariosModel;
 use App\Models\OrdenpagosModel;
 use App\Models\ClientesModel;
+
 
 
 use Config\Services;
 
 class Ordenes extends BaseController
 {
-	public function index(){
+    public function index()
+    {
 
-        $model = new ClientesModel();
-        //$model = new OrdenpagosModel();
-        $data = ['clientes' => $model->findAll() ];
+        if ($this->session->logged_in) {
+            $req = Services::request();
+            $idCliente = $req->getPost('idCliente');
 
-       
+            $model = new OrdenpagosModel();
+            $data = ['ordenes' => $model->where('id_clientes', $idCliente)->findAll(), 'title' => 'Ordenes de pago'];
 
-        return view('pages/clientes', $data);
-
-
+            return view('pages/ordenes', $data);
+        }
+        return redirect()->to('login');
     }
-	
-
-	
-
 }

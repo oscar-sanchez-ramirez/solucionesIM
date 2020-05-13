@@ -5,7 +5,7 @@ class Home extends BaseController
 {
 	public function index()
 	{   if ($this->session->logged_in) {
-		return redirect()->to('/pagos');
+		return redirect()->to('/clientes');
 	}
 	return view('welcome_message');
 
@@ -15,9 +15,14 @@ class Home extends BaseController
     {
         if ($this->session->logged_in) {
 		
-            return redirect()->to('pagos');
+            return redirect()->to('clientes');
         }
         return view('pages/login');
-    }
+	}
+	
+	public function show(){
+		$data = ['title' => 'Home'];
+		return view('pages/home', $data);
+	}
 
 }
