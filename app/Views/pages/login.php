@@ -43,7 +43,7 @@
 
             <!-- Icon -->
             <div class="fadeIn first">
-                <img src="img/usr3.png" id="icon" alt="Usuario" />
+                <img src="img/usr.png" id="icon" alt="Usuario"  />
             </div>
 
             <!-- Login Form -->

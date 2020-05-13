@@ -2,7 +2,13 @@
 
 namespace App\Controllers;
 
+
+
+use App\Controllers\BaseController;
+use App\Models\UsuariosModel;
 use App\Models\OrdenpagosModel;
+
+use Config\Services;
 
 class Verificador extends BaseController
 {
@@ -117,6 +123,8 @@ class Verificador extends BaseController
 		}
 		return redirect()->to('login');
 	}
+
+	
 
 
 	//--------------------------------------------------------------------

@@ -60,53 +60,6 @@ class Pagos extends BaseController
 		return redirect()->to('login');
 	}
 
-	public function stripe()
-	{
-		if ($this->session->logged_in) {
-			$req = Services::request();
-			$id_venta = $req->getPost('id-venta');
-
-			$model = new OrdenpagosModel();
-			$pagoTotal = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_total');
-			$pagoMes = (int) $pagoTotal[0];
-
-			require '../vendor/autoload.php';
-
-			\Stripe\Stripe::setApiKey("sk_test_wThLvIsqNPNfofKheRhOjHJt002ThKiwBj");
-
-
-			$token = $_POST["stripeToken"];
-
-			$charge = \Stripe\Charge::create([
-				"amount" => $pagoMes,
-				"currency" => "usd",
-				"description" => "Pago en mi tienda...",
-				"source" => $token
-			]);
-
-			//echo "<pre>", print_r($charge), "</pre>";
-
-			$id = $charge["id"];
-			$monto = $charge["amount"];
-			$moneda = $charge["currency"];
-			$descripcion = $charge["description"];
-			$status = $charge['outcome']['network_status'];
-			
-			$data = ['id' => $id, 'monto' => $monto, 'moneda' => $moneda, 'descripcion' => $descripcion, 'status' => $status ,'title' => 'Stripe'];
-
-			return view('pages/tarjeta', $data);
-			//return $charge;
-
-		}
-		return redirect()->to('login');
-	}
-
-
-
-
-
-
-
 	//--------------------------------------------------------------------
 
 }

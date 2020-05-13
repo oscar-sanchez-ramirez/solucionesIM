@@ -54,9 +54,11 @@ $routes->get('/ordenes', 'Ordenes::index');
 
 $routes->get('/pagos', 'Pagos::index');
 $routes->get('/pagos/tarjeta', 'Pagos::tarjeta');
-$routes->get('/pagos/stripe', 'Pagos::stripe');
+//$routes->get('/pagos/stripe', 'Pagos::stripe');
 
 $routes->get('/verificador', 'Verificador::index');
+
+$routes->get('/checador', 'Checador::index');
 
 
 

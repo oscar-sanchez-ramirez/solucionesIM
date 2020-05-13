@@ -7,6 +7,8 @@
    <p>Monto: $<?= $monto ?> <?= $moneda ?></p>
    <p>Descripcion: <?= $descripcion ?></p>
    <p>Estatus: <?= $status ?></p>
+   <p>Concepto: <?= $concepto ?></p>
+
 
 
 
