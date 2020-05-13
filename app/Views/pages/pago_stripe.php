@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 
 <br><br>
-<div class="container">
+<div class="container col-md-8">
     <div class="row">
         <div class="col-md-4">
             <div class="card" style="width: 20rem;">
@@ -45,6 +45,7 @@
                 <?php endforeach; ?>
             </div>
         </div>
+
     </div>
 </div>
 

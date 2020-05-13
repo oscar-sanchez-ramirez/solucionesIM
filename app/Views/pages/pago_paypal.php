@@ -52,17 +52,18 @@
                 <div class="text-center">
                     <form action="<?= base_url('pagos/tarjeta') ?>" method="POST">
                         <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fab fa-cc-stripe">&nbspPagar con tarjeta</i></button>  
+                        <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fab fa-cc-stripe">&nbspPagar con tarjeta</i></button>
                     </form>
                 </div>
                 <hr class="my-4">
 
-                <p class="text-center">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
+                <p class="text-center text-info">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
+
+                <hr>
 
                 <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
             </div>
         </div>
-
     </div>
 </div>
 

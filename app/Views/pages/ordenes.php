@@ -24,19 +24,21 @@
           <td><?= $orden['orden_RfcEmisorCtaOrd'] ?></td>
           
           <?php if($orden['id_status_pago'] == 1) :?>
-          <td class="text-info"><?php echo "Por pagar" ?></td>
+          <td class="text-warning"><?php echo "Por pagar" ?></td>
           <?php elseif ($orden['id_status_pago'] == 2) : ?>
           <td class="text-primary"><?php echo "Aprovado" ?></td>
           <?php elseif ($orden['id_status_pago'] == 3) : ?>
           <td class="text-success"><?php echo "Completado" ?></td>
+          <?php elseif ($orden['id_status_pago'] == 4) : ?>
+          <td class="text-danger"><?php echo "Rechazado" ?></td>
           <?php endif; ?>
           
           
           <td class="lead">$<?= $orden['orden_total'] ?></td>
-          <td>
+          <td class="text-center">
             <form action="<?= base_url('pagos') ?>" method="POST">
               <input type="hidden" name="id_orden" value="<?= $orden['id_orden_pagos'] ?>">
-              <button type="submit" class="btn btn-secondary sombra"><i class="fas fa-search-dollar fa-2x"></i></button>
+              <button type="submit" class="btn btn-primary btn-block sombra"><i class="fas fa-search-dollar fa-2x"></i></button>
             </form>
           </td>
         </tr>

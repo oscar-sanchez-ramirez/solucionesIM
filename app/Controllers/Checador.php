@@ -25,7 +25,7 @@ class Checador extends BaseController
 			$concepto_R = $concepto[0];
 			$pagoMes = (int) $pagoTotal[0];
 
-
+            while($pagoMes > 0){
 			require '../vendor/autoload.php';
 
 			\Stripe\Stripe::setApiKey("sk_test_wThLvIsqNPNfofKheRhOjHJt002ThKiwBj");
@@ -47,11 +47,44 @@ class Checador extends BaseController
 			$descripcion = $charge["description"];
 			$status = $charge['outcome']['network_status'];
 
-			$data = ['id' => $id, 'monto' => $monto, 'moneda' => $moneda, 'descripcion' => $descripcion, 'status' => $status, 'concepto' => $concepto_R, 'title' => 'Stripe'];
+			$msjStripe = "";
+            $msj = "";
+			if ($status == 'approved_by_network') {
+
+				$msjStripe = "Estatus: aprovado";
+
+				$state = 2;
+				$data['id_status_pago'] = $state;
+
+				if ($pagoMes > 0) {
+
+					$total_nuevo = ($pagoMes - $monto);
+					$data['orden_total'] = $total_nuevo;
+
+					if ($total_nuevo == 0) {
+						$state = 3;
+						$data['id_status_pago'] = $state;
+						$msjStripe = "Estatus: completado";
+					}
+					if ($model->update($id_venta, $data)) {
+
+						$msj = "Pago realizado con exito";
+					}
+				}
+			} else {
+				$msjStripe = "Hay un problema con su pago, no fue aprovado";
+			}
+
+			
+
+			$data = ['id' => $id, 'monto' => $monto, 'moneda' => $moneda, 'descripcion' => $descripcion, 'status' => $status,
+			 'concepto' => $concepto_R, 'title' => 'Stripe', 'msjStripe' => $msjStripe, 'msj' => $msj];
 
 			return view('pages/tarjeta', $data);
 			//return $charge;
-
+		}
+		return redirect()->to('clientes');
+		    
 		}
 		return redirect()->to('login');
 	}
