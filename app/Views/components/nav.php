@@ -10,7 +10,7 @@
                     <a class="nav-link" href="<?= base_url('home') ?>"><i class="fas fa-home">&nbspHome</i><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('clientes') ?>"><i class="fas fa-digital-tachograph">&nbspBilletera</i></a>
+                    <a class="nav-link" href="<?= base_url('clientes') ?>"><i class="fas fa-digital-tachograph">&nbspDatos Fiscales</i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"></a>

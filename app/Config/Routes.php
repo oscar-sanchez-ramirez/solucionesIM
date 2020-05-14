@@ -34,9 +34,12 @@ $routes->get('/', 'Home::index');
 $routes->get('/login', 'Home::login');
 $routes->get('/home', 'Home::show');
 
+
+
 $routes->get('/admin', 'Admin::index');
-$routes->get('/admin/crear-ordenes', 'Admin::create_ordenes');
-$routes->post('/admin/save-ordenes', 'Admin::save_ordenes');
+$routes->get('/admin/crearOrdenes', 'Admin::crearOrdenes');
+$routes->post('/admin/saveOrdenes', 'Admin::saveOrdenes');
+$routes->post('/admin/listarOrdenes', 'Admin::listarOrdenes');
 $routes->get('/admin/listarUsuarios', 'Admin::listarUsuarios');
 $routes->get('/admin/crearUsuario', 'Admin::crearUsuario');
 $routes->post('/admin/saveUsuario', 'Admin::saveUsuario');

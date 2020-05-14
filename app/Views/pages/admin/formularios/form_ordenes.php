@@ -30,7 +30,7 @@
 <br>
 <div class="container-fluid">
 
-    <form action="<?= base_url('/admin/save-ordenes') ?>" method="POST">
+    <form action="<?= base_url('/admin/saveOrdenes') ?>" method="POST">
         <div class="form-row">
             <div class="form-group col-md-4">
                 <input type="hidden" class="form-control" name="id_orden_pagos" placeholder="ID Orden pagos" required="required">

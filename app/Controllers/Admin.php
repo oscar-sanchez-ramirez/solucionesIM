@@ -28,7 +28,22 @@ class Admin extends BaseController
         return redirect()->to('login');
     }
 
-    public function create_ordenes()
+    public function listarOrdenes()
+    {
+        if ($this->session->logged_admin) {
+
+            $model = new OrdenpagosModel();
+
+            
+            $date = ['ordenes' => $model->findAll(),'title' => 'Ordenes'];
+
+            return view('pages/admin/ordenes', $date);
+        }
+
+        return redirect()->to('login');
+    }
+
+    public function crearOrdenes()
     {
         if ($this->session->logged_admin) {
 
@@ -43,7 +58,7 @@ class Admin extends BaseController
     }
 
 
-    public function save_ordenes()
+    public function saveOrdenes()
     {
         if ($this->session->logged_admin) {
             $data = [];
@@ -160,7 +175,7 @@ class Admin extends BaseController
             $data['apellidos'] = $req->getPost('apellidos');
 
 
-           
+
             if ($model->update($id, $data) === false) {
                 return redirect()->to('/admin/listarUsuarios')->with('danger', 'No se pudo actualizar el usuario');
             } else {
@@ -170,7 +185,8 @@ class Admin extends BaseController
         return redirect()->to('login');
     }
 
-     public function deleteUser(){
+    public function deleteUser()
+    {
 
         $req = Services::request();
         $id = $req->getPost('id_usr_d');
@@ -178,9 +194,7 @@ class Admin extends BaseController
         if ($model->delete($id)) {
             return redirect()->back()->with('delete', 'Usuario eliminado con exito');
         }
-
-     }
-
+    }
 }
 
 
