@@ -31,7 +31,7 @@
             <div class="sidebar-search">
                 <div>
                     <div class="input-group">
-                        <input type="text" class="form-control search-menu" placeholder="Search...">
+                        <input type="text" class="form-control search-menu" placeholder="Buscar...">
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -72,20 +72,15 @@
                         <a href="#">
                             <i class="fa fa-shopping-cart"></i>
                             <span>E-commerce</span>
-                            <span class="badge badge-pill badge-danger">3</span>
+                            <span class="badge badge-pill badge-danger">2</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="#">Products
-
-                                    </a>
+                                    <a href="<?= base_url('clientes') ?>">Ordenes</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('clientes') ?>">Orders</a>
-                                </li>
-                                <li>
-                                    <a href="#">Credit cart</a>
+                                    <a href="#">Tarjeta de credito</a>
                                 </li>
                             </ul>
                         </div>
@@ -93,7 +88,7 @@
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <i class="far fa-gem"></i>
-                            <span>Components</span>
+                            <span>Componentes</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -101,16 +96,16 @@
                                     <a href="#">General</a>
                                 </li>
                                 <li>
-                                    <a href="#">Panels</a>
+                                    <a href="#">Paneles</a>
                                 </li>
                                 <li>
-                                    <a href="#">Tables</a>
+                                    <a href="#">Tablas</a>
                                 </li>
                                 <li>
-                                    <a href="#">Icons</a>
+                                    <a href="#">Iconos</a>
                                 </li>
                                 <li>
-                                    <a href="#">Forms</a>
+                                    <a href="#">Formularios</a>
                                 </li>
                             </ul>
                         </div>
@@ -118,7 +113,7 @@
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <i class="fa fa-chart-line"></i>
-                            <span>Charts</span>
+                            <span>Graficas</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -140,7 +135,7 @@
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <i class="fa fa-globe"></i>
-                            <span>Maps</span>
+                            <span>Mapas</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -159,20 +154,20 @@
                     <li>
                         <a href="#">
                             <i class="fa fa-book"></i>
-                            <span>Documentation</span>
+                            <span>Documentacion</span>
                             <span class="badge badge-pill badge-primary">Beta</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <i class="fa fa-calendar"></i>
-                            <span>Calendar</span>
+                            <span>Calendario</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <i class="fa fa-folder"></i>
-                            <span>Examples</span>
+                            <span>Ejemplos</span>
                         </a>
                     </li>
                 </ul>

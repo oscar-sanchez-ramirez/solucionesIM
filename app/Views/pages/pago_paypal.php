@@ -30,7 +30,7 @@
                         <p class="">Monto: $<?= number_format($pago['orden_monto'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
                         <p class="">Subtotal: $<?= number_format($pago['orden_subtotal'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
                         <p class="card-title">Concepto: <?= $pago['orden_concepto'] ?></p>
-                    <?php endforeach; ?>
+                    
 
                     <hr>
                     <h4 class="card-text text-primary text-right">Total a pagar: $<?= number_format($pago['orden_total'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></h4>
@@ -56,9 +56,9 @@
                     </form>
                 </div>
                 <hr class="my-4">
-
+                
                 <p class="text-center text-info">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
-
+                <?php endforeach; ?>
                 <hr>
 
                 <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>

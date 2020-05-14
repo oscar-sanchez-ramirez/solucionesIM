@@ -9,7 +9,7 @@
 <div class="container">
     <?php if (session()->get('success')) : ?>
         <div class="alert alert-success">
-           <button type="button" class="close" data-dismiss="alert">
+            <button type="button" class="close" data-dismiss="alert">
                 &times;
             </button>
             <?= session()->get('success') ?>
@@ -25,14 +25,14 @@
     <?php endif; ?>
 </div>
 
+
+
 <br>
-<form action="<?= base_url('/admin/save-usuarios') ?>" method="POST">
+<form action="<?= base_url('/admin/saveUsuario') ?>" method="POST">
     <div class="container">
 
         <div class="form-row">
-            <!-- <div class="form-group col-md-6">
-                    <input type="hidden" class="form-control" name="id" placeholder="ID" required="required">
-                </div> -->
+
             <div class="form-group col-md-6">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" name="nombre" placeholder="Nombre" required=required>
@@ -47,20 +47,18 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" placeholder="ingrese su password" required=required>
+                <input type="password" class="form-control" name="password" placeholder="ingrese su password" minlength="4" required=required>
                 <small id="passwordHelpInline" class="text-muted">
-                    Debe tener entre 8 y 20 caracteres.
+                    Debe tener mas de 4 caracteres.
                 </small>
             </div>
-            <!-- <div class="form-group col-md-6">
-                    <input type="hidden" class="form-control" name="fecha" placeholder="" required="required">
-                </div> -->
+
             <div class="form-group col-md-6">
                 <label for="password">Rol</label>
-                <select id="inputState" name="id_rol" class="form-control" required=required>
+                <select id="inputState" name="id_rol" class="form-control" required>
                     <option selected>seleccionar</option>
-                    <?php foreach($roles as $rol): ?>
-                    <option value="<?= $rol['id'] ?>"><?= $rol['rol'] ?></option>
+                    <?php foreach ($rols as $rol) : ?>
+                        <option value="<?= $rol['id'] ?>"><?= $rol['rol'] ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>

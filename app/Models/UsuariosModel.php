@@ -28,3 +28,5 @@ class UsuariosModel extends Model
         protected $validationMessages = [];
         protected $skipValidation     = false;
 }
+
+

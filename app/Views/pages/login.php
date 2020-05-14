@@ -45,7 +45,7 @@
                     <button type="button" class="close" data-dismiss="alert">
                         &times;
                     </button>
-                    <?= session()->get('error') ?>
+                    <i class="fas fa-exclamation-triangle"></i>&nbsp<?= session()->get('error') ?>
                 </div>
             <?php endif; ?>
         </div>
