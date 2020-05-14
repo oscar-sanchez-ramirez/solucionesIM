@@ -73,10 +73,10 @@ class Admin extends BaseController
             $data['orden_RfcEmisorCtaOrd'] = $req->getPost('orden_RfcEmisorCtaOrd');
 
 
-            if ($model->save($data)) {
-                return redirect()->back()->with('success', 'La orden de pago fue creada con exito');
-            } else {
+            if ($model->save($data) === false) {
                 return redirect()->back()->with('danger', 'La orden de pago no fue creada');
+            } else {
+                return redirect()->back()->with('success', 'La orden de pago fue creada con exito');
             }
         }
         return redirect()->to('login');
@@ -84,18 +84,18 @@ class Admin extends BaseController
 
 
 
-    public function create_usuarios()
+    public function crearUsuario()
     {
         if ($this->session->logged_admin) {
             $model = new RolModel();
-            $data = ['roles' => $model->findAll(),'title' => 'Usuarios'];
+            $data = ['rols' => $model->findAll(), 'title' => 'Usuarios'];
 
             return view('pages/admin/formularios/form_usuarios', $data);
         }
         return redirect()->to('login');
     }
 
-    public function save_usuarios()
+    public function saveUsuario()
     {
         if ($this->session->logged_admin) {
             $data = [];
@@ -105,20 +105,85 @@ class Admin extends BaseController
             $data['nombre'] = $req->getPost('nombre');
             $data['apellidos'] = $req->getPost('apellidos');
             $data['email'] = $req->getPost('email');
-
             $password = $req->getPost('password');
             $data['password'] = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
-
-
             $data['id_rol'] = $req->getPost('id_rol');
 
+            $roles = new RolModel();
 
-            if ($model->save($data)) {
-                return redirect()->back()->with('success', 'Usuario creado con exito');
+            if ($model->save($data) === false) {
+                //$datos = ['errors' => $roles->validationRules];
+                return redirect()->to('/admin/listarUsuarios')->with('dangerUsr', 'No se guardo el usuario');
             } else {
-                return redirect()->back()->with('danger', 'No se guardo el usuario');
+                return redirect()->to('/admin/listarUsuarios')->with('successUsr', 'Usuario creado con exito');
             }
         }
         return redirect()->to('login');
     }
+
+    public function listarUsuarios()
+    {
+
+        if ($this->session->logged_admin) {
+            $model = new UsuariosModel();
+            $usuarios = $model->findAll();
+            $data = ['usuarios' => $usuarios, 'title' => 'Usuarios'];
+            return view('pages/admin/usuarios', $data);
+        }
+        return redirect()->to('login');
+    }
+
+    public function actualizarUsuario()
+    {
+        if ($this->session->logged_admin) {
+
+            $req = Services::request();
+            $id = $req->getPost('id_usr');
+            $model = new UsuariosModel();
+            $data = ['usuarios' => $model->where('id', $id)->findAll(), 'title' => 'Actualizar'];
+            return view('pages/admin/formularios/form_usuario_update', $data);
+        }
+        return redirect()->to('login');
+    }
+
+    public function updateUser()
+    {
+        if ($this->session->logged_admin) {
+
+
+            $data = [];
+            $model = new UsuariosModel();
+            $req = Services::request();
+
+            $id = $req->getPost('id');
+            $data['nombre'] = $req->getPost('nombre');
+            $data['apellidos'] = $req->getPost('apellidos');
+
+
+           
+            if ($model->update($id, $data) === false) {
+                return redirect()->to('/admin/listarUsuarios')->with('danger', 'No se pudo actualizar el usuario');
+            } else {
+                return redirect()->to('/admin/listarUsuarios')->with('success', 'Usuario actualizado con exito');
+            }
+        }
+        return redirect()->to('login');
+    }
+
+     public function deleteUser(){
+
+        $req = Services::request();
+        $id = $req->getPost('id_usr_d');
+        $model = new UsuariosModel();
+        if ($model->delete($id)) {
+            return redirect()->back()->with('delete', 'Usuario eliminado con exito');
+        }
+
+     }
+
 }
+
+
+// $erros = $model->validationRules;
+// $rols = new RolModel();
+// $dat = ['rols' => $rols->findAll(),'errors' => $rules, 'title' => 'Usuarios' ];

@@ -21,6 +21,7 @@ class Perfil extends BaseController
             return redirect()->to('/login');
         } else {
             if (!password_verify($inPass, $user['password'])) {
+                
                 return redirect()->to('/login')->with('error', 'Tu cuenta o contraseña no es correcta');
             }
             $user['logged_in'] = true;
