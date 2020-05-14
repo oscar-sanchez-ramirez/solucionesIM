@@ -21,11 +21,20 @@ class Perfil extends BaseController
             return redirect()->to('/login');
         } else {
             if (!password_verify($inPass, $user['password'])) {
-                return redirect()->to('/login');
+                
+                return redirect()->to('/login')->with('error', 'Tu cuenta o contraseña no es correcta');
             }
             $user['logged_in'] = true;
             $this->session->set($user);
-            return redirect()->to('/pagos');
+
+            if ($user['id_rol'] == 1) {
+                if ($user['email'] === 'admin@solucionesim.net') {
+                    $user['logged_admin'] = true;
+                    $this->session->set($user);
+                    return redirect()->to('/admin');
+                }
+            }
+            return redirect()->to('/home');
         }
     }
 
@@ -34,4 +43,5 @@ class Perfil extends BaseController
         $this->session->destroy();
         return redirect()->to('/login');
     }
+    
 }

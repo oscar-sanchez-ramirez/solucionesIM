@@ -1,132 +1,75 @@
-<!DOCTYPE html>
+<?= $this->extend('templates/default') ?>
+<?= $this->section('content') ?>
 
-<head>
-    <!-- Add meta tags for mobile and IE -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
-    <link rel="stylesheet" href="boots-4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-     <title><?= $title ?></title>
-</head>
+<div class="container margen">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center">
+                    Datos de la orden de pago
+                </div>
+                <div class="card-body">
+                    <?php foreach ($pagos as $pago) : ?>
 
-<body>
+                        <?php if ($pago['id_status_pago'] == 1) : ?>
+                            <p class="text-info">Estatus: <?php echo "Por pagar" ?></p>
+                        <?php elseif ($pago['id_status_pago'] == 2) : ?>
+                            <p class="text-primary">Estatus: <?php echo "Aprovado" ?></p>
+                        <?php elseif ($pago['id_status_pago'] == 3) : ?>
+                            <p class="text-success">Estatus: <?php echo "Completado" ?></p>
+                        <?php endif; ?>
 
-    <!-- Set up a container element for the button -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?= session('nombre') ?>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="<?= base_url('/perfil/signout') ?>">Salir</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                        <hr>
+                        <p>Calle: <?= $pago['orden_direccion_calle'] ?>, Numero interior: <?= $pago['orden_direccion_numero_interior'] ?>, Numero exterior: <?= $pago['orden_direccion_numero_exterior'] ?></p>
+                        <p>Colonia: <?= $pago['orden_direccion_colonia'] ?>, CP: <?= $pago['orden_direccion_cp'] ?></p>
+                        <p>Pais: <?= $pago['orden_direccion_pais'] ?>, Estado: <?= $pago['orden_direccion_estado'] ?> Ciudad: <?= $pago['orden_direccion_ciudad'] ?></p>
+                        <p>Telefono: <?= $pago['orden_direccion_telefono'] ?></p>
+                        <p>Forma requerida: <?= $pago['orden_forma_de_pago_requerido'] ?></p>
+                        <hr>
+                        <p class="">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
+                        <p class="">Monto: $<?= number_format($pago['orden_monto'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
+                        <p class="">Subtotal: $<?= number_format($pago['orden_subtotal'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
+                        <p class="card-title">Concepto: <?= $pago['orden_concepto'] ?></p>
+                    
 
+                    <hr>
+                    <h4 class="card-text text-primary text-right">Total a pagar: $<?= number_format($pago['orden_total'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></h4>
 
-
-
-
-
-
-    <div class="container margen">
-        <div class="jumbotron sombra">
-            <h1 class="display-4 text-center">Soluciones <span class="text-success">IM</span></h1>
-            <br>
-            <div class="">
-                <h3>Datos del cliente:</h3>
-
-
-                <?php foreach ($usuarios as $usuario) : ?>
-                    <h4 class="text-info"><?= $usuario['nombre'] ?> <?= $usuario['apellidos'] ?></h4>
-                    <a class="" href="#"><?= $usuario['email'] ?></a> <br><br>
-                    <h5 class="text-danger">Total a pagar: $<?= number_format($total, 2) ?></h5>
-                <?php endforeach; ?>
+                </div>
             </div>
-            <hr class="my-4">
-            <p class="lead">Tu pago del mes: <span class="text-success">$<?= number_format($pagoMes, 2) ?></span></p>
-            <div id="paypal-button-container"></div>
-            <hr class="my-4">
-            <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
         </div>
+        <div class="col-md-4">
+            <div class="jumbotron sombra">
+                <h3 class="text-center">Soluciones <span class="text-success">IM</span></h3>
+                <br>
+                <div class="">
 
+                </div>
+                <hr class="my-4">
+                <p class="lead text-center">Pagar: <span class="text-danger">$<?= number_format($pagoMes, 2) ?> </span><?= $pago['orden_moneda_de_pago'] ?></p>
+                <div id="paypal-button-container"></div>
+                <hr class="my-4">
+                <div class="text-center">
+                    <form action="<?= base_url('pagos/tarjeta') ?>" method="POST">
+                        <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fab fa-cc-stripe">&nbspPagar con tarjeta</i></button>
+                    </form>
+                </div>
+                <hr class="my-4">
+                
+                <p class="text-center text-info">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
+                <?php endforeach; ?>
+                <hr>
+
+                <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
+            </div>
+        </div>
     </div>
+</div>
 
 
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 
-    <script>
-        paypal.Button.render({
-            env: 'sandbox', // sandbox | production
-            style: {
-                label: 'checkout', // checkout | credit | pay | buynow | generic
-                size: 'responsive', // small | medium | large | responsive
-                shape: 'pill', // pill | rect
-                color: 'blue' // gold | blue | silver | black
-            },
-
-            // PayPal Client IDs - replace with your own
-            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
-
-            client: {
-                sandbox: 'ASklWPwGBMpjsM3h-ABxGjPgAZPy_AAncwUBNzJDK1TJemQJe5n3JL3JpTpdriAW79klve9apxPYcgym',
-                production: 'Afj7VNDzQUE6yURGYqAwl4WLeIYs5haUXzweOrTuCgANvfuNUhV7MDrdQ2k-jj1SCDBEvOHw3EfQGX4K'
-            },
-
-            // Wait for the PayPal button to be clicked
-
-            payment: function(data, actions) {
-                return actions.payment.create({
-                    payment: {
-                        transactions: [{
-                            amount: {
-                                total: '<?= $pagoMes ?>',
-                                currency: 'MXN'
-                            },
-                            description: "$<?= $pagoMes ?> MXN, Pago de servicios a Soluciones IM",
-                            custom: "<?= session('id') ?>#<?php echo openssl_encrypt($idVenta, $CODE, $KEY); ?>"
-                        }]
-                    }
-                });
-            },
-
-            // Wait for the payment to be authorized by the customer
-
-            onAuthorize: function(data, actions) {
-                return actions.payment.execute().then(function() {
-                    console.log(data);
-                    //window.location="verificador.php?paymentToken="+data.paymentToken
-                    window.location = "http://solucionesim.com.net/verificador?paymentToken=" + data.paymentToken + "&paymentID=" + data.paymentID;
-
-                    // window.alert('Pago completado');
-                });
-            }
-
-        }, '#paypal-button-container');
-    </script>
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
-    <script src="boots-4/js/bootstrap.min.js"></script>
-</body>
+<?= $this->endSection() ?>

@@ -1,16 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('templates/default') ?>
+<?= $this->section('content') ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<div class="container-fluid margen">
+  <h1 class="text-center"><i class="fab fa-cc-amazon-pay fa-2x"></i></h1>
+  <table class="table table-bordered table-hover sombra margen">
+    <thead>
+      <tr class="bg-dark text-white">
+        <th scope="col">Id Orden</th>
+        <th scope="col">Fecha Pago</th>
+        <th scope="col">Concepto</th>
+        <th scope="col">RFC</th>
+        <th scope="col">Estatus</th>
+        <th scope="col">Total</th>
+        <th scope="col">Pagos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($ordenes as $orden) : ?>
+         <tr>
+          <td><?= $orden['id_orden_pagos'] ?></td>
+          <td><?= $orden['orden_fecha_pago'] ?></td>
+          <td><?= $orden['orden_concepto'] ?></td>
+          <td><?= $orden['orden_RfcEmisorCtaOrd'] ?></td>
+          
+          <?php if($orden['id_status_pago'] == 1) :?>
+          <td class="text-warning"><?php echo "Por pagar" ?></td>
+          <?php elseif ($orden['id_status_pago'] == 2) : ?>
+          <td class="text-primary"><?php echo "Aprovado" ?></td>
+          <?php elseif ($orden['id_status_pago'] == 3) : ?>
+          <td class="text-success"><?php echo "Completado" ?></td>
+          <?php elseif ($orden['id_status_pago'] == 4) : ?>
+          <td class="text-danger"><?php echo "Rechazado" ?></td>
+          <?php endif; ?>
+          
+          
+          <td class="lead">$<?= $orden['orden_total'] ?></td>
+          <td class="text-center">
+            <form action="<?= base_url('pagos') ?>" method="POST">
+              <input type="hidden" name="id_orden" value="<?= $orden['id_orden_pagos'] ?>">
+              <button type="submit" class="btn btn-primary btn-block sombra"><i class="fas fa-search-dollar fa-2x"></i></button>
+            </form>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+  
+</div>
 
-<body>
-   <p> id_orden_pagos: <?= $ordenes[0]['id_orden_pagos'] ?>, id_cleintes: <?= $ordenes[0]['id_clientes'] ?>, orden_total:<?= $ordenes[0]['orden_total'] ?> </p>
-   <p> id_orden_pagos: <?= $ordenes[1]['id_orden_pagos'] ?>, id_cleintes: <?= $ordenes[1]['id_clientes'] ?>, orden_total:<?= $ordenes[1]['orden_total'] ?> </p>
 
-</body>
-
-</html>
+<?= $this->endSection() ?>

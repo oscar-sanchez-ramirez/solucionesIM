@@ -32,18 +32,50 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/login', 'Home::login');
+$routes->get('/home', 'Home::show');
+
+$routes->get('/admin', 'Admin::index');
+$routes->get('/admin/crear-ordenes', 'Admin::create_ordenes');
+$routes->post('/admin/save-ordenes', 'Admin::save_ordenes');
+$routes->get('/admin/listarUsuarios', 'Admin::listarUsuarios');
+$routes->get('/admin/crearUsuario', 'Admin::crearUsuario');
+$routes->post('/admin/saveUsuario', 'Admin::saveUsuario');
+$routes->post('/admin/actualizarUsuario', 'Admin::actualizarUsuario');
+$routes->post('/admin/updateUser', 'Admin::updateUser');
+$routes->post('/admin/deleteUser', 'Admin::deleteUser');
+
+
+
+
+
 
 
 $routes->post('/perfil', 'Perfil::signin');
 $routes->post('/perfil/signout', 'Perfil::signout');
 
-$routes->get('/pagos', 'Pagos::index');
-
-$routes->get('/verificador', 'Verificador::index');
-
 $routes->get('/clientes', 'Clientes::index');
 
 $routes->get('/ordenes', 'Ordenes::index');
+//$routes->get('/ordenes/pagos/(:num)', 'Ordenes::index/$1');
+
+
+
+$routes->get('/pagos', 'Pagos::index');
+$routes->get('/pagos/tarjeta', 'Pagos::tarjeta');
+//$routes->get('/pagos/stripe', 'Pagos::stripe');
+
+$routes->get('/verificador', 'Verificador::index');
+
+$routes->get('/checador', 'Checador::index');
+
+
+
+
+
+
+
+
+
 
 
 
