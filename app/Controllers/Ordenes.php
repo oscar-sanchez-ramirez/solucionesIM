@@ -16,6 +16,7 @@ class Ordenes extends BaseController
     {
 
         if ($this->session->logged_in) {
+
             $req = Services::request();
             $idCliente = $req->getPost('idCliente');
 

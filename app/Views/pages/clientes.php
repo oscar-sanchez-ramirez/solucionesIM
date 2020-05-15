@@ -1,7 +1,7 @@
 <?= $this->extend('templates/default') ?>
 <?= $this->section('content') ?>
 
-<div class="container margen col-md-4">
+<!-- <div class="container margen col-md-4">
     <div class="jumbotron card">
         <div class="container">
             <h2 class="text-center"><i class="fab fa-cc-visa"></i>&nbsp<i class="fab fa-cc-paypal fs"></i>&nbsp<i class="far fa-money-bill-alt"></i>&nbsp<i class="fab fa-cc-stripe"></i>&nbsp<i class="fab fa-cc-amex"></i>&nbsp<i class="fab fa-cc-mastercard"></i></h2>
@@ -15,7 +15,7 @@
             <?php endforeach; ?>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="container-fluid margen">
 
