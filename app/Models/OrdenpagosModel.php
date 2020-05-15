@@ -39,7 +39,7 @@ class OrdenpagosModel extends Model
                 'orden_direccion_pais' => 'required|numeric',
                 'orden_direccion_estado' => 'required|numeric',
                 'orden_direccion_ciudad' => 'required|numeric',
-                'orden_direccion_telefono' => 'required|numeric',
+                'orden_direccion_telefono' => 'required|alpha_numeric_space',
                 'orden_concepto' => 'required|alpha_space',
                 'orden_forma_de_pago_requerido' => 'required|alpha_space',
                 'orden_moneda_de_pago' => 'required|alpha',

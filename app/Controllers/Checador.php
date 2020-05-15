@@ -22,6 +22,8 @@ class Checador extends BaseController
 			$model = new OrdenpagosModel();
 			$pagoTotal = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_total');
 			$concepto = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_concepto');
+			$venta = $model->where('id_orden_pagos', $id_venta)->findColumn('id_orden_pagos');
+			$idVenta = (int) $venta[0];
 			$concepto_R = $concepto[0];
 			$pagoMes = (int) $pagoTotal[0];
 
@@ -78,12 +80,12 @@ class Checador extends BaseController
 			
 
 			$data = ['id' => $id, 'monto' => $monto, 'moneda' => $moneda, 'descripcion' => $descripcion, 'status' => $status,
-			 'concepto' => $concepto_R, 'title' => 'Stripe', 'msjStripe' => $msjStripe, 'msj' => $msj];
+			 'concepto' => $concepto_R, 'title' => 'Stripe', 'msjStripe' => $msjStripe, 'msj' => $msj, 'idVenta' => $idVenta];
 
 			return view('pages/tarjeta', $data);
 			//return $charge;
 		}
-		return redirect()->to('clientes');
+		return redirect()->to('home');
 		    
 		}
 		return redirect()->to('login');

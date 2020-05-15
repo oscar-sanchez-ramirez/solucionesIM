@@ -49,10 +49,6 @@ $routes->post('/admin/deleteUser', 'Admin::deleteUser');
 
 
 
-
-
-
-
 $routes->post('/perfil', 'Perfil::signin');
 $routes->post('/perfil/signout', 'Perfil::signout');
 

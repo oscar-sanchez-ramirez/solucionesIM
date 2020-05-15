@@ -17,6 +17,7 @@
             <p class="card-text">Concepto: <?= $concepto ?></p>
             <p class="card-text">$<?= $monto ?> <?= $moneda ?></p>
             <p class="card-text">Descripcion: <?= $descripcion ?></p>
+            <p class="card-text">Referencia STRIPE: <?= $id ?></p>
             <!-- <p>Estatus: <?= $status ?></p> -->
 
 
@@ -24,7 +25,7 @@
             <a href="#" class="btn btn-primary">Enviar comprobante</a>
         </div>
         <div class="card-footer text-muted">
-            <p class="text-info">Id de la venta: <?= $id ?></p>
+           <p class="text-center text-primary">Id Orden: <?= $idVenta ?></p>
         </div>
     </div>
 </div>

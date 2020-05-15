@@ -18,7 +18,7 @@
       <a href="#" class="btn btn-primary">Enviar comprobante</a>
     </div>
     <div class="card-footer text-muted">
-      <p class="text-info">Id de la venta: <?= $id ?></p>
+      <p class="text-info">Id Orden: <?= $id ?></p>
     </div>
   </div>
 </div>
