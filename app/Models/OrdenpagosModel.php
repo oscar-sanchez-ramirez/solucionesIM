@@ -35,7 +35,7 @@ class OrdenpagosModel extends Model
                 'orden_direccion_numero_exterior' => 'required|alpha_numeric_space',
                 'orden_direccion_numero_interior'=> 'required|alpha_numeric_space',
                 'orden_direccion_colonia' => 'required|alpha_numeric_space',
-                'orden_direccion_cp' => 'required|alpha_numeric_space',
+                'orden_direccion_cp' => 'required|alpha_numeric',
                 'orden_direccion_pais' => 'required|numeric',
                 'orden_direccion_estado' => 'required|numeric',
                 'orden_direccion_ciudad' => 'required|numeric',
@@ -47,7 +47,7 @@ class OrdenpagosModel extends Model
                 'orden_subtotal' => 'required|numeric',
                 'orden_total' => 'required|numeric',
                 'orden_numero_de_operacion' => 'required|numeric',
-                'orden_RfcEmisorCtaOrd' => 'required|alpha_numeric_space'
+                'orden_RfcEmisorCtaOrd' => 'required|alpha_numeric'
         ];
         protected $validationMessages = [];
         protected $skipValidation     = false;
