@@ -57,34 +57,8 @@
                     </form>
                 </div>
                 <hr class="my-4">
-                <?php 
-                $apiKey = "4Vj8eK4rloUd272L48hsrarnUA";
-                $merchantId = 508029;
-                $idV = $pago['id_orden_pagos'].rand(5, 15);
-                $referenceCode = md5($idV);
-                $amount = $pago['orden_total']; 
-                $currency = "MXN";
-                $signature = md5($apiKey."~".$merchantId."~".$referenceCode."~".$amount."~".$currency);
-
-                  
-                ?>
-                <form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu">
-                    <input name="merchantId" type="hidden" value="<?= $merchantId ?>">
-                    <input name="accountId" type="hidden" value="512324">
-                    <input name="description" type="hidden" value="Pago de hosting">
-                    <input name="referenceCode" type="hidden" value="<?= $referenceCode ?>">
-                    <input name="amount" type="hidden" value="<?= $amount ?>">
-                    <input name="tax" type="hidden" value="0">
-                    <input name="taxReturnBase" type="hidden" value="0">
-                    <input name="currency" type="hidden" value="<?= $currency ?>">
-                    <input name="signature" type="hidden" value="<?= $signature ?>">
-                    <input name="test" type="hidden" value="1">
-                    <input name="buyerEmail" type="hidden" value="oscar_sr_609@hotmail.com">
-                    <input name="responseUrl" type="hidden" value="http://solucionesim.com.net/home">
-                    <input name="confirmationUrl" type="hidden" value="http://solucionesim.com.net/home">
-                    <!-- <input name="Submit" class="btn btn-success btn-lg btn-block" type="submit" value="Pagar con PayU"> -->
-                    <button name="Submit" class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-credit-card">&nbspPagar con PayU</i></button>
-                </form>
+                
+                <?= $this->include('components/boton_payu') ?>
 
 
                 <hr>
