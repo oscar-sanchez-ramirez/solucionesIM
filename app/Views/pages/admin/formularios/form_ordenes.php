@@ -71,13 +71,13 @@
                 <input type="text" class="form-control" name="orden_direccion_cp" placeholder="Orden dirección C.P" required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_pais" placeholder="Orden dirección país" required="required">
+                <input type="text" class="form-control" name="orden_direccion_pais" placeholder="Orden dirección país No." required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_estado" placeholder="Orden direccion estado" required="required">
+                <input type="text" class="form-control" name="orden_direccion_estado" placeholder="Orden direccion estado No." required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_ciudad" placeholder="Orden dirección Ciudad" required="required">
+                <input type="text" class="form-control" name="orden_direccion_ciudad" placeholder="Orden dirección Ciudad No." required="required">
             </div>
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" name="orden_direccion_telefono" placeholder="Orden direccin Telefonico" required="required">
