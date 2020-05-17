@@ -3,9 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\ClientesModel;
-use App\Models\UsuariosModel;
-
+use App\Models\OrdenpagosModel;
 
 use Config\Services;
 
@@ -35,10 +33,30 @@ class Confirmacion extends BaseController
         $fecha = $_REQUEST['processingDate'];
         $extra3 = $_REQUEST['extra3'];
 
+        $model = new OrdenpagosModel();
+        $orden = $model->where('id_orden_pagos', $extra3)->findAll();
+        $pagoTotal = $model->where('id_orden_pagos', $extra3)->findColumn('orden_total');
+        $pagoMes = (int) $pagoTotal[0];
+
 
         if ($_REQUEST['transactionState'] == 4) {
             $estadoTx = "Transacción aprobada";
             $msj = "Estatus completado";
+            $state = 2;
+            $data['id_status_pago'] = $state;
+
+            if ($pagoMes > 0) {
+                $total_nuevo = ($pagoMes - $TX_VALUE);
+                $data['orden_total'] = $total_nuevo;
+                if ($total_nuevo == 0) {
+                    $state = 3;
+                    $data['id_status_pago'] = $state;
+                    if ($model->update($extra3, $data)) {
+
+						$msj = "Pago realizado con exito";
+					}
+                }
+            }
         } else if ($_REQUEST['transactionState'] == 6) {
             $estadoTx = "Transacción rechazada";
         } else if ($_REQUEST['transactionState'] == 104) {
@@ -49,20 +67,15 @@ class Confirmacion extends BaseController
             $estadoTx = $_REQUEST['mensaje'];
         }
 
-        // echo "Estatus: " . $estadoTx . '<br>';
-        // echo "Email: " . $email . '<br>';
-        // echo "Firma: " . $firmacreada . '<br>';
-        // echo "Descripción: " . $extra1 . '<br>';
-        // echo "Monto: $" . $TX_VALUE . '<br>';
-        // echo "Fecha: " . $fecha . '<br>';
-        // echo "Referencia: " . $referenceCode . '<br>';
 
-        $data = ['title' => 'Confirmacion PayU', 'estadoTx' => $estadoTx, 'referenceCode' => $referenceCode ,
-         'extra1' => $extra1, 'TX_VALUE' => $TX_VALUE , 'email' => $email, 'msj' => $msj, 'firmacreada' => $firmacreada,
-        'fecha' => $fecha, 'extra3' => $extra3];
-        
+
+        $data = [
+            'title' => 'Confirmacion PayU', 'estadoTx' => $estadoTx, 'referenceCode' => $referenceCode,
+            'extra1' => $extra1, 'TX_VALUE' => $TX_VALUE, 'email' => $email, 'msj' => $msj, 'firmacreada' => $firmacreada,
+            'fecha' => $fecha, 'extra3' => $extra3
+        ];
+
 
         return view('pages/confirmacion', $data);
-
     }
 }

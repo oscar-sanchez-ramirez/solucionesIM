@@ -3,7 +3,7 @@
 <form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu">
     <input name="merchantId" type="hidden" value="<?= $merchantId ?>">
     <input name="accountId" type="hidden" value="512324">
-    <input name="description" type="hidden" value="Pago de hosting">
+    <input name="description" type="hidden" value="<?= $concepto ?>">
     <input name="referenceCode" type="hidden" value="<?= $referenceCode ?>">
     <input name="amount" type="hidden" value="<?= $amount ?>">
     <input name="tax" type="hidden" value="0">
@@ -12,7 +12,7 @@
     <input name="currency" type="hidden" value="<?= $currency ?>">
     <input name="signature" type="hidden" value="<?= $signature ?>">
     <input name="test" type="hidden" value="1">
-    <input name="buyerEmail" type="hidden" value="oscar_sr_609@hotmail.com">
+    <input name="buyerEmail" type="hidden" value="<?= session('email') ?>">
     <input name="responseUrl" type="hidden" value="http://solucionesim.com.net/confirmacion">
     <input name="confirmationUrl" type="hidden" value="http://solucionesim.com.net/confirmacion">
     <!-- <input name="Submit" class="btn btn-success btn-lg btn-block" type="submit" value="Pagar con PayU"> -->

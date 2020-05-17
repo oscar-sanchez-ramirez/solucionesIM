@@ -11,17 +11,10 @@
             <h5 class="card-title">Soluciones IM</h5>
             <p class="card-text">Correo: <?= $email ?></p>
             <p class="card-text">Monto: $<?= $TX_VALUE ?></p>
-            <p class="card-text">Descripcion: <?= $extra1 ?></p>
+            <p class="card-text">Concepto: <?= $extra1 ?></p>
             <p class="card-text">Referencia: <?= $referenceCode ?></p>
             <p class="card-text">Firma digital: <?= $firmacreada ?></p>
-            <p class="card-text">Firma digital: <?= $fecha ?></p>
-
-
-            
-           
-
-
-
+            <p class="card-text">Fecha de pago: <?= $fecha ?></p>         
             <a href="#" class="btn btn-primary">Enviar comprobante</a>
         </div>
         <div class="card-footer text-muted">

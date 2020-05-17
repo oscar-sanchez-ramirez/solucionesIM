@@ -52,12 +52,19 @@ class Verificador extends BaseController
 			//print_r($RespuestaVenta);
 
 			$objDatosTransaccion = json_decode($RespuestaVenta);
-
+			
+			//print_r($objDatosTransaccion);
 			//print_r($objDatosTransaccion->transactions[0]->custom);
 
 			$state = $objDatosTransaccion->state;
-			$email = $objDatosTransaccion->payer->payer_info->email;
+			$status = $objDatosTransaccion->payer->status;
 
+			// echo $state."<br>";
+			// echo $status."<br>";
+
+			$email = $objDatosTransaccion->payer->payer_info->email;
+			
+			
 			$total = $objDatosTransaccion->transactions[0]->amount->total;
 			$currency = $objDatosTransaccion->transactions[0]->amount->currency;
 			$custom = $objDatosTransaccion->transactions[0]->custom;
@@ -120,6 +127,7 @@ class Verificador extends BaseController
 				'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email, 'orden' => $orden, 'msj' => $msj
 			];
 			return view('pages/verificador', $info);
+			//return $RespuestaVenta;
 		}
 		return redirect()->to('login');
 	}

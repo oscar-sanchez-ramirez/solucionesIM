@@ -1,6 +1,8 @@
 <?= $this->extend('templates/default') ?>
 <?= $this->section('content') ?>
 
+
+
 <br><br>
 <div class="container col-md-8">
     <div class="row">
@@ -19,11 +21,12 @@
                         </div>
 
                         <!-- Used to display form errors. -->
+                        
                         <div id="card-errors" role="alert"></div>
 
                         <input type="hidden" value="<?= $idVenta ?>" name="id-venta">
                         <div class="form-group">
-                            <button class="btn btn-primary btn-lg btn-block">
+                            <button class="btn btn-primary btn-lg btn-block do-request" onclick="return confirm('¿Estás seguro?');">
                                 <div class="spinner hidden" id="spinner"></div>
                                 <span id="button-text">Pagar</span><span id="order-amount"></span>
                             </button>
@@ -49,7 +52,7 @@
     </div>
 </div>
 
-<?= $this->include('components/boton_stripe') ?>
 
+<?= $this->include('components/boton_stripe') ?>
 
 <?= $this->endSection() ?>
