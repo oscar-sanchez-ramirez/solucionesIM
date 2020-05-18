@@ -38,10 +38,10 @@ class Confirmacion extends BaseController
         $pagoTotal = $model->where('id_orden_pagos', $extra3)->findColumn('orden_total');
         $pagoMes = (int) $pagoTotal[0];
 
-
+        // $_REQUEST['transactionState'] = 6;
         if ($_REQUEST['transactionState'] == 4) {
             $estadoTx = "Transacción aprobada";
-            $msj = "Estatus completado";
+            $msj = "Estatus aprovado";
             $state = 2;
             $data['id_status_pago'] = $state;
 
@@ -53,11 +53,18 @@ class Confirmacion extends BaseController
                     $data['id_status_pago'] = $state;
                     if ($model->update($extra3, $data)) {
 
-						$msj = "Pago realizado con exito";
-					}
+                        $msj = "Pago realizado con exito";
+                    }
                 }
             }
         } else if ($_REQUEST['transactionState'] == 6) {
+            $state = 4;
+            $data['id_status_pago'] = $state;
+            $data['orden_total'] = $pagoMes;
+            if ($model->update($extra3, $data)) {
+
+                $msj = "Tu pago fue rechazado";
+            }
             $estadoTx = "Transacción rechazada";
         } else if ($_REQUEST['transactionState'] == 104) {
             $estadoTx = "Error";

@@ -35,7 +35,7 @@ class Pagos extends BaseController
 			$merchantId = 508029;
 			// $idV = $idVenta . rand(5, 20);
 			// $concepto_ = $concepto_R;
-			$referenceCode = $idVenta . rand(1, 20);
+			$referenceCode = $idVenta . rand(1, 100);
 			$amount = $pagoMes;
 			$currency = "MXN";
 			$extra3 = $idVenta;
