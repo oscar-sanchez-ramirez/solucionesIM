@@ -25,7 +25,7 @@ class Admin extends BaseController
 
             return view('pages/admin/index', $data);
         }
-        return redirect()->to('login');
+        return redirect()->to(base_url('login'));
     }
 
     public function listarOrdenes()
@@ -34,13 +34,13 @@ class Admin extends BaseController
 
             $model = new OrdenpagosModel();
 
-            
-            $date = ['ordenes' => $model->findAll(),'title' => 'Ordenes'];
+
+            $date = ['ordenes' => $model->findAll(), 'title' => 'Ordenes'];
 
             return view('pages/admin/ordenes', $date);
         }
 
-        return redirect()->to('login');
+        return redirect()->to(base_url('login'));
     }
 
     public function crearOrdenes()
@@ -54,7 +54,7 @@ class Admin extends BaseController
             return view('pages/admin/formularios/form_ordenes', $data);
         }
 
-        return redirect()->to('login');
+        return redirect()->to(base_url('login'));
     }
 
 
@@ -94,10 +94,19 @@ class Admin extends BaseController
                 return redirect()->back()->with('success', 'La orden de pago fue creada con exito');
             }
         }
-        return redirect()->to('login');
+        return redirect()->to(base_url('login'));
     }
 
+    public function verOrden()
+    {
+        if ($this->session->logged_admin) {
 
+            $model = new OrdenpagosModel();
+            $data = ['ordenes' => $model->where('id_orden_pagos', 2)->findAll(), 'title' => 'Ordenes'];
+            return view('pages/admin/verOrden', $data);
+        }
+        return redirect()->to(base_url('login'));
+    }
 
     public function crearUsuario()
     {
@@ -107,7 +116,7 @@ class Admin extends BaseController
 
             return view('pages/admin/formularios/form_usuarios', $data);
         }
-        return redirect()->to('login');
+        return redirect()->to(base_url('login'));
     }
 
     public function saveUsuario()
@@ -133,7 +142,7 @@ class Admin extends BaseController
                 return redirect()->to('/admin/listarUsuarios')->with('successUsr', 'Usuario creado con exito');
             }
         }
-        return redirect()->to('login');
+        return redirect()->to(base_url('login'));
     }
 
     public function listarUsuarios()
@@ -145,7 +154,7 @@ class Admin extends BaseController
             $data = ['usuarios' => $usuarios, 'title' => 'Usuarios'];
             return view('pages/admin/usuarios', $data);
         }
-        return redirect()->to('login');
+        return redirect()->to(base_url('login'));
     }
 
     public function actualizarUsuario()
@@ -158,7 +167,7 @@ class Admin extends BaseController
             $data = ['usuarios' => $model->where('id', $id)->findAll(), 'title' => 'Actualizar'];
             return view('pages/admin/formularios/form_usuario_update', $data);
         }
-        return redirect()->to('login');
+        return redirect()->to(base_url('login'));
     }
 
     public function updateUser()
@@ -182,18 +191,20 @@ class Admin extends BaseController
                 return redirect()->to('/admin/listarUsuarios')->with('success', 'Usuario actualizado con exito');
             }
         }
-        return redirect()->to('login');
+        return redirect()->to(base_url('login'));
     }
 
     public function deleteUser()
     {
-
-        $req = Services::request();
-        $id = $req->getPost('id_usr_d');
-        $model = new UsuariosModel();
-        if ($model->delete($id)) {
-            return redirect()->back()->with('delete', 'Usuario eliminado con exito');
+        if ($this->session->logged_admin) {
+            $req = Services::request();
+            $id = $req->getPost('id_usr_d');
+            $model = new UsuariosModel();
+            if ($model->delete($id)) {
+                return redirect()->back()->with('delete', 'Usuario eliminado con exito');
+            }
         }
+        return redirect()->to(base_url('login'));
     }
 }
 

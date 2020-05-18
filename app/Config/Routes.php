@@ -40,12 +40,15 @@ $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/crearOrdenes', 'Admin::crearOrdenes');
 $routes->post('/admin/saveOrdenes', 'Admin::saveOrdenes');
 $routes->post('/admin/listarOrdenes', 'Admin::listarOrdenes');
+$routes->get('/admin/verOrden', 'Admin::verOrden');
 $routes->get('/admin/listarUsuarios', 'Admin::listarUsuarios');
 $routes->get('/admin/crearUsuario', 'Admin::crearUsuario');
 $routes->post('/admin/saveUsuario', 'Admin::saveUsuario');
 $routes->post('/admin/actualizarUsuario', 'Admin::actualizarUsuario');
 $routes->post('/admin/updateUser', 'Admin::updateUser');
 $routes->post('/admin/deleteUser', 'Admin::deleteUser');
+
+
 
 
 

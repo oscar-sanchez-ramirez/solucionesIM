@@ -47,19 +47,19 @@
 			</div>
 		</div>
 	</nav>
-	
 
-	<div class="wrapper fadeInDown text-center" >
-		<div id="formContent" >
-              <img src="img/soluciones.jpg" alt="" width="200px">
+
+	<div class="wrapper fadeInDown text-center">
+		<div id="formContent">
+			<img src="img/soluciones.jpg" alt="" width="200px">
 		</div>
 	</div>
 
-	
+
 
 	<p class="text-center">© Copyright 2020 soluciones.com.net</p>
 
-
+	
 
 
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

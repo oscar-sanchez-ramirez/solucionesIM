@@ -35,7 +35,7 @@ class Pagos extends BaseController
 			$merchantId = 508029;
 			// $idV = $idVenta . rand(5, 20);
 			// $concepto_ = $concepto_R;
-			$referenceCode = $idVenta . rand(1, 20);
+			$referenceCode = $idVenta . rand(1, 100);
 			$amount = $pagoMes;
 			$currency = "MXN";
 			$extra3 = $idVenta;
@@ -74,7 +74,7 @@ class Pagos extends BaseController
 
 			return view('pages/pago_stripe', $data);
 		}
-		return redirect()->to('login');
+		return redirect()->to(base_url('login'));
 	}
 
 	//--------------------------------------------------------------------

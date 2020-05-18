@@ -11,7 +11,7 @@ use Config\Services;
 
 class Checador extends BaseController
 {
-	
+
 
 	public function index()
 	{
@@ -27,66 +27,75 @@ class Checador extends BaseController
 			$concepto_R = $concepto[0];
 			$pagoMes = (int) $pagoTotal[0];
 
-            while($pagoMes > 0){
-			require '../vendor/autoload.php';
+			while ($pagoMes > 0) {
+				require '../vendor/autoload.php';
 
-			\Stripe\Stripe::setApiKey("sk_test_wThLvIsqNPNfofKheRhOjHJt002ThKiwBj");
+				\Stripe\Stripe::setApiKey("sk_test_wThLvIsqNPNfofKheRhOjHJt002ThKiwBj");
 
-			$token = $_POST["stripeToken"];
+				$token = $_POST["stripeToken"];
 
-			$charge = \Stripe\Charge::create([
-				"amount" => $pagoMes,
-				"currency" => "usd",
-				"description" => "$concepto_R",
-				"source" => $token
-			]);
+				$charge = \Stripe\Charge::create([
+					"amount" => $pagoMes,
+					"currency" => "usd",
+					"description" => "$concepto_R",
+					"source" => $token
+				]);
 
-			//echo "<pre>", print_r($charge), "</pre>";
+				//echo "<pre>", print_r($charge), "</pre>";
 
-			$id = $charge["id"];
-			$monto = $charge["amount"];
-			$moneda = $charge["currency"];
-			$descripcion = $charge["description"];
-			$status = $charge['outcome']['network_status'];
+				$id = $charge["id"];
+				$monto = $charge["amount"];
+				$moneda = $charge["currency"];
+				$descripcion = $charge["description"];
+				$status = $charge['outcome']['network_status'];
 
-			$msjStripe = "";
-            $msj = "";
-			if ($status == 'approved_by_network') {
+				$msjStripe = "";
+				$msj = "";
+				if ($status == 'approved_by_network') {
 
-				$msjStripe = "Estatus: aprovado";
+					$msjStripe = "Estatus: aprovado";
 
-				$state = 2;
-				$data['id_status_pago'] = $state;
+					$state = 2;
+					$data['id_status_pago'] = $state;
 
-				if ($pagoMes > 0) {
+					if ($pagoMes > 0) {
 
-					$total_nuevo = ($pagoMes - $monto);
-					$data['orden_total'] = $total_nuevo;
+						$total_nuevo = ($pagoMes - $monto);
+						$data['orden_total'] = $total_nuevo;
+						$msjStripe = "Estatus: aprovado";
+						
+						if ($total_nuevo == 0) {
+							$state = 3;
+							$data['id_status_pago'] = $state;
+							$msjStripe = "Estatus: completado";
+						}
+						if ($model->update($id_venta, $data)) {
 
-					if ($total_nuevo == 0) {
-						$state = 3;
-						$data['id_status_pago'] = $state;
-						$msjStripe = "Estatus: completado";
+							$msj = "Pago realizado con exito";
+						}
 					}
+				} else {
+					$state = 4;
+					$data['id_status_pago'] = $state;
+					$data['orden_total'] = $pagoMes;
 					if ($model->update($id_venta, $data)) {
 
-						$msj = "Pago realizado con exito";
+						$msj = "Tu pago fue rechazado";
 					}
+					$msjStripe = "Hay un problema con su pago, no fue aprovado";
 				}
-			} else {
-				$msjStripe = "Hay un problema con su pago, no fue aprovado";
+
+
+
+				$data = [
+					'id' => $id, 'monto' => $monto, 'moneda' => $moneda, 'descripcion' => $descripcion, 'status' => $status,
+					'concepto' => $concepto_R, 'title' => 'Stripe', 'msjStripe' => $msjStripe, 'msj' => $msj, 'idVenta' => $idVenta
+				];
+
+				return view('pages/tarjeta', $data);
+				//return $charge;
 			}
-
-			
-
-			$data = ['id' => $id, 'monto' => $monto, 'moneda' => $moneda, 'descripcion' => $descripcion, 'status' => $status,
-			 'concepto' => $concepto_R, 'title' => 'Stripe', 'msjStripe' => $msjStripe, 'msj' => $msj, 'idVenta' => $idVenta];
-
-			return view('pages/tarjeta', $data);
-			//return $charge;
-		}
-		return redirect()->to('home');
-		    
+			return redirect()->to('home');
 		}
 		return redirect()->to('login');
 	}

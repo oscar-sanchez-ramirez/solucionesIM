@@ -52,7 +52,7 @@ class Verificador extends BaseController
 			//print_r($RespuestaVenta);
 
 			$objDatosTransaccion = json_decode($RespuestaVenta);
-			
+
 			//print_r($objDatosTransaccion);
 			//print_r($objDatosTransaccion->transactions[0]->custom);
 
@@ -63,8 +63,8 @@ class Verificador extends BaseController
 			// echo $status."<br>";
 
 			$email = $objDatosTransaccion->payer->payer_info->email;
-			
-			
+
+
 			$total = $objDatosTransaccion->transactions[0]->amount->total;
 			$currency = $objDatosTransaccion->transactions[0]->amount->currency;
 			$custom = $objDatosTransaccion->transactions[0]->custom;
@@ -93,7 +93,7 @@ class Verificador extends BaseController
 
 			//echo $ClaveVenta;
 			$msjpaypal = "";
-            $msj = "";
+			$msj = "";
 			if ($state == 'approved') {
 
 				$msjpaypal = "Estatus: aprovado";
@@ -105,7 +105,7 @@ class Verificador extends BaseController
 
 					$total_nuevo = ($pagoMes - $total_N);
 					$data['orden_total'] = $total_nuevo;
-
+                    
 					if ($total_nuevo == 0) {
 						$state = 3;
 						$data['id_status_pago'] = $state;
@@ -117,6 +117,13 @@ class Verificador extends BaseController
 					}
 				}
 			} else {
+				$state = 4;
+				$data['id_status_pago'] = $state;
+				$data['orden_total'] = $pagoMes;
+				if ($model->update($ClaveVenta, $data)) {
+
+					$msj = "Tu pago fue rechazado";
+				}
 				$msjpaypal = "Hay un problema con su pago, no fue aprovado";
 			}
 
@@ -132,7 +139,7 @@ class Verificador extends BaseController
 		return redirect()->to('login');
 	}
 
-	
+
 
 
 	//--------------------------------------------------------------------
