@@ -69,6 +69,8 @@ $routes->get('/checador', 'Checador::index');
 
 $routes->get('/confirmacion', 'Confirmacion::index');
 
+$routes->get('/comprobantes', 'Comprobantes::index');
+
 
 
 

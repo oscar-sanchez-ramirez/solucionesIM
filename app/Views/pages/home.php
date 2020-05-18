@@ -24,8 +24,8 @@
             <hr>
             <div class="row">
                 <div class="form-group col-md-12">
-                    <p class="text-secondary">Cada una de las facturas emitidas desde este sistema electrónico son enviadas automáticamente hacia cada comprador utilizando la información almacenada en el programa.<br>
-                        De esta manera, se realiza una operación transparente que brinda mayor confianza a nuestros clientes.<br>
+                    <p class="text-secondary text-justify">Cada una de las facturas emitidas desde este sistema electrónico son enviadas automáticamente hacia cada comprador utilizando la información almacenada en el programa.
+                        De esta manera, se realiza una operación transparente que brinda mayor confianza a nuestros clientes.
                         La globalización en la Red ha permitido la apertura de negocios en todo el mundo durante las 24 horas del día</p>
                 </div>
 
@@ -51,6 +51,16 @@
                             <h6 class="card-title">PayPal</h6>
                             <a href="https://www.paypal.com/mx/home" target="_blank" class="btn btn-primary btn-sm">Sitio Web</a>
                             <a href="https://www.paypal.com/mx/webapps/mpp/account-selection" target="_blank" class="btn btn-success btn-sm">Registro</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                    <div class="card rounded-0 p-0 shadow-sm">
+                        <img src="img/payu.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">PayU</h6>
+                            <a href="https://www.payulatam.com/mx/abre-tu-cuenta/?utm_source=web&utm_medium=home&utm_term=superior&utm_content=menu&utm_campaign=tw" target="_blank" class="btn btn-primary btn-sm">Sitio Web</a>
+                            <a href="https://www.payulatam.com/mx/abre-tu-cuenta/?utm_source=web&utm_medium=home&utm_term=superior&utm_content=menu&utm_campaign=tw" target="_blank" class="btn btn-success btn-sm">Registro</a>
                         </div>
                     </div>
                 </div>

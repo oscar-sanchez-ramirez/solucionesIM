@@ -42,8 +42,8 @@
             return actions.payment.execute().then(function() {
                 console.log(data);
                 //window.location="verificador.php?paymentToken="+data.paymentToken
-                window.location = "http://solucionesim.com.net/verificador?paymentToken=" + data.paymentToken + "&paymentID=" + data.paymentID;
-
+                window.location = "<?= base_url('verificador').'?paymentToken=' ?>" + data.paymentToken + "&paymentID=" + data.paymentID;
+                // http://solucionesim.ddns.net/verificador?paymentToken=
                 // window.alert('Pago completado');
             });
         }

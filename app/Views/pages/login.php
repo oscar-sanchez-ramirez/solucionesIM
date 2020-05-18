@@ -59,7 +59,7 @@
 
 
             <!-- Login Form -->
-            <form action="<?= base_url('/perfil') ?>" method="POST">
+            <form action="<?= base_url('/perfil') ?>" method="POST" autocomplete="">
                 <input type="email" id="login" class="fadeIn second" name="correo" placeholder="Correo" required=required>
                 <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" minlength="4" required=required>
                 <input type="submit" class="fadeIn fourth" value="Iniciar sesión">

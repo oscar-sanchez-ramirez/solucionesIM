@@ -13,8 +13,8 @@
     <input name="signature" type="hidden" value="<?= $signature ?>">
     <input name="test" type="hidden" value="1">
     <input name="buyerEmail" type="hidden" value="<?= session('email') ?>">
-    <input name="responseUrl" type="hidden" value="http://solucionesim.com.net/confirmacion">
-    <input name="confirmationUrl" type="hidden" value="http://solucionesim.com.net/confirmacion">
+    <input name="responseUrl" type="hidden" value="<?= base_url('confirmacion') ?>">
+    <input name="confirmationUrl" type="hidden" value="<?= base_url('confirmacion') ?>">
     <!-- <input name="Submit" class="btn btn-success btn-lg btn-block" type="submit" value="Pagar con PayU"> -->
     <button name="Submit" class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-credit-card">&nbspPagar con PayU</i></button>
 </form>

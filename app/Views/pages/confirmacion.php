@@ -15,10 +15,10 @@
             <p class="card-text">Referencia: <?= $referenceCode ?></p>
             <p class="card-text">Firma digital: <?= $firmacreada ?></p>
             <p class="card-text">Fecha de pago: <?= $fecha ?></p>         
-            <a href="#" class="btn btn-primary">Enviar comprobante</a>
+            <a href="<?= base_url('comprobantes') ?>" class="btn btn-primary">Comprobante</a>
         </div>
         <div class="card-footer text-muted">
-           <p class="text-center text-primary">Id Orden:<?= $extra3 ?> </p>
+           <p class="text-center text-primary">ID Orden:<?= $extra3 ?> </p>
         </div>
     </div>
 </div>

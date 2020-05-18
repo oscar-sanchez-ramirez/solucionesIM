@@ -4,9 +4,9 @@
 
 
 <br><br>
-<div class="container col-md-8">
+<div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col">
             <div class="card" style="width: 20rem;">
                 <img class="card-img-top" src="/img/stripe.jpg" alt="Card image cap">
                 <div class="card-body">
@@ -21,7 +21,7 @@
                         </div>
 
                         <!-- Used to display form errors. -->
-                        
+
                         <div id="card-errors" role="alert"></div>
 
                         <input type="hidden" value="<?= $idVenta ?>" name="id-venta">
@@ -36,23 +36,35 @@
                 </div>
             </div>
         </div>
-
-        <div class="card bg-light">
-            <div class="card-body">
-                <?php foreach ($ordenes as $orden) : ?>
-                    <p>ID venta: <?= $orden['id_orden_pagos'] ?></p>
-                    <p>RFC: <?= $orden['orden_RfcEmisorCtaOrd'] ?></p>
-                    <p>Fecha: <?= $orden['orden_fecha_pago'] ?></p>
-                    <p>Concepto: <?= $orden['orden_concepto'] ?></p>
-                    <p>Total a pagar: $<?= $orden['orden_total'] ?> <?= $orden['orden_moneda_de_pago'] ?></p>
-                <?php endforeach; ?>
+        <div class="col">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="/img/social.png" alt="Card image cap">
+                <div class="card-body">
+                    <?php foreach ($ordenes as $orden) : ?>
+                        <p>ID venta: <?= $orden['id_orden_pagos'] ?></p>
+                        <p>RFC: <?= $orden['orden_RfcEmisorCtaOrd'] ?></p>
+                        <p>Fecha: <?= $orden['orden_fecha_pago'] ?></p>
+                        <p>Concepto: <?= $orden['orden_concepto'] ?></p>
+                        <p>Total a pagar: $<?= $orden['orden_total'] ?> <?= $orden['orden_moneda_de_pago'] ?></p>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
-
+        <div class="col">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="/img/so.png" alt="Card image cap">
+                <div class="card-body">
+                   <p>Infomacion sobre Stripe</p>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
 
-<?= $this->include('components/boton_stripe') ?>
 
-<?= $this->endSection() ?>
+    <?= $this->include('components/boton_stripe') ?>
+
+
+
+
+    <?= $this->endSection() ?>

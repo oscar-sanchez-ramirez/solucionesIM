@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
         <div class="sidebar-brand">
-            <a href="<?= base_url('home') ?>">Soluciones IM</a>
+            <a href="#">Soluciones IM</a>
             <div id="close-sidebar">
                 <i class="fas fa-times"></i>
             </div>
@@ -50,7 +50,7 @@
                     <a href="#">
                         <i class="fa fa-tachometer-alt"></i>
                         <span>Dashboard</span>
-                        <span class="badge badge-pill badge-warning">New</span>
+                        <span class="badge badge-pill badge-warning">Nuevo</span>
                     </a>
                     <div class="sidebar-submenu">
                         <ul>

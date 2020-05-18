@@ -15,10 +15,10 @@
       <p class="card-text">Pagado por: <?= $email ?></p>
 
 
-      <a href="#" class="btn btn-primary">Enviar comprobante</a>
+      <a href="<?= base_url('comprobantes') ?>" class="btn btn-primary">Comprobante</a>
     </div>
     <div class="card-footer text-muted">
-      <p class="text-info">Id Orden: <?= $id ?></p>
+      <p class="text-info">ID Orden: <?= $id ?></p>
     </div>
   </div>
 </div>

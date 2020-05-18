@@ -18,14 +18,13 @@
             <p class="card-text">$<?= $monto ?> <?= $moneda ?></p>
             <p class="card-text">Descripcion: <?= $descripcion ?></p>
             <p class="card-text">Referencia STRIPE: <?= $id ?></p>
-            <!-- <p>Estatus: <?= $status ?></p> -->
+            
 
 
-
-            <a href="#" class="btn btn-primary">Enviar comprobante</a>
+            <a href="<?= base_url('comprobantes') ?>" class="btn btn-primary">Comprobantes</a>
         </div>
         <div class="card-footer text-muted">
-           <p class="text-center text-primary">Id Orden: <?= $idVenta ?></p>
+           <p class="text-center text-primary">ID Orden: <?= $idVenta ?></p>
         </div>
     </div>
 </div>
