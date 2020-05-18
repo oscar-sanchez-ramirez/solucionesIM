@@ -74,7 +74,7 @@ class Pagos extends BaseController
 
 			return view('pages/pago_stripe', $data);
 		}
-		return redirect()->to('login');
+		return redirect()->to(base_url('login'));
 	}
 
 	//--------------------------------------------------------------------

@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
+
+
 use Config\Services;
 
 class Comprobantes extends BaseController
@@ -11,7 +13,9 @@ class Comprobantes extends BaseController
     public function index()
     {
 
-        if ($this->session->logged_in) {            
+        if ($this->session->logged_in) {     
+            
+           
 
             $data = ['title' => 'Comprobantes'];
 
