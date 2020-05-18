@@ -17,14 +17,14 @@
             <p class="card-text">Concepto: <?= $concepto ?></p>
             <p class="card-text">$<?= $monto ?> <?= $moneda ?></p>
             <p class="card-text">Descripcion: <?= $descripcion ?></p>
-            <!-- <p>Estatus: <?= $status ?></p> -->
+            <p class="card-text">Referencia STRIPE: <?= $id ?></p>
+            
 
 
-
-            <a href="#" class="btn btn-primary">Enviar comprobante</a>
+            <a href="<?= base_url('comprobantes') ?>" class="btn btn-primary">Comprobantes</a>
         </div>
         <div class="card-footer text-muted">
-            <p class="text-info">Id de la venta: <?= $id ?></p>
+           <p class="text-center text-primary">ID Orden: <?= $idVenta ?></p>
         </div>
     </div>
 </div>

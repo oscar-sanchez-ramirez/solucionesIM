@@ -49,10 +49,6 @@ $routes->post('/admin/deleteUser', 'Admin::deleteUser');
 
 
 
-
-
-
-
 $routes->post('/perfil', 'Perfil::signin');
 $routes->post('/perfil/signout', 'Perfil::signout');
 
@@ -70,6 +66,10 @@ $routes->get('/pagos/tarjeta', 'Pagos::tarjeta');
 $routes->get('/verificador', 'Verificador::index');
 
 $routes->get('/checador', 'Checador::index');
+
+$routes->get('/confirmacion', 'Confirmacion::index');
+
+$routes->get('/comprobantes', 'Comprobantes::index');
 
 
 

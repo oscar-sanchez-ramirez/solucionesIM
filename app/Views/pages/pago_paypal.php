@@ -30,10 +30,10 @@
                         <p class="">Monto: $<?= number_format($pago['orden_monto'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
                         <p class="">Subtotal: $<?= number_format($pago['orden_subtotal'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
                         <p class="card-title">Concepto: <?= $pago['orden_concepto'] ?></p>
-                    
 
-                    <hr>
-                    <h4 class="card-text text-primary text-right">Total a pagar: $<?= number_format($pago['orden_total'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></h4>
+
+                        <hr>
+                        <h4 class="card-text text-primary text-right">Total a pagar: $<?= number_format($pago['orden_total'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></h4>
 
                 </div>
             </div>
@@ -47,21 +47,25 @@
                 </div>
                 <hr class="my-4">
                 <p class="lead text-center">Pagar: <span class="text-danger">$<?= number_format($pagoMes, 2) ?> </span><?= $pago['orden_moneda_de_pago'] ?></p>
+                <hr>
                 <div id="paypal-button-container"></div>
                 <hr class="my-4">
                 <div class="text-center">
                     <form action="<?= base_url('pagos/tarjeta') ?>" method="POST">
                         <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fab fa-cc-stripe">&nbspPagar con tarjeta</i></button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fab fa-cc-stripe">&nbspPagar con Stripe</i></button>
                     </form>
                 </div>
                 <hr class="my-4">
                 
-                <p class="text-center text-info">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
-                <?php endforeach; ?>
-                <hr>
+                <?= $this->include('components/boton_payu') ?>
 
-                <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
+
+                <hr>
+                <p class="text-center text-info">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
+            <?php endforeach; ?>
+            <hr>
+            <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
             </div>
         </div>
     </div>

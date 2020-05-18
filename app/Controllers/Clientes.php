@@ -26,4 +26,8 @@ class Clientes extends BaseController
         }
         return redirect()->to('login');
     }
+
+    
+
+    
 }
