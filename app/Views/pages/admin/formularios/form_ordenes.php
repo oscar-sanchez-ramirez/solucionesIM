@@ -33,10 +33,12 @@
     <form action="<?= base_url('/admin/saveOrdenes') ?>" method="POST">
         <div class="form-row">
             <div class="form-group col-md-4">
+            <label>  </label>
                 <input type="hidden" class="form-control" name="id_orden_pagos" placeholder="ID Orden pagos" required="required">
                 <h4 class="text-center text-info">Datos</h4>
             </div>
             <div class="form-group col-md-4">
+            <label>Clientes</label>
                 <select id="inputState" name="id_clientes" class="form-control">
                     <option>ID Clientes</option>
                     <?php foreach ($clientes as $cliente) : ?>
@@ -45,6 +47,7 @@
                 </select>
             </div>
             <div class="form-group col-md-4">
+            <label for="">Status pago</label>
                 <select id="inputState" name="id_status_pago" class="form-control">
                     <option>ID Status pago</option>
                     <?php foreach ($status as $statu) : ?>
@@ -53,58 +56,76 @@
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <input type="date" class="form-control" name="orden_fecha_pago" placeholder="Orden fecha pago" required="required">
+            <label>Fecha de pago</label>
+                <input type="date" class="form-control" name="orden_fecha_pago" placeholder="Fecha pago" required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_calle" placeholder="Orden dirección calle" required="required">
+            <label>Calle</label>
+                <input type="text" class="form-control" name="orden_direccion_calle" placeholder="Dirección calle" required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_numero_exterior" placeholder="Orden dirección No.exterior" required="required">
+            <label>Calle No.exterior</label>
+                <input type="text" class="form-control" name="orden_direccion_numero_exterior" placeholder="Dirección calle No.exterior" required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_numero_interior" placeholder="Orden dirección No.Interior" required="required">
+            <label>Calle No.interior</label>
+                <input type="text" class="form-control" name="orden_direccion_numero_interior" placeholder="Dirección calle No.Interior" required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_colonia" placeholder="Orden dirección colonia" required="required">
+            <label>Colonia</label>
+                <input type="text" class="form-control" name="orden_direccion_colonia" placeholder="Dirección colonia" required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_cp" placeholder="Orden dirección C.P" required="required">
+            <label>Codigo postal</label>
+                <input type="text" class="form-control" name="orden_direccion_cp" placeholder="Dirección Codigo postal" required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_pais" placeholder="Orden dirección país" required="required">
+            <label for="">País No.</label>
+                <input type="text" class="form-control" name="orden_direccion_pais" placeholder="Dirección país No." required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_estado" placeholder="Orden direccion estado" required="required">
+            <label>Estado No.</label>
+                <input type="text" class="form-control" name="orden_direccion_estado" placeholder="Direccion estado No." required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_direccion_ciudad" placeholder="Orden dirección Ciudad" required="required">
+            <label>Ciudad No.</label>
+                <input type="text" class="form-control" name="orden_direccion_ciudad" placeholder="Dirección Ciudad No." required="required">
             </div>
             <div class="form-group col-md-4">
+            <label>Teléfono</label>
                 <input type="text" class="form-control" name="orden_direccion_telefono" placeholder="Orden direccin Telefonico" required="required">
             </div>
             <div class="form-group col-md-4">
+            <label>Orden concepto </label>
                 <input type="text" class="form-control" name="orden_concepto" placeholder="Orden concepto" required="required">
             </div>
             <div class="form-group col-md-4">
+            <label>Forma de pago </label>
                 <input type="text" class="form-control" name="orden_forma_de_pago_requerido" placeholder="Orden forma de pago requerido" required="required">
             </div>
             <div class="form-group col-md-4">
+            <label>Moneda de pago </label>
                 <input type="text" class="form-control" name="orden_moneda_de_pago" placeholder="Orden modena de pago" required="required">
             </div>
             <div class="form-group col-md-4">
+            <label>Monto </label>
                 <input type="text" class="form-control" name="orden_monto" placeholder="Orden monto" required="required">
             </div>
             <div class="form-group col-md-4">
+            <label>Subtotal</label>
                 <input type="text" class="form-control" name="orden_subtotal" placeholder="Orden subtotal" required="required">
             </div>
             <div class="form-group col-md-4">
+            <label>Total</label>
                 <input type="text" class="form-control" name="orden_total" placeholder="Orden total" required="required">
             </div>
             <div class="form-group col-md-4">
+            <label>Numero de operación </label>
                 <input type="text" class="form-control" name="orden_numero_de_operacion" placeholder="Orden numero de operción" required="required">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="orden_RfcEmisorCtaOrd" placeholder="Orden RFC Emisor CtaOrd" required="required">
+            <label>RfcEmisorCtaOrd</label>
+                <input type="text" class="form-control" name="orden_RfcEmisorCtaOrd" placeholder="RFC Emisor CtaOrd" required="required">
             </div>
 
         </div>
@@ -114,7 +135,7 @@
         </div>
 
     </form>
-
+<br>
 </div>
 
 

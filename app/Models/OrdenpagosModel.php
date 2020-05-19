@@ -27,28 +27,28 @@ class OrdenpagosModel extends Model
         protected $updatedField  = 'updated_at';
         protected $deletedField  = 'deleted_at';
 
-        protected $validationRules    = [
-                'id_clientes' => 'required|numeric',
-                'id_status_pago' => 'required|numeric',
-                'orden_fecha_pago' => 'required',
-                'orden_direccion_calle' => 'required',
-                'orden_direccion_numero_exterior' => 'required',
-                'orden_direccion_numero_interior' => 'required',
-                'orden_direccion_colonia' => 'required',
-                'orden_direccion_cp' => 'required|numeric',
-                'orden_direccion_pais' => 'required|numeric',
-                'orden_direccion_estado' => 'required|numeric',
-                'orden_direccion_ciudad' => 'required|numeric',
-                'orden_direccion_telefono' => 'required',
-                'orden_concepto' => 'required',
-                'orden_forma_de_pago_requerido' => 'required',
-                'orden_moneda_de_pago' => 'required',
-                'orden_monto' => 'required|numeric',
-                'orden_subtotal' => 'required|numeric',
-                'orden_total' => 'required|numeric',
-                'orden_numero_de_operacion' => 'required|numeric',
-                'orden_RfcEmisorCtaOrd' => 'required'
-        ];
+        protected $validationRules    = [ 
+        'id_clientes' => 'required|numeric',
+        'id_status_pago' => 'required|numeric',
+        'orden_fecha_pago' => 'required',
+        'orden_direccion_calle' => 'required',
+        'orden_direccion_numero_exterior' => 'required',
+        'orden_direccion_numero_interior' => 'required',
+        'orden_direccion_colonia' => 'required',
+        'orden_direccion_cp' => 'required|numeric',
+        'orden_direccion_pais' => 'required|numeric',
+        'orden_direccion_estado' => 'required|numeric',
+        'orden_direccion_ciudad' => 'required|numeric',
+        'orden_direccion_telefono' => 'required',
+        'orden_concepto' => 'required',
+        'orden_forma_de_pago_requerido' => 'required',
+        'orden_moneda_de_pago' => 'required',
+        'orden_monto' => 'required|numeric',
+        'orden_subtotal' => 'required|numeric',
+        'orden_total' => 'required|numeric',
+        'orden_numero_de_operacion' => 'required|numeric',
+        'orden_RfcEmisorCtaOrd' => 'required'];
         protected $validationMessages = [];
-        protected $skipValidation     = false;
+        protected $skipValidation     = true;
 }
+
