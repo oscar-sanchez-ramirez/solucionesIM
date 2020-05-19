@@ -72,7 +72,20 @@
 
         </div>
     </div>
-    <p class="text-center">© Copyright 2020 soluciones.com.net</p>
+    <!-- <p class="text-center">© Copyright 2020 soluciones.com.net</p> -->
+
+    <!-- Footer -->
+    <footer class="page-footer font-small bg-light fixed-bottom">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://solucionesim.net" target="blank"> solucionesim.net</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

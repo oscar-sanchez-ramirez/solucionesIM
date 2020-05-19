@@ -3,6 +3,7 @@
 
 
 
+
 <h1 class="text-center margen"><i class="fas fa-shopping-cart fa-2x"></i></h1>
 <div class="container col margen">
   <input class="form-control col-md-3 light-table-filter " data-table="order-table" type="text" placeholder="Buscar..">

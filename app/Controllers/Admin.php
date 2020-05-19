@@ -101,9 +101,39 @@ class Admin extends BaseController
     {
         if ($this->session->logged_admin) {
 
+            $req = Services::request();
+            $idOrden = $req->getPost('idOrden');
             $model = new OrdenpagosModel();
-            $data = ['ordenes' => $model->where('id_orden_pagos', 2)->findAll(), 'title' => 'Ordenes'];
+            $data = ['ordenes' => $model->where('id_orden_pagos', $idOrden)->findAll(), 'title' => 'Ordenes'];
             return view('pages/admin/verOrden', $data);
+        }
+        return redirect()->to(base_url('login'));
+    }
+
+    public function editarOrden()
+    {
+        if ($this->session->logged_admin) {
+            $req = Services::request();
+            $idOrden = $req->getPost('idOrden');
+            $model = new OrdenpagosModel();
+            $data = ['ordenes' => $model->where('id_orden_pagos', $idOrden)->findAll(), 'title' => 'Ordenes'];
+
+            return view('pages/admin/formularios/form_editarOrden', $data);
+        }
+        return redirect()->to(base_url('login'));
+    }
+
+    public function eliminarOrden()
+    {
+        if ($this->session->logged_admin) {
+            $req = Services::request();
+            $idOrden = $req->getPost('idOrden');
+            $model = new OrdenpagosModel();
+
+            if ($model->delete($idOrden)) {
+                return redirect()->back()->with('delete', 'La orden fue eliminada con exito');
+            }
+            return $idOrden;
         }
         return redirect()->to(base_url('login'));
     }

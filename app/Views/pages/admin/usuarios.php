@@ -1,5 +1,16 @@
 <?= $this->extend('templates/admin') ?>
 <?= $this->section('content') ?>
+<style>
+    .my-custom-scrollbar {
+        position: relative;
+        height: 500px;
+        overflow: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+</style>
 <br>
 <h1 class="text-center"><i class="fas fa-user-friends">&nbspUsuarios</i></h1>
 <br>
@@ -46,55 +57,58 @@
     <?php endif; ?>
 </div>
 <div class="container">
-    <table class="table table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col" colspan="2" class="text-center">
-                    <i class="fas fa-pen-square"></i>
-                    <i class="fas fa-trash-alt"></i>
-                </th>
-                <th scope="col">Id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">Email</th>
-                <th scope="col">Fecha de alta</th>
-                <th scope="col">Rol</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($usuarios as $usuario) : ?>
+    <input class="form-control col-md-3 light-table-filter " data-table="order-table" type="text" placeholder="Buscar..">
+    <br>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar som-tabla margen">
+        <table class="order-table table table-bordered table-hover w-auto">
+            <thead class="thead-dark">
                 <tr>
-                    <td class="text-center">
-                        <form action="<?= base_url('admin/actualizarUsuario') ?>" method="POST">
-                            <input type="hidden" name="id_usr" value="<?= $usuario['id']  ?>">
-                            <button type="submit" class="btn btn-primary"> <i class="fas fa-pen-square">&nbspEditar</i></button>
-                        </form>
-                    </td>
-                    <td class="text-center">
-                        <form action="<?= base_url('admin/deleteUser') ?>" method="POST" onclick="return confirm('¿Estás seguro?');">
-                            <input type="hidden" name="id_usr_d" value="<?= $usuario['id']  ?>">
-                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt">&nbspEliminar</i></button>
-                        </form>
-                    </td>
-                    <td><?= $usuario['id']  ?></td>
-                    <td><?= $usuario['nombre']  ?></td>
-                    <td><?= $usuario['apellidos']  ?></td>
-                    <td><?= $usuario['email']  ?></td>
-                    <td><?= $usuario['fecha']  ?></td>
-                    <td>
-                        <?php if ($usuario['id_rol'] == 1) : ?>
-                            <?php echo "Administrador" ?>
-                        <?php elseif ($usuario['id_rol'] == 2) : ?>
-                            <?php echo "Cliente" ?>
-                        <?php endif; ?>
-                    </td>
+                    <th scope="col" colspan="2" class="text-center">
+                        <i class="fas fa-pen-square"></i>
+                        <i class="fas fa-trash-alt"></i>
+                    </th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Fecha de alta</th>
+                    <th scope="col">Rol</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-
-
+            </thead>
+            <tbody>
+                <?php foreach ($usuarios as $usuario) : ?>
+                    <tr>
+                        <td class="text-center">
+                            <form action="<?= base_url('admin/actualizarUsuario') ?>" method="POST">
+                                <input type="hidden" name="id_usr" value="<?= $usuario['id']  ?>">
+                                <button type="submit" class="btn btn-primary"> <i class="fas fa-pen-square">&nbspEditar</i></button>
+                            </form>
+                        </td>
+                        <td class="text-center">
+                            <form action="<?= base_url('admin/deleteUser') ?>" method="POST" onclick="return confirm('¿Estás seguro?');">
+                                <input type="hidden" name="id_usr_d" value="<?= $usuario['id']  ?>">
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt">&nbspEliminar</i></button>
+                            </form>
+                        </td>
+                        <td><?= $usuario['id']  ?></td>
+                        <td><?= $usuario['nombre']  ?></td>
+                        <td><?= $usuario['apellidos']  ?></td>
+                        <td><?= $usuario['email']  ?></td>
+                        <td><?= $usuario['fecha']  ?></td>
+                        <td>
+                            <?php if ($usuario['id_rol'] == 1) : ?>
+                                <?php echo "Administrador" ?>
+                            <?php elseif ($usuario['id_rol'] == 2) : ?>
+                                <?php echo "Cliente" ?>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 
+<?= $this->include('components/buscador'); ?>
 
 <?= $this->endSection() ?>
