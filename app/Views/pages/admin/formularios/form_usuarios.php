@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 
 <div class="container text-center">
-    <h1>Usuario</h1>
+    <h1>Registro de usuario</h1>
 </div>
 <hr>
 
@@ -27,7 +27,7 @@
 
 
 
-<br>
+<br><br>
 <form action="<?= base_url('/admin/saveUsuario') ?>" method="POST">
     <div class="container">
 
@@ -35,11 +35,11 @@
 
             <div class="form-group col-md-6">
                 <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre" required=required>
+                <input type="text" class="form-control" name="nombre" placeholder="Ingresar nombre" required=required>
             </div>
             <div class="form-group col-md-6">
                 <label for="apellidos">Apellido</label>
-                <input type="text" class="form-control" name="apellidos" placeholder="Apellidos" required=required>
+                <input type="text" class="form-control" name="apellidos" placeholder="Ingresar apellidos" required=required>
             </div>
             <div class="form-group col-md-6">
                 <label for="email">Email</label>
@@ -47,14 +47,13 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" placeholder="ingrese su password" minlength="4" required=required>
-                <small id="passwordHelpInline" class="text-muted">
+                <input type="password" class="form-control" name="password" placeholder="Ingrese la password" minlength="4" required=required>
+                <small id="passwordHelpInline" class="text-muted" style="text-align: right">
                     Debe tener mas de 4 caracteres.
                 </small>
             </div>
-
             <div class="form-group col-md-6">
-                <label for="password">Rol</label>
+                <label for="password">Rol de usuario</label>
                 <select id="inputState" name="id_rol" class="form-control" required>
                     <option selected>seleccionar</option>
                     <?php foreach ($rols as $rol) : ?>
