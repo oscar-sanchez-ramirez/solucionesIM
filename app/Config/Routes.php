@@ -78,6 +78,8 @@ $routes->get('/confirmacion', 'Confirmacion::index');
 $routes->get('/comprobantes', 'Comprobantes::index');
 
 
+$routes->post('/email', 'Email::index');
+
 
 
 
