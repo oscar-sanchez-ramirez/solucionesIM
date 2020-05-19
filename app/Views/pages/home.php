@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                     <div class="card rounded-0 p-0 shadow-sm">
-                        <img src="img/payu.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+                        <img src="img/payu.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar" >
                         <div class="card-body text-center">
                             <h6 class="card-title">PayU</h6>
                             <a href="https://www.payulatam.com/mx/abre-tu-cuenta/?utm_source=web&utm_medium=home&utm_term=superior&utm_content=menu&utm_campaign=tw" target="_blank" class="btn btn-primary btn-sm">Sitio Web</a>

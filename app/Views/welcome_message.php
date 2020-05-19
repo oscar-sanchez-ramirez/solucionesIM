@@ -6,9 +6,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/welcom.css">
 	<link rel="icon" href="img/icono.ico" type="image/icon">
 	<title>Bienvenido</title>
+
+	<style>
+		.body {
+			background: url('img/ecom2.jpeg') no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			background-size: cover;
+			-o-background-size: cover;
+
+		}
+	</style>
+
 	<!------------------------------------HEADER----------------------------------------------->
 </head>
 
@@ -49,17 +60,19 @@
 	</nav>
 
 
-	<div class="wrapper fadeInDown text-center">
-		<div id="formContent">
-			<img src="img/soluciones.jpg" alt="" width="200px">
+
+
+	<!-- Footer -->
+	<footer class="page-footer font-small bg-light fixed-bottom">
+
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3">© 2020 Copyright:
+			<a href="https://solucionesim.net" target="blank"> solucionesim.net</a>
 		</div>
-	</div>
+		<!-- Copyright -->
 
-
-
-	<p class="text-center">© Copyright 2020 soluciones.com.net</p>
-
-	
+	</footer>
+	<!-- Footer -->
 
 
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

@@ -41,6 +41,9 @@ $routes->get('/admin/crearOrdenes', 'Admin::crearOrdenes');
 $routes->post('/admin/saveOrdenes', 'Admin::saveOrdenes');
 $routes->post('/admin/listarOrdenes', 'Admin::listarOrdenes');
 $routes->get('/admin/verOrden', 'Admin::verOrden');
+$routes->post('/admin/eliminarOrden', 'Admin::eliminarOrden');
+$routes->post('/admin/editarOrden', 'Admin::editarOrden');
+
 $routes->get('/admin/listarUsuarios', 'Admin::listarUsuarios');
 $routes->get('/admin/crearUsuario', 'Admin::crearUsuario');
 $routes->post('/admin/saveUsuario', 'Admin::saveUsuario');

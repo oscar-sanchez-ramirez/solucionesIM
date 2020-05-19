@@ -19,7 +19,7 @@ class Home extends BaseController
 	{
 		if ($this->session->logged_in) {
 
-			return redirect()->to('clientes');
+			return redirect()->to('home');
 		}
 		return view('pages/login');
 	}
