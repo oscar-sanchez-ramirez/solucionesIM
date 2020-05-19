@@ -9,12 +9,12 @@
 <br>
 <div class="container-fluid">
     <?php foreach($ordenes as $orden) : ?>
-     <form action="<?= base_url('/admin/saveOrdenes') ?>" method="POST">
+     <form action="<?= base_url('/admin/updateOrdenes') ?>" method="POST">
           <div class="form-row">
                <div class="form-group col-md-4">
                     <label> </label>
                     <input type="hidden" class="form-control" name="id_orden_pagos" value="<?= $orden['id_orden_pagos'] ?>" required="required">
-                    <h4 class="text-center text-info">Datos</h4>
+                    <h4 class="text-center text-info">Datos de orden <?= $orden['id_orden_pagos'] ?></h4>
                </div>
                <div class="form-group col-md-4">
                <label>Clientes</label>

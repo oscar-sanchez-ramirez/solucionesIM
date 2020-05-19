@@ -123,6 +123,44 @@ class Admin extends BaseController
         return redirect()->to(base_url('login'));
     }
 
+    public function updateOrdenes()
+    {
+
+        $data = [];
+        $model = new  OrdenpagosModel();
+        $req = Services::request();
+
+        $id = $req->getPost('id_orden_pagos');
+        $data['id_clientes'] = $req->getPost('id_clientes');
+        $data['id_status_pago'] = $req->getPost('id_status_pago');
+        $data['orden_fecha_pago'] = $req->getPost('orden_fecha_pago');
+        $data['orden_direccion_calle'] = $req->getPost('orden_direccion_calle');
+        $data['orden_direccion_numero_exterior'] = $req->getPost('orden_direccion_numero_exterior');
+        $data['orden_direccion_numero_interior'] = $req->getPost('orden_direccion_numero_interior');
+        $data['orden_direccion_colonia'] = $req->getPost('orden_direccion_colonia');
+        $data['orden_direccion_cp'] = $req->getPost('orden_direccion_cp');
+        $data['orden_direccion_pais'] = $req->getPost('orden_direccion_pais');
+        $data['orden_direccion_estado'] = $req->getPost('orden_direccion_estado');
+        $data['orden_direccion_ciudad'] = $req->getPost('orden_direccion_ciudad');
+        $data['orden_direccion_telefono'] = $req->getPost('orden_direccion_telefono');
+        $data['orden_concepto'] = $req->getPost('orden_concepto');
+        $data['orden_forma_de_pago_requerido'] = $req->getPost('orden_forma_de_pago_requerido');
+        $data['orden_moneda_de_pago'] = $req->getPost('orden_moneda_de_pago');
+        $data['orden_monto'] = $req->getPost('orden_monto');
+        $data['orden_subtotal'] = $req->getPost('orden_subtotal');
+        $data['orden_total'] = $req->getPost('orden_total');
+        $data['orden_numero_de_operacion'] = $req->getPost('orden_numero_de_operacion');
+        $data['orden_RfcEmisorCtaOrd'] = $req->getPost('orden_RfcEmisorCtaOrd');
+
+
+
+        if ($model->update($id, $data) === false) {
+            return redirect()->to('/admin/listarOrdenes')->with('danger', 'No se pudo actualizar el usuario');
+        } else {
+            return redirect()->to('/admin/listarOrdenes')->with('success', 'Usuario actualizado con exito');
+        }
+    }
+
     public function eliminarOrden()
     {
         if ($this->session->logged_admin) {

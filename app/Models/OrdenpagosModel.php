@@ -50,5 +50,6 @@ class OrdenpagosModel extends Model
                 'orden_RfcEmisorCtaOrd' => 'required|alpha_numeric'
         ];
         protected $validationMessages = [];
-        protected $skipValidation     = false;
+        protected $skipValidation     = true;
 }
+

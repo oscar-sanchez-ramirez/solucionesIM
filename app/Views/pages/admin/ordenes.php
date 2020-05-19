@@ -24,6 +24,23 @@
             <?= session()->get('delete') ?>
         </div>
     <?php endif; ?>
+    <?php if (session()->get('success')) : ?>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">
+                &times;
+            </button>
+            <?= session()->get('success') ?>
+        </div>
+    <?php endif; ?>
+    <?php if (session()->get('danger')) : ?>
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">
+                &times;
+            </button>
+            <?= session()->get('danger') ?>
+        </div>
+    <?php endif; ?>
+
 </div>
 <div class="container-fluid">
     <input class="form-control col-md-3 light-table-filter " data-table="order-table" type="text" placeholder="Buscar..">
