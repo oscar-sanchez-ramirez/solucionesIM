@@ -55,7 +55,7 @@ class Verificador extends BaseController
 
 			//print_r($objDatosTransaccion);
 			//print_r($objDatosTransaccion->transactions[0]->custom);
-
+			$idPay = $objDatosTransaccion->id;
 			$state = $objDatosTransaccion->state;
 			$status = $objDatosTransaccion->payer->status;
 
@@ -105,7 +105,7 @@ class Verificador extends BaseController
 
 					$total_nuevo = ($pagoMes - $total_N);
 					$data['orden_total'] = $total_nuevo;
-                    
+
 					if ($total_nuevo == 0) {
 						$state = 3;
 						$data['id_status_pago'] = $state;
@@ -127,12 +127,24 @@ class Verificador extends BaseController
 				$msjpaypal = "Hay un problema con su pago, no fue aprovado";
 			}
 
+			$correo = 'osr910317@gmail.com';
 
 
 			$info = [
 				'title' => 'Comprobante PayPal', 'id' => $ClaveVenta, 'total' => $total_N,
-				'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email, 'orden' => $orden, 'msj' => $msj
+				'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email, 'orden' => $orden,
+				'msj' => $msj, 'correo' => $correo, 'idPay' => $idPay
 			];
+
+			$email = Services::email();
+
+			$email->setFrom('osr170391@gmail.com', 'Oscar');
+			$email->setTo($correo);
+			$email->setSubject('Soluciones IM, pago del mes');
+			$email->setMessage(view('pages/verificador', $info));
+
+			$email->send();
+
 			return view('pages/verificador', $info);
 			//return $RespuestaVenta;
 		}

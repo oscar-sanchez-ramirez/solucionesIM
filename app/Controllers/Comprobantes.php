@@ -15,7 +15,6 @@ class Comprobantes extends BaseController
 
         if ($this->session->logged_in) {     
             
-           
 
             $data = ['title' => 'Comprobantes'];
 
