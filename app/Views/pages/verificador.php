@@ -366,12 +366,15 @@
             }
 
         }
+
+       
     </style>
 
 </head>
 
 <body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 
+<div id="carga"></div>
     <!-- HEADER -->
     <table class="head-wrap" bgcolor="#999999">
         <tr>
@@ -453,11 +456,11 @@
                                         <li><a class="">Total: <?= $total ?>&nbsp<?= $moneda ?></a></li>
                                         <li><a class="last"><b>Datos orden</b></a></li>
 
-                                        <?php foreach($ordenes as $orden) : ?>
-                                        <li><a class="last">Id orden: <?=$orden['id_orden_pagos'] ?></a></li>
-                                        <li><a class="last">RFC: <?=$orden['orden_RfcEmisorCtaOrd'] ?></a></li>
-                                        <li><a class="last">Concepto: <?=$orden['orden_concepto'] ?></a></li>
-                                        <li><a class="last">Fecha pago: <?=$orden['orden_fecha_pago'] ?></a></li>
+                                        <?php foreach ($ordenes as $orden) : ?>
+                                            <li><a class="last">Id orden: <?= $orden['id_orden_pagos'] ?></a></li>
+                                            <li><a class="last">RFC: <?= $orden['orden_RfcEmisorCtaOrd'] ?></a></li>
+                                            <li><a class="last">Concepto: <?= $orden['orden_concepto'] ?></a></li>
+                                            <li><a class="last">Fecha pago: <?= $orden['orden_fecha_pago'] ?></a></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </td>
@@ -499,10 +502,7 @@
         </tr>
     </table><!-- /FOOTER -->
 
-    <script>
-      alert('Comprobante enviado a tu correo electronico');
-    </script>
-
+    
 </body>
 
 </html>

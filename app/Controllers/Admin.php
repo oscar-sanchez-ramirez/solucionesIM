@@ -206,7 +206,7 @@ class Admin extends BaseController
             if ($model->save($data) === false) {
                 $model = new RolModel();
                 $usuarios = new UsuariosModel();
-                $rules = $usuarios->validationRules;
+               // $rules = $usuarios->validationRules;
                 
                 //validaciones
                 $rules = $usuarios->getValidationRules(['only' => ['email']]);
@@ -220,7 +220,6 @@ class Admin extends BaseController
                 $data = ['rols' => $model->findAll(), 'title' => 'Usuarios', 'msj' => $msj];
                 return view('pages/admin/formularios/form_usuarios', $data);
 
-                //return redirect()->to('/admin/listarUsuarios')->with('dangerUsr', 'No se guardo el usuario');
             } else {
                 return redirect()->to('/admin/listarUsuarios')->with('successUsr', 'Usuario creado con exito');
             }
