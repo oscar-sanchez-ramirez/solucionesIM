@@ -46,13 +46,6 @@
                 <input type="email" class="form-control" name="email" placeholder="soluciones@hotmail.com" required=required>
             </div>
             <div class="form-group col-md-6">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" placeholder="Ingrese la password" minlength="4" required=required>
-                <small id="passwordHelpInline" class="text-muted" style="text-align: right">
-                    Debe tener mas de 4 caracteres.
-                </small>
-            </div>
-            <div class="form-group col-md-6">
                 <label for="password">Rol de usuario</label>
                 <select id="inputState" name="id_rol" class="form-control" required>
                     <option selected>seleccionar</option>
@@ -61,9 +54,16 @@
                     <?php endforeach; ?>
                 </select>
             </div>
+            <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Ingrese la password" minlength="4" required=required>
+                <small class="text-muted" >
+                    Debe tener mas de 4 caracteres.
+                </small>
+            </div>
         </div>
 
-        <br><br>
+        <br>
         <div class="text-center">
             <button type="submit" class="col-md-3 btn btn-success" name="guardar">Guardar</butto>
         </div>

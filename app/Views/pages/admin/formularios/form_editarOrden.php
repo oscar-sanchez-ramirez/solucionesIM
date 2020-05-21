@@ -26,7 +26,7 @@
                </div>
                <div class="form-group col-md-4">
                <label>Fecha de pago</label>
-                    <input type="hidden" class="form-control" name="orden_fecha_pago" value="<?= $orden['orden_fecha_pago'] ?>"  required="required">
+                    <input type="text" class="form-control" name="orden_fecha_pago" value="<?= $orden['orden_fecha_pago'] ?>"  required="required">
                </div>
                <div class="form-group col-md-4">
                <label>Calle</label>
