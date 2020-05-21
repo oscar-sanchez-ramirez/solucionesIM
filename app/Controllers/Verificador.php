@@ -69,10 +69,7 @@ class Verificador extends BaseController
 			$custom = $objDatosTransaccion->transactions[0]->custom;
 			$email_Rec = $objDatosTransaccion->transactions[0]->payee->email;
 
-		//	$email_Rec = $objDatosTransaccion->transactions['payee']->email;
-
-
-			//$email_p = $objDatosTransaccion->transactions[1]->email;
+		
 
 
 			$total_N =  $total;
@@ -108,18 +105,7 @@ class Verificador extends BaseController
 			// echo $email_Rec;
 			
 
-
-
-
-
 			// echo "<br><br>";
-
-
-
-
-
-
-
 
 
 			$model = new OrdenpagosModel();
@@ -136,7 +122,7 @@ class Verificador extends BaseController
 			$msj = "";
 			if ($state == 'approved') {
 
-				$msjpaypal = "Estatus: Aprobado";
+				$msjpaypal = "Estado: Aprobado";
 
 				$state = 2;
 				$data['id_status_pago'] = $state;
@@ -172,8 +158,9 @@ class Verificador extends BaseController
 
 			$info = [
 				'title' => 'Comprobante PayPal', 'id' => $ClaveVenta, 'total' => $total_N,
-				'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email, 'orden' => $orden,
-				'msj' => $msj, 'correo' => $correo, 'idPay' => $idPay
+				'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email, 'ordenes' => $orden,
+				'msj' => $msj, 'correo' => $correo, 'payId' => $idPay, 'email_r' => $email_Rec, 'state' => $state, 
+				'cart' => $cart, 'nombre' => $nombre, 'paterno' => $paterno, 'pay_id' => $payer_id, 'status' => $status				
 			];
 
 			$email = Services::email();
