@@ -21,7 +21,7 @@ class Ordenes extends BaseController
             $idCliente = $req->getPost('idCliente');
 
             $model = new OrdenpagosModel();
-            $ordenes = $model->where('id_clientes', $idCliente)->findAll();
+            $ordenes = $model->where('id_clientes', $idCliente)->orderBy('orden_fecha_pago', 'desc')->findAll();
             // $paginator = $model->pager;
             // $paginator->setPath('ordenes');
 

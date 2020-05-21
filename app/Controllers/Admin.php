@@ -35,7 +35,7 @@ class Admin extends BaseController
             $model = new OrdenpagosModel();
 
 
-            $date = ['ordenes' => $model->findAll(), 'title' => 'Ordenes'];
+            $date = ['ordenes' => $model->orderBy('orden_fecha_pago', 'desc')->findAll(), 'title' => 'Ordenes'];
 
             return view('pages/admin/ordenes', $date);
         }
@@ -204,8 +204,22 @@ class Admin extends BaseController
             $roles = new RolModel();
 
             if ($model->save($data) === false) {
-                //$datos = ['errors' => $roles->validationRules];
-                return redirect()->to('/admin/listarUsuarios')->with('dangerUsr', 'No se guardo el usuario');
+                $model = new RolModel();
+                $usuarios = new UsuariosModel();
+               // $rules = $usuarios->validationRules;
+                
+                //validaciones
+                $rules = $usuarios->getValidationRules(['only' => ['email']]);
+                if($rules){
+                    $msj = "Este correo ya esta registrado, favor de usar otro";
+                }else{
+                    $msj = null;
+                }
+                
+                
+                $data = ['rols' => $model->findAll(), 'title' => 'Usuarios', 'msj' => $msj];
+                return view('pages/admin/formularios/form_usuarios', $data);
+
             } else {
                 return redirect()->to('/admin/listarUsuarios')->with('successUsr', 'Usuario creado con exito');
             }

@@ -17,12 +17,9 @@
     <?php endif; ?>
     <?php if (session()->get('danger')) : ?>
         <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert">
-                &times;
-            </button>
-            <?= session()->get('danger') ?>
+            <p class="text-center"><i class="fas fa-info-circle">&nbsp&nbsp<?= $msj ?></i></p>
         </div>
-    <?php endif; ?>
+    <?php endif ?>
 </div>
 
 
@@ -70,5 +67,6 @@
 
 </form>
 </div>
+
 
 <?= $this->endSection() ?>

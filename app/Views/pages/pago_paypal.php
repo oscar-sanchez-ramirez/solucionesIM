@@ -1,6 +1,9 @@
 <?= $this->extend('templates/default') ?>
 <?= $this->section('content') ?>
 
+
+<div id="carga"></div>
+
 <div class="container margen">
     <div class="row">
         <div class="col-md-8">
@@ -57,7 +60,7 @@
                     </form>
                 </div>
                 <hr class="my-4">
-                
+
                 <?= $this->include('components/boton_payu') ?>
 
 
@@ -72,7 +75,13 @@
 </div>
 
 
-
+<script>
+    window.onload = function(){
+        var contenedor = document.getElementById('carga');
+        contenedor.style.visibility = 'hidden';
+        contenedor.style.opacity = 0;
+    }
+</script>
 
 
 

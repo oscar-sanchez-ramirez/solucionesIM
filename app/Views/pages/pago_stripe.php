@@ -13,10 +13,8 @@
         opacity: .8;
         background-color: black;
     }
-
-    
 </style>
-
+<div id="carga"></div>
 <br><br>
 <div class="container">
     <div class="row">
