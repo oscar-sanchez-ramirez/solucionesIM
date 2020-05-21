@@ -439,7 +439,7 @@
                                         <li>
                                             <a>
                                                 <h5>Datos de tu compra</h5>
-                                                <p>E-commerce</p>
+                                                <!-- <p>E-commerce</p> -->
                                             </a>
                                         </li>
                                         <li><a class="">Total: $3450</a></li>
@@ -454,7 +454,7 @@
                                     </ul>
 
                                     <!-- social & contact -->
-                                    <table bgcolor="" class="social" width="100%">
+                                    <!-- <table bgcolor="" class="social" width="100%">
                                         <tr>
                                             <td>
 
@@ -476,7 +476,8 @@
 
                                             </td>
                                         </tr>
-                                    </table><!-- /social & contact -->
+                                    </table> -->
+                                    <!-- /social & contact -->
 
                                 </td>
                             </tr>
@@ -519,6 +520,8 @@
             <td></td>
         </tr>
     </table><!-- /FOOTER -->
+
+    
 
 </body>
 

@@ -16,16 +16,16 @@ class Email extends BaseController
     //  $request = Services::request();
     //  $model = new RecoverModel();
 
-    $correo = 'osr910317@gmail.com';
+    $correo = session('email');
     //  $token = random_string('sha1', 40);  gdfhjdjkhashdkjsahdkjqi273983912qwjdhsaye
 
     $email = Services::email();
     // $email = \Config\Services::email();
 
-    $email->setFrom('osr170391@gmail.com', 'Oscar');
+    $email->setFrom('cnavarro@solucionesim.net', 'Soluciones IM');
     $email->setTo($correo);
 
-    $email->setSubject('Soluciones IM, pago del mes');
+    $email->setSubject('Comprobate de pago');
     $email->setMessage(view('pages/email'));
     //$email->setMessage('Verificar que funciona el email desde codeigniter');
 
@@ -33,7 +33,7 @@ class Email extends BaseController
 
 
     if ($email->send()) {
-      $msj = "Revisa tu correo" . $correo;
+      $msj = "Revisa tu correo: " . $correo;
       $data = ['title' => 'Comprobantes', 'msj' => $msj];
 
       return view('pages/comprobantes', $data);

@@ -6,11 +6,10 @@
   <div class="alert alert-success text-center" role="alert">Comprobante enviado a: <?= $correo ?></div>
   <div class="card text-center sombra">
     <div class="card-header">
-      <h3 class="text-success"><?= $msjpaypal ?></h3>
+      <h3 class="text-success"><h4><?= $msj ?></h3>
     </div>
     <div class="card-body">
-      <h4><?= $msj ?></h4>
-      <h5 class="card-title">Soluciones IM</h5>
+     <h4><?= $msjpaypal ?></h4>
       <p class="card-text">Pago de servicios</p>
       <p class="card-text">$ <?= $total ?> <?= $moneda ?></p>
       <p class="card-text">ID PayPal: <?= $idPay ?></p>
@@ -24,6 +23,8 @@
   </div>
 </div>
 
-
+<script>
+  alert('Revisa tu correo')
+</script>
 
 <?= $this->endSection() ?>
