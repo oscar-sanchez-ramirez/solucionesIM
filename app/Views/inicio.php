@@ -5,12 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Soluciones IM</title>
+  <title>FACT@E-COM</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link rel="icon" href="img/icono.ico" type="image/icon">
+
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -42,7 +43,7 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">FACT@E-COM</a></h1>
+      <h1 class="logo mr-auto"><a href="<?= base_url('/') ?>">FACT@E-COM</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -50,6 +51,7 @@
         <ul>
           <li class="active"><a href="<?= base_url('/') ?>">INICIO</a></li>
           <li><a href="#about">Nosotros</a></li>
+          <li><a href="#contact">Contacto</a></li>
           <li><a href="#services">Servicios</a></li>
           <li><a href="#portfolio">Porfalio</a></li>
           <li><a href="#team">Equipo</a></li>
@@ -76,8 +78,7 @@
       </nav><!-- .nav-menu -->
 
       <!-- <a href="" class="get-started-btn scrollto">Iniciar Sesion</a> -->
-
-    </div>
+    
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -87,7 +88,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>E-commerce y Facturación Electrónica</h1>
-          <h2>FACT@E-COM el sistema que te garantiza dar una solución a todas tus necesidades de Pago  y Facturación Electrónica </h2>
+          <h2>FACT@E-COM el sistema que te garantiza dar una solución a todas tus necesidades de Pago y Facturación Electrónica </h2>
           <div class="d-lg-flex">
             <a href="#about" class="btn-get-started scrollto">Comenzar</a>
             <a href="https://www.youtube.com/watch?v=E_WoQPAse_g" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Ver Video <i class="icofont-play-alt-2"></i></a>

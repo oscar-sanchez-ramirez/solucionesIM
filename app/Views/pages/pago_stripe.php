@@ -2,6 +2,12 @@
 <?= $this->section('content') ?>
 
 <style>
+    .sombra {
+        -webkit-box-shadow: -2px 7px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: -2px 7px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: -2px 7px 5px 0px rgba(0, 0, 0, 0.75);
+    }
+
     .loading {
         position: fixed;
         left: 0px;
@@ -18,10 +24,11 @@
 <br><br>
 <div class="container">
     <div class="row">
-        <div class="col">
-            <div class="card" style="width: 20rem;">
+        <div class="col-4">
+            <div class="card sombra" style="width: 20rem;">
                 <img class="card-img-top" src="/img/stripe.jpg" alt="Card image cap">
                 <div class="card-body">
+
                     <form action="<?= base_url('checador') ?>" method="POST" id="payment-form">
                         <div class="form-group">
                             <label for="card-element" class="text-primary">
@@ -48,30 +55,17 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="/img/social.png" alt="Card image cap">
-                <div class="card-body">
-                    <?php foreach ($ordenes as $orden) : ?>
-                        <p>ID venta: <?= $orden['id_orden_pagos'] ?></p>
-                        <p>RFC: <?= $orden['orden_RfcEmisorCtaOrd'] ?></p>
-                        <p>Fecha: <?= $orden['orden_fecha_pago'] ?></p>
-                        <p>Concepto: <?= $orden['orden_concepto'] ?></p>
-                        <p>Total a pagar: $<?= $orden['orden_total'] ?> <?= $orden['orden_moneda_de_pago'] ?></p>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="/img/so.png" alt="Card image cap">
-                <div class="card-body">
-                    <p>Infomacion sobre Stripe</p>
-                    <div class="form-group col-sm-4 col-sm-offset-4 text-center">
-                        <button type="button" id="navegar" class="btn btn-primary" onclick="executeAjaxRequest();">Navegar</button>
-                        <div id="boxLoading"></div>
-                    </div>
-                </div>
+        <div class="col-md-8">
+            <div class="jumbotron sombra">
+                <h3 class="text-center">Datos de la orden</h3>
+                <hr>
+                <?php foreach ($ordenes as $orden) : ?>
+                    <p class="text-right">ID orden: <?= $orden['id_orden_pagos'] ?></p>
+                    <p class="text-right">Concepto: <?= $orden['orden_concepto'] ?></p>
+                    <p class="text-right">Fecha a pagar: <?= $orden['orden_fecha_pago'] ?></p>
+                    <hr>
+                    <p class="lead text-danger">Total a pagar: $<?= $orden['orden_total'] ?> <?= $orden['orden_moneda_de_pago'] ?></p>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
@@ -82,7 +76,7 @@
     <script>
         function executeAjaxRequest() {
             $("#boxLoading").addClass("loading")
-            setTimeout(() => $("#boxLoading").removeClass("loading"), 3000);
+            setTimeout(() => $("#boxLoading").removeClass("loading"), 2000);
         }
     </script>
 

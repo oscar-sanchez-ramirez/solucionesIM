@@ -8,30 +8,30 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="icon" href="img/icono.ico" type="image/icon">
     <link rel="stylesheet" href="css/login.css">
-    <title>Soluciones IM</title>
+    <title>FACT@E-COM</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="<?= base_url('/') ?>">
-                <h3 style="color: black">Soluciones IM</h3>
+                <h3 style="color: black">FACT@E-COM</h3>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link" id="nosotros" href="#">Nosotros</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="contacto" href="#">Contacto</a>
-                        <!-- <i class="fab fa-adn"></i> -->
+                        
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </nav>
 
@@ -79,7 +79,7 @@
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://solucionesim.net" target="blank"> solucionesim.net</a>
+            <a href="<?= base_url('/') ?>"> FACT@E-COM</a>
         </div>
         <!-- Copyright -->
 

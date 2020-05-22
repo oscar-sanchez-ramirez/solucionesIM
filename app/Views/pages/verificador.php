@@ -410,7 +410,7 @@
                             <tr>
                                 <td>
 
-                                    <h4>Hola&nbsp<?= $nombre ?>&nbsp<?= $paterno ?></h4>
+                                    <h4><?= $nombre ?>&nbsp<?= $paterno ?></h4>
                                     <p>Comprobante de pago</p>
                                     <p>Este comprobante no tiene validez con PayPal. Es de caracter informativo y te enviamos datos relevantes</p>
                                     <!-- Callout Panel -->
@@ -454,7 +454,7 @@
                                         <li><a class="">Pay id: <?= $pay_id ?></a></li>
                                         <li><a class="">Email receptor: <?= $email_r ?></a></li>
                                         <li><a class="">Total: <?= $total ?>&nbsp<?= $moneda ?></a></li>
-                                        <li><a class="last"><b>Datos orden</b></a></li>
+                                        <li><a class="last"><b>Datos Orden</b></a></li>
 
                                         <?php foreach ($ordenes as $orden) : ?>
                                             <li><a class="last">Id orden: <?= $orden['id_orden_pagos'] ?></a></li>

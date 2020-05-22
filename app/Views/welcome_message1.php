@@ -67,7 +67,7 @@
 
 		<!-- Copyright -->
 		<div class="footer-copyright text-center py-3">© 2020 Copyright:
-			<a href="https://solucionesim.net" target="blank"> solucionesim.net</a>
+			<a href="https://solucionesim.net" target="blank">FACT@E-COM</a>
 		</div>
 		<!-- Copyright -->
 
