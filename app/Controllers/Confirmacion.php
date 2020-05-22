@@ -74,15 +74,36 @@ class Confirmacion extends BaseController
             $estadoTx = $_REQUEST['mensaje'];
         }
 
-
+        $nombre =  session('nombre');
+        $apellidos =  session('apellidos');
+        $correo =  session('email');
 
         $data = [
             'title' => 'Confirmacion PayU', 'estadoTx' => $estadoTx, 'referenceCode' => $referenceCode,
-            'extra1' => $extra1, 'TX_VALUE' => $TX_VALUE, 'email' => $email, 'msj' => $msj, 'firmacreada' => $firmacreada,
-            'fecha' => $fecha, 'extra3' => $extra3
+            'extra1' => $extra1, 'TX_VALUE' => $TX_VALUE, 'email' => $email, 'msj' => $msj, 'firma' => $firma,
+            'fecha' => $fecha, 'extra3' => $extra3, 'nombre' => $nombre, 'apellidos' => $apellidos, 
+            'transactionId' => $transactionId, 'moneda' => $currency, 'metodo' => $lapPaymentMethod,
+            'ordenes' => $model->where('id_orden_pagos', $extra3)->findAll(), 'nombre' => $nombre, '$apellido' => $apellidos
         ];
 
 
-        return view('pages/confirmacion', $data);
+        $email = Services::email();
+
+        $email->setFrom('cnavarro@solucionesim.net', 'Soluciones IM');
+        $email->setTo($correo);
+        $email->setSubject('Soluciones IM, Comprobante');
+        $email->setMessage(view('pages/confirmacion', $data));
+
+        if($email->send()){
+            return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
+        //return $RespuestaVenta;
+        }else{
+            return redirect()->to('home')->with('correoFallo', "Error al envío de comprobante al correo");
+        }
+        
+
+
+
+        //return view('pages/confirmacion', $data);
     }
 }

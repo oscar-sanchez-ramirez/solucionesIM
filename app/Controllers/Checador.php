@@ -111,10 +111,19 @@ class Checador extends BaseController
 				$email->setSubject('Soluciones IM, Comprobante');
 				$email->setMessage(view('pages/tarjeta', $data));
 
-				$email->send();
+				
+
+
+				if($email->send()){
+					return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
+				//return $RespuestaVenta;
+				}else{
+					return redirect()->to('home')->with('correoFallo', "Error al envío de comprobante al correo");
+				}
+				
 
 				//return view('pages/tarjeta', $data);
-				return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
+				//return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
 				//return $charge;
 			}
 			return redirect()->to('home');

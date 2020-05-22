@@ -169,11 +169,15 @@ class Verificador extends BaseController
 			$email->setTo($correo);
 			$email->setSubject('Soluciones IM, Comprobante');
 			$email->setMessage(view('pages/verificador', $info));
-
-			$email->send();	
-
-			return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
+			
+			if($email->send()){
+				return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
 			//return $RespuestaVenta;
+			}else{
+				return redirect()->to('home')->with('correoFallo', "Error al envío de comprobante al correo");
+			}
+			
+			
 			
 		}
 		return redirect()->to('login');

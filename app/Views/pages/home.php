@@ -19,11 +19,19 @@
             <div class="row">
                 <div class="col col-md-4">
                     <?php if (session()->get('correo')) : ?>
-                        <div class="alert alert-danger">
+                        <div class="alert alert-success">
                             <button type="button" class="close" data-dismiss="alert">
                                 &times;
                             </button>
                             <p class="text-center"><?= session()->get('correo') ?></p>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (session()->get('correoFallo')) : ?>
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">
+                                &times;
+                            </button>
+                            <p class="text-center"><?= session()->get('correoFallo') ?></p>
                         </div>
                     <?php endif; ?>
                 </div>
