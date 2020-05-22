@@ -180,7 +180,7 @@ class Admin extends BaseController
     {
         if ($this->session->logged_admin) {
             $model = new RolModel();
-            $data = ['rols' => $model->findAll(), 'title' => 'Usuarios'];
+            $data = ['rols' => $model->orderBy('id', 'desc')->findAll(), 'title' => 'Usuarios'];
 
             return view('pages/admin/formularios/form_usuarios', $data);
         }
@@ -206,18 +206,30 @@ class Admin extends BaseController
             if ($model->save($data) === false) {
                 $model = new RolModel();
                 $usuarios = new UsuariosModel();
-               // $rules = $usuarios->validationRules;
+                
+               //$rules = $usuarios->validationRules;
+              // $rol = $usuarios->validationRules;
+
                 
                 //validaciones
-                $rules = $usuarios->getValidationRules(['only' => ['email']]);
-                if($rules){
-                    $msj = "Este correo ya esta registrado, favor de usar otro";
+               // $msj = null;
+                //$msj_rol = null;
+               $rules = $usuarios->getValidationRules(['only' => ['email', 'id_rol']]);
+                if($rules['email']){
+                    $msj['email'] = "Este correo ya esta registrado, favor de usar otro";
                 }else{
-                    $msj = null;
+                    $msj['email'] = null;
                 }
+            
+               
+                // if($rules['id_rol']){
+                //     $msj['id_rol'] = "El campo rol de usuario es requerido";
+                // }else{
+                //     $msj['id_rol'] = null;
+                // }
+               
                 
-                
-                $data = ['rols' => $model->findAll(), 'title' => 'Usuarios', 'msj' => $msj];
+                $data = ['rols' => $model->orderBy('id', 'desc')->findAll(), 'title' => 'Usuarios', 'msj' => $msj];
                 return view('pages/admin/formularios/form_usuarios', $data);
 
             } else {

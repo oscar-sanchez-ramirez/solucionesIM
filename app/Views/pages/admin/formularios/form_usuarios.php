@@ -3,9 +3,9 @@
 
 <br><br>
 <div class="container col-md-4">
-    <?php if (!empty($msj)) : ?>
+    <?php if (!empty($msj['email'])) : ?>
         <div class="alert alert-danger">
-            <p class="text-center"><i class="fas fa-info-circle">&nbsp&nbsp<?= $msj ?></i></p>
+            <p class="text-center"><i class="fas fa-info-circle">&nbsp&nbsp<?= $msj['email'] ?></i></p>
         </div>
     <?php endif ?>
 </div>
@@ -34,8 +34,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="password">Rol de usuario</label>
-                        <select id="inputState" name="id_rol" class="form-control" required>
-                            <option selected>seleccionar</option>
+                        <select id="inputState" name="id_rol" class="form-control">
                             <?php foreach ($rols as $rol) : ?>
                                 <option value="<?= $rol['id'] ?>"><?= $rol['rol'] ?></option>
                             <?php endforeach; ?>
