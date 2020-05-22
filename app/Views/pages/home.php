@@ -27,7 +27,7 @@
                         </div>
                     <?php endif; ?>
                     <?php if (session()->get('correoFallo')) : ?>
-                        <div class="alert alert-success">
+                        <div class="alert alert-danger">
                             <button type="button" class="close" data-dismiss="alert">
                                 &times;
                             </button>
