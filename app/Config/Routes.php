@@ -82,6 +82,7 @@ $routes->get('/comprobantes', 'Comprobantes::index');
 
 $routes->post('/email', 'Email::index');
 
+$routes->get('/correo', 'Correo::index');
 
 
 

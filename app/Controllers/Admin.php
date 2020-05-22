@@ -35,7 +35,7 @@ class Admin extends BaseController
             $model = new OrdenpagosModel();
 
 
-            $date = ['ordenes' => $model->orderBy('orden_fecha_pago', 'desc')->findAll(), 'title' => 'Ordenes'];
+            $date = ['ordenes' => $model->orderBy('id_orden_pagos', 'desc')->findAll(), 'title' => 'Ordenes'];
 
             return view('pages/admin/ordenes', $date);
         }

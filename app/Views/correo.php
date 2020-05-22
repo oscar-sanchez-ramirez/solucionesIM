@@ -1,4 +1,4 @@
-<?= $this->extend('templates/default') ?>
+<?= $this->extend('templates/correo') ?>
 <?= $this->section('content') ?>
 
 
