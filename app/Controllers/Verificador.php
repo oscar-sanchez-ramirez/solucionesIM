@@ -167,14 +167,14 @@ class Verificador extends BaseController
 
 			$email->setFrom('cnavarro@solucionesim.net', 'Soluciones IM');
 			$email->setTo($correo);
-			$email->setSubject('Soluciones IM, pago del mes');
+			$email->setSubject('Soluciones IM, Comprobante');
 			$email->setMessage(view('pages/verificador', $info));
 
-			$email->send();
+			$email->send();	
 
-
-			return view('pages/verificador', $info);
+			return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
 			//return $RespuestaVenta;
+			
 		}
 		return redirect()->to('login');
 	}

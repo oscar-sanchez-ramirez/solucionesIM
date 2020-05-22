@@ -48,6 +48,12 @@ class Checador extends BaseController
 				$moneda = $charge["currency"];
 				$descripcion = $charge["description"];
 				$status = $charge['outcome']['network_status'];
+				$seller_message = $charge['outcome']['seller_message'];
+				//$card  = $charge['payment_method_details']['card']['brand'];
+				$cardNumero  = $charge['payment_method_details']['card']['last4'];
+				$cardTipo  = $charge['payment_method_details']['card']['network'];
+
+
 
 				$msjStripe = "";
 				$msj = "";
@@ -63,7 +69,7 @@ class Checador extends BaseController
 						$total_nuevo = ($pagoMes - $monto);
 						$data['orden_total'] = $total_nuevo;
 						$msjStripe = "Estatus: aprovado";
-						
+
 						if ($total_nuevo == 0) {
 							$state = 3;
 							$data['id_status_pago'] = $state;
@@ -85,14 +91,30 @@ class Checador extends BaseController
 					$msjStripe = "Hay un problema con su pago, no fue aprovado";
 				}
 
+				$nombre =  session('nombre');
+				$apellidos =  session('apellidos');
+				$correo =  session('email');
 
 
 				$data = [
 					'id' => $id, 'monto' => $monto, 'moneda' => $moneda, 'descripcion' => $descripcion, 'status' => $status,
-					'concepto' => $concepto_R, 'title' => 'Stripe', 'msjStripe' => $msjStripe, 'msj' => $msj, 'idVenta' => $idVenta
+					'concepto' => $concepto_R, 'title' => 'Stripe', 'msjStripe' => $msjStripe,
+					'msj' => $msj, 'idVenta' => $idVenta, 'cardNumero' => $cardNumero, 'cardTipo' => $cardTipo,
+					'nombre' => $nombre, 'paterno' => $apellidos, 'ordenes' => $model->where('id_orden_pagos', $id_venta)->findAll()
 				];
 
-				return view('pages/tarjeta', $data);
+
+				$email = Services::email();
+
+				$email->setFrom('cnavarro@solucionesim.net', 'Soluciones IM');
+				$email->setTo($correo);
+				$email->setSubject('Soluciones IM, Comprobante');
+				$email->setMessage(view('pages/tarjeta', $data));
+
+				$email->send();
+
+				//return view('pages/tarjeta', $data);
+				return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
 				//return $charge;
 			}
 			return redirect()->to('home');
