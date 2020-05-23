@@ -502,6 +502,9 @@
         </tr>
     </table><!-- /FOOTER -->
 
+    <script>
+        alert("Comprobante envíado a tu correo electronico");
+    </script>
     
 </body>
 

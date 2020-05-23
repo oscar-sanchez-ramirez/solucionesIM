@@ -13,10 +13,12 @@ class Correo extends BaseController
 	public function index()
 	{
 		
+            
 
 			$req = Services::request();
-            $idOrden = $req->getPost('id_orden');
-            $idOrden = 118;
+		   // $idOrden = $req->getPost('id_orden');
+		    
+            $idOrden = $_GET['id'];;
 
 			$total = new OrdenpagosModel();
 			$pagoTotal = $total->where('id_orden_pagos', $idOrden)->findColumn('orden_total');
@@ -33,8 +35,6 @@ class Correo extends BaseController
 
 			$apiKey = "4Vj8eK4rloUd272L48hsrarnUA";
 			$merchantId = 508029;
-			// $idV = $idVenta . rand(5, 20);
-			// $concepto_ = $concepto_R;
 			$referenceCode = $idVenta.rand(20, 40);
 			$amount = $pagoMes;
 			$currency = "MXN";
@@ -42,19 +42,15 @@ class Correo extends BaseController
 			$signature = md5($apiKey . "~" . $merchantId . "~" . $referenceCode . "~" . $amount . "~" . $currency);
 
 			$data = [
-				'pagos' => $model->where('id_orden_pagos', $idOrden)->findAll(),  'title' => 'Pagos Paypal', 'KEY' => 'SolucionesIM',
+				'pagos' => $model->where('id_orden_pagos', $idOrden)->findAll(),  'title' => 'Correo de orden', 'KEY' => 'SolucionesIM',
 				'CODE' => 'AES-128-ECB', 'pagoMes' => $pagoMes, 'idVenta' => $idVenta, 'concepto' => $concepto_R,
 				'apiKey' => $apiKey, 'merchantId' => $merchantId, 'referenceCode' => $referenceCode, 'amount' => $amount,
 				'currency' => $currency, 'signature' => $signature, 'extra3' => $extra3
 			];
 
-			
 
-
-
-			return view('correo', $data) . view('components/boton_paypal', $data);
-			//return $data;
-		
+			return view('pages/correo/correo', $data) . view('components/correo_paypal', $data);
+			//return $data;		
 	}
 
 

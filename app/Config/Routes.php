@@ -85,6 +85,8 @@ $routes->post('/email', 'Email::index');
 $routes->get('/correo', 'Correo::index');
 
 
+$routes->get('/paypal', 'Paypal::index');
+
 
 
 

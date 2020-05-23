@@ -23,6 +23,7 @@
                         <?php endif; ?>
 
                         <hr>
+                        <p>ID: <?= $pago['id_orden_pagos'] ?></p>
                         <p>Calle: <?= $pago['orden_direccion_calle'] ?>, Numero interior: <?= $pago['orden_direccion_numero_interior'] ?>, Numero exterior: <?= $pago['orden_direccion_numero_exterior'] ?></p>
                         <p>Colonia: <?= $pago['orden_direccion_colonia'] ?>, CP: <?= $pago['orden_direccion_cp'] ?></p>
                         <p>Pais: <?= $pago['orden_direccion_pais'] ?>, Estado: <?= $pago['orden_direccion_estado'] ?> Ciudad: <?= $pago['orden_direccion_ciudad'] ?></p>
@@ -59,7 +60,7 @@
                 </div>
                 <hr class="my-4">
 
-                <?= $this->include('components/boton_payu') ?>
+                <?= $this->include('components/correo_payu') ?>
 
 
                 <hr>

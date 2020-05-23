@@ -410,7 +410,7 @@
 
                                     <h4><?= $nombre ?>&nbsp<?= $apellidos ?></h4>
                                     <p>Comprobante de pago</p>
-                                    <p>Este comprobante no tiene validez con PayPal. Es de caracter informativo y te enviamos datos relevantes</p>
+                                    <p>Este comprobante no tiene validez con PayU. Es de caracter informativo y te enviamos datos relevantes</p>
                                     <!-- Callout Panel -->
                                     <p class="callout">
                                         Te invitamos a mantenerte al dia con tus pagos <a href="http://solucionesim.ddns.com">Paga ahora! &raquo;</a>
