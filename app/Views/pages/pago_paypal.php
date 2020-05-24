@@ -15,7 +15,7 @@
                     <?php foreach ($pagos as $pago) : ?>
 
                         <?php if ($pago['id_status_pago'] == 1) : ?>
-                            <p class="text-info">Estatus: <?php echo "Por pagar" ?></p>
+                            <p class="text-warning">Estatus: <?php echo "Por pagar" ?></p>
                         <?php elseif ($pago['id_status_pago'] == 2) : ?>
                             <p class="text-primary">Estatus: <?php echo "Aprovado" ?></p>
                         <?php elseif ($pago['id_status_pago'] == 3) : ?>
@@ -23,6 +23,7 @@
                         <?php endif; ?>
 
                         <hr>
+                        <p>ID: <?= $pago['id_orden_pagos'] ?></p>
                         <p>Calle: <?= $pago['orden_direccion_calle'] ?>, Numero interior: <?= $pago['orden_direccion_numero_interior'] ?>, Numero exterior: <?= $pago['orden_direccion_numero_exterior'] ?></p>
                         <p>Colonia: <?= $pago['orden_direccion_colonia'] ?>, CP: <?= $pago['orden_direccion_cp'] ?></p>
                         <p>Pais: <?= $pago['orden_direccion_pais'] ?>, Estado: <?= $pago['orden_direccion_estado'] ?> Ciudad: <?= $pago['orden_direccion_ciudad'] ?></p>
@@ -63,7 +64,12 @@
 
 
                 <hr>
-                <p class="text-center text-info">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
+                <div class="text-center">
+                    <form action="<?= base_url('pagos/deposito') ?>" method="POST">
+                        <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
+                        <button type="submit" class="btn btn-secondary btn-lg btn-block"><i class="far fa-file-pdf">&nbspFicha de Deposito</i></button>
+                    </form>
+                </div>
             <?php endforeach; ?>
             <hr>
             <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
@@ -74,7 +80,7 @@
 
 
 <script>
-    window.onload = function(){
+    window.onload = function() {
         var contenedor = document.getElementById('carga');
         contenedor.style.visibility = 'hidden';
         contenedor.style.opacity = 0;

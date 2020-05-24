@@ -64,7 +64,13 @@
 
 
                 <hr>
-                <p class="text-center text-info">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
+
+                <div class="text-center">
+                    <form action="<?= base_url('correo/deposito') ?>" method="POST">
+                        <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
+                        <button type="submit" class="btn btn-secondary btn-lg btn-block"><i class="far fa-file-pdf">&nbspFicha de Deposito</i></button>
+                    </form>
+                </div>
             <?php endforeach; ?>
             <hr>
             <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
@@ -75,7 +81,7 @@
 
 
 <script>
-    window.onload = function(){
+    window.onload = function() {
         var contenedor = document.getElementById('carga');
         contenedor.style.visibility = 'hidden';
         contenedor.style.opacity = 0;

@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\OrdenpagosModel;
 use App\Models\ClientesModel;
+use Dompdf\Dompdf;
 
 
 use Config\Services;
@@ -70,7 +71,7 @@ class Paypal extends BaseController
         $custom = $objDatosTransaccion->transactions[0]->custom;
         $email_Rec = $objDatosTransaccion->transactions[0]->payee->email;
 
-      
+
 
         //print_r($custom);
         // $clave = explode("#", $custom);
@@ -136,7 +137,7 @@ class Paypal extends BaseController
             $msjpaypal = "Hay un problema con su pago, no fue aprovado";
         }
 
-        $correo =  $correo_cliente;
+        $correo =  $correo_cliente[0];
 
 
         $info = [
@@ -151,20 +152,20 @@ class Paypal extends BaseController
         $email->setFrom('cnavarro@solucionesim.net', 'Soluciones IM');
         $email->setTo($correo);
         $email->setSubject('Soluciones IM, Comprobante');
-       $email->setMessage(view('pages/verificador', $info));
-       //$email->setMessage("Hola");
+        $email->setMessage(view('pages/verificador', $info));
+
+       
 
         if ($email->send()) {
-            return view('pages/verificador', $info);
-           // return redirect()->to('/login')->with('correo', "Comprobante envíado a tu correo");
-           // return $RespuestaVenta;
-        } else {
            
+            return view('pages/verificador', $info);
+
+            // return $RespuestaVenta;
+        } else {
+
             return redirect()->to('/login');
         }
     }
-
-
 
 
     //--------------------------------------------------------------------

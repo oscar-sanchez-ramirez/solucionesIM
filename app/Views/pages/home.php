@@ -13,7 +13,7 @@
         <div class="container-fluid">
 
             <div class="form-group col-md-12">
-                <h1 class="text-center"><strong>FACT@E-COM</strong></h1>
+                <h1 class="text-center"><strong>FACTICOM</strong></h1>
             </div>
 
             <div class="row">

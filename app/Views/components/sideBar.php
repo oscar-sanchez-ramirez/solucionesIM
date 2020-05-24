@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
         <div class="sidebar-brand">
-            <a href="#">FACT@E-COM</a>
+            <a href="#">FACTICOM</a>
             <div id="close-sidebar">
                 <i class="fas fa-times"></i>
             </div>
