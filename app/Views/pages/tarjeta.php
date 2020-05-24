@@ -415,7 +415,7 @@
                                     <p>Este comprobante no tiene validez con Stripe. Es de caracter informativo y te enviamos datos relevantes</p>
                                     <!-- Callout Panel -->
                                     <p class="callout">
-                                        Te invitamos a mantenerte al dia con tus pagos <a href="http://solucionesim.ddns.com">Paga ahora! &raquo;</a>
+                                        Te invitamos a mantenerte al dia con tus pagos <a href="<?= base_url('/') ?>">Paga ahora! &raquo;</a>
                                     </p><!-- /Callout Panel -->
                                     <h4>Acerca de Soluciones IM</h4>
                                     <p>Posiciona tu negocio y aumenta el número de prospectos que recibes en tu página web.</p>
@@ -426,7 +426,7 @@
                                         tiendas en línea fáciles de usar para ti y tus clientes.</p>
 
 
-                                    <a class="btn" href="http://solucionesim.ddns.com/home">Regresa al sitio &raquo;</a>
+                                    <a class="btn" href="<?= base_url('login') ?>">Regresa al sitio &raquo;</a>
 
                                 </td>
                             </tr>

@@ -53,7 +53,7 @@
                 <div id="paypal-button-container"></div>
                 <hr class="my-4">
                 <div class="text-center">
-                    <form action="<?= base_url('pagos/tarjeta') ?>" method="POST">
+                    <form action="<?= base_url('correo/tarjeta') ?>" method="POST">
                         <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
                         <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fab fa-cc-stripe">&nbspPagar con Stripe</i></button>
                     </form>

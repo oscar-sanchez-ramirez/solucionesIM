@@ -65,7 +65,7 @@ class Correo extends BaseController
 
 		$req = Services::request();
 		$idOrdenStripe = $req->getPost('id_orden_stripe');
-		$idOrdenStripe = 118;
+		//$idOrdenStripe = 118;
 
 
 		$model = new OrdenpagosModel();
@@ -73,7 +73,7 @@ class Correo extends BaseController
 		$idVenta = (int) $idVe[0];
 		$data = ['ordenes' => $model->where('id_orden_pagos', $idOrdenStripe)->findAll(), 'title' => 'Stripe', 'idVenta' => $idVenta];
 
-		return view('pages/pago_stripe', $data);
+		return view('pages/correo/correo_stripe', $data);
 	}
 
 
@@ -88,7 +88,7 @@ class Correo extends BaseController
 		$ordenes = $model->where('id_orden_pagos', $idOrden)->findAll();
 
 
-		$data = ['title' => 'Referencia', 'id' => $idOrden, 'ordenes' => $ordenes];
+		$data = ['title' => 'Stripe', 'id' => $idOrden, 'ordenes' => $ordenes];
 
 		// instanciar y usar la clase dompdf
 		$dompdf = new DOMPDF();

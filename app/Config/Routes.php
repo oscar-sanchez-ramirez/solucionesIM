@@ -88,11 +88,16 @@ $routes->post('/email', 'Email::index');
 
 $routes->get('/correo', 'Correo::index');
 $routes->get('/correo/deposito', 'Correo::deposito');
+$routes->get('/correo/tarjeta', 'Correo::tarjeta');
+
 
 
 $routes->get('/paypal', 'Paypal::index');
 
 $routes->get('/payu', 'Payu::index');
+
+$routes->get('/stripe', 'Stripe::index');
+
 
 
 

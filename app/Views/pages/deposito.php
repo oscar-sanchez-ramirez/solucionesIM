@@ -153,12 +153,14 @@
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
         }
+        
+        
     </style>
 
 </head>
 
 <body>
-
+<br><br><br><br>
     <div id="page_pdf">
         <?php foreach ($ordenes as $orden) : ?>
 
