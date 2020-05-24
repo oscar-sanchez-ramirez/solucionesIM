@@ -35,6 +35,7 @@
                                 Tarjeta de Credito o Debito
                             </label>
                             <div id="card-element" class="form-control">
+                           
                                 <!-- Elements will create input elements here -->
                             </div>
                         </div>
@@ -44,6 +45,7 @@
                         <div id="card-errors" role="alert"></div>
 
                         <input type="hidden" value="<?= $idVenta ?>" name="id-venta">
+                        
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-lg btn-block do-request" id="navegar" onclick="executeAjaxRequest();">
                                 Pagar

@@ -29,7 +29,7 @@
                             total: '<?= $pagoMes ?>',
                             currency: 'MXN'
                         },
-                        description: "$<?= $pagoMes ?> MXN, Concepto: <?= $concepto ?>",
+                        description: "$<?= $pagoMes ?> MXN, Concepto: <?= $concepto ?>, ID orden: <?= $idVenta ?>",
                         custom: "<?= session('id') ?>#<?php echo openssl_encrypt($idVenta, $CODE, $KEY); ?>"
                     }]
                 }

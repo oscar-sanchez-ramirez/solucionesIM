@@ -51,7 +51,7 @@
         <ul>
           <li class="active"><a href="<?= base_url('/') ?>">INICIO</a></li>
           <li><a href="#about">Nosotros</a></li>
-          <li><a href="#team">Equipo</a></li>
+          <li><a href="#team">Team</a></li>
           <li><a href="<?= base_url('login') ?>">Iniciar Sesion</a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -153,7 +153,7 @@
 
         <div class="row">
            <div class="col-lg-9 text-center text-lg-left">
-            <h3>La manera más inteligente de hacer tus pagos</h3>
+            <h3>La manera más inteligente de hacer tus pagos  </h3>
             <p>Solicita tu cuenta ahora mismo en Soluciones IM y brindanos la confianza de llevarte hasta tu hogar las mejores pasarelas de pago en linea</p>
            </div>
            <div class="col-lg-3 cta-btn-container text-center">
@@ -171,7 +171,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Equipo de Trabajo</h2>
+          <h2>TEAM</h2>
           <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
 
@@ -183,7 +183,7 @@
               <div class="member-info">
                 <h4>Oscar Sanchez</h4>
                 <span>Desarrollador</span>
-                <p>Manejo de  las tecnologías Backend,Frontend,Git,Github,Bootstrap</p>
+                <p>Backend y Frontend</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href="https://www.facebook.com/oscar.sanchezramirez1"><i class="ri-facebook-fill"></i></a>
@@ -199,8 +199,8 @@
               <div class="pic"><img src="assets/img/team/Hugo.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Hugo Guillermo</h4>
-                <span>Desarrollardor</span>
-                <p>Manejo de  las tecnologías Frontend,Git,Github,Bootstrap</p>
+                <span>Desarrollador</span>
+                <p>Backend y Frontend</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href="https://www.facebook.com/HugoOlympus"><i class="ri-facebook-fill"></i></a>

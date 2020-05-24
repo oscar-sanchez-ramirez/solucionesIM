@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">
-                    Datos de la orden de pago
+                    Datos de la orden
                 </div>
                 <div class="card-body">
                     <?php foreach ($pagos as $pago) : ?>
@@ -47,7 +47,7 @@
                 <!-- <h3 class="text-center">Soluciones <span class="text-success">IM</span></h3>
                 
                 <hr class="my-4"> -->
-                <p class="lead text-center">Pagar: <span class="text-danger">$<?= number_format($pagoMes, 2) ?> </span><?= $pago['orden_moneda_de_pago'] ?></p>
+                <p class="lead text-center">Total a Pagar: <span class="text-danger">$<?= number_format($pagoMes, 2) ?> </span><?= $pago['orden_moneda_de_pago'] ?></p>
                 <hr>
                 <br>
                 <div id="paypal-button-container"></div>

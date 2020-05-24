@@ -33,11 +33,12 @@ class Checador extends BaseController
 				\Stripe\Stripe::setApiKey("sk_test_wThLvIsqNPNfofKheRhOjHJt002ThKiwBj");
 
 				$token = $_POST["stripeToken"];
+				
 
 				$charge = \Stripe\Charge::create([
 					"amount" => $pagoMes,
 					"currency" => "usd",
-					"description" => "$concepto_R",
+					"description" => "$concepto_R, ID orden: $id_venta",
 					"source" => $token
 				]);
 
@@ -111,16 +112,16 @@ class Checador extends BaseController
 				$email->setSubject('Soluciones IM, Comprobante');
 				$email->setMessage(view('pages/tarjeta', $data));
 
-				
 
 
-				if($email->send()){
+
+				if ($email->send()) {
 					return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
-				//return $RespuestaVenta;
-				}else{
+					//return $RespuestaVenta;
+				} else {
 					return redirect()->to('home')->with('correoFallo', "Error al envío de comprobante al correo");
 				}
-				
+
 
 				//return view('pages/tarjeta', $data);
 				//return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");

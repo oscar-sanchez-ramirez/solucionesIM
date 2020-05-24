@@ -11,7 +11,7 @@
     <title>FACTICOM</title>
 </head>
 
-<body>
+<body style="background-image: url('img/ecom2.jpeg');">
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <div class="container">
             <a class="navbar-brand" href="<?= base_url('/') ?>">
@@ -63,11 +63,11 @@
     <!-- <p class="text-center">© Copyright 2020 soluciones.com.net</p> -->
 
     <!-- Footer -->
-    <footer class="page-footer font-small bg-light fixed-bottom">
+    <footer class="page-footer font-small bg-info    fixed-bottom">
 
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="<?= base_url('/') ?>"> FACTICOM</a>
+        <div class="footer-copyright text-center py-3 text-white">
+            © 2020 Copyright: FACTICOM
         </div>
         <!-- Copyright -->
 
