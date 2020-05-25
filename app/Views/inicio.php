@@ -124,7 +124,6 @@
         <div class="section-title">
           <h2>Sobre nosotros</h2>
         </div>
-
         <div class="row content">
           <div class="col-lg-6">
             <!-- <p>
@@ -179,11 +178,11 @@
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="assets/img/team/Oscar.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/team/Oscar.jpg" class="img-fluid" alt="Oscar"></div>
               <div class="member-info">
                 <h4>Oscar Sanchez</h4>
                 <span>Desarrollador de la Aplicación</span>
-                <p>Manejo de  las tecnologías Backend,Frontend,Git,Github,Bootstrap</p>
+                <p>Manejo de  las tecnologías,Git,Github,Codeignter,PHP</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href="https://www.facebook.com/oscar.sanchezramirez1"><i class="ri-facebook-fill"></i></a>
@@ -200,7 +199,7 @@
               <div class="member-info">
                 <h4>Hugo Guillermo</h4>
                 <span>Desarrollardor de la Aplicación</span>
-                <p>Manejo de  las tecnologías Frontend,Git,Github,Bootstrap</p>
+                <p>Manejo de  las tecnologías,Git,Github,Bootstrap,CSS3</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href="https://www.facebook.com/HugoOlympus"><i class="ri-facebook-fill"></i></a>
