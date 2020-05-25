@@ -35,7 +35,7 @@ class Admin extends BaseController
             $model = new OrdenpagosModel();
 
 
-            $date = ['ordenes' => $model->orderBy('orden_fecha_pago', 'desc')->findAll(), 'title' => 'Ordenes'];
+            $date = ['ordenes' => $model->orderBy('id_orden_pagos', 'desc')->findAll(), 'title' => 'Ordenes'];
 
             return view('pages/admin/ordenes', $date);
         }
@@ -89,9 +89,10 @@ class Admin extends BaseController
 
 
             if ($model->save($data) === false) {
-                return redirect()->back()->with('danger', 'La orden de pago no fue creada');
+                return redirect()->back()->with('danger', 'La orden  no fue creada');
             } else {
-                return redirect()->back()->with('success', 'La orden de pago fue creada con exito');
+
+                return redirect()->back()->with('success', 'La orden fue creada con exito');
             }
         }
         return redirect()->to(base_url('login'));
@@ -108,6 +109,49 @@ class Admin extends BaseController
             return view('pages/admin/verOrden', $data);
         }
         return redirect()->to(base_url('login'));
+    }
+
+    public function emailOrdenes()
+    {
+        $req = Services::request();
+        $idOrden = $req->getPost('idOrden');
+        $CODE = 'AES-128-ECB';
+        $KEY = 'SolucionesIM';
+        $token = openssl_encrypt($idOrden, $CODE, $KEY);
+      
+
+        $model = new OrdenpagosModel();
+        $idCliente = $model->where('id_orden_pagos', $idOrden)->findColumn('id_clientes');
+
+        $cliente = new ClientesModel();
+        $correo_cliente = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_direccion_email');
+        $paterno = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_apellido_paterno');
+        $clientes_nombre = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_nombre');
+
+        $nombre =  $clientes_nombre[0];
+        $apellidos =  $paterno[0];
+        $correo =  $correo_cliente[0];
+
+        $data = [
+            'ordenes' => $model->where('id_orden_pagos', $idOrden)->findAll(), 'title' => 'Soluciones IM',
+            'nombre' => $nombre, 'apellidos' => $apellidos, 'correo' => $correo, 'idOrden' => $idOrden, 'token' => $token
+        ];
+
+        
+        $email = Services::email();
+        $email->setFrom('cnavarro@solucionesim.net', 'Soluciones IM');
+        $email->setTo($correo);
+        $email->setSubject('Soluciones IM, Comprobante');
+        $email->setMessage(view('pages/admin/admin_correo', $data));
+
+        if($email->send()){
+            return redirect()->to('/admin/listarOrdenes')->with('correo', 'Correo envíado con exito');
+        }else{
+            return redirect()->to('/admin/listarOrdenes')->with('FalloCorreo', 'Fallo al envío de correo');
+        }
+
+
+        
     }
 
     public function editarOrden()
@@ -206,32 +250,31 @@ class Admin extends BaseController
             if ($model->save($data) === false) {
                 $model = new RolModel();
                 $usuarios = new UsuariosModel();
-                
-               //$rules = $usuarios->validationRules;
-              // $rol = $usuarios->validationRules;
 
-                
+                //$rules = $usuarios->validationRules;
+                // $rol = $usuarios->validationRules;
+
+
                 //validaciones
-               // $msj = null;
+                // $msj = null;
                 //$msj_rol = null;
-               $rules = $usuarios->getValidationRules(['only' => ['email', 'id_rol']]);
-                if($rules['email']){
+                $rules = $usuarios->getValidationRules(['only' => ['email', 'id_rol']]);
+                if ($rules['email']) {
                     $msj['email'] = "Este correo ya esta registrado, favor de usar otro";
-                }else{
+                } else {
                     $msj['email'] = null;
                 }
-            
-               
+
+
                 // if($rules['id_rol']){
                 //     $msj['id_rol'] = "El campo rol de usuario es requerido";
                 // }else{
                 //     $msj['id_rol'] = null;
                 // }
-               
-                
+
+
                 $data = ['rols' => $model->orderBy('id', 'desc')->findAll(), 'title' => 'Usuarios', 'msj' => $msj];
                 return view('pages/admin/formularios/form_usuarios', $data);
-
             } else {
                 return redirect()->to('/admin/listarUsuarios')->with('successUsr', 'Usuario creado con exito');
             }

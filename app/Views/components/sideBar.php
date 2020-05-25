@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
         <div class="sidebar-brand">
-            <a href="#">FACT@E-COM</a>
+            <a href="#">FACTICOM</a>
             <div id="close-sidebar">
                 <i class="fas fa-times"></i>
             </div>
@@ -195,8 +195,8 @@
             <i class="fa fa-cog"></i>
             <span class="badge-sonar"></span>
         </a>
-        <a href="<?= base_url('/perfil/signout') ?>">
-            Cerrar sesión <i class="fa fa-power-off"></i>
+        <a class="text-white" onclick=" return confirm('¿Quieres salir?');" href="<?= base_url('/perfil/signout') ?>">
+        Cerrar sesión <i class="fa fa-power-off"></i>
         </a>
     </div>
 </nav>

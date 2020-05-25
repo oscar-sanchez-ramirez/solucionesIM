@@ -1,4 +1,4 @@
-<?= $this->extend('templates/default') ?>
+<?= $this->extend('templates/correo') ?>
 <?= $this->section('content') ?>
 
 <style>
@@ -29,7 +29,7 @@
                 <img class="card-img-top" src="/img/stripe.jpg" alt="Card image cap">
                 <div class="card-body">
 
-                    <form action="<?= base_url('checador') ?>" method="POST" id="payment-form">
+                    <form action="<?= base_url('stripe') ?>" method="POST" id="payment-form">
                         <div class="form-group">
                             <label for="card-element" class="text-primary">
                                 Tarjeta de Credito o Debito
@@ -73,7 +73,7 @@
     </div>
 
 
-    <?= $this->include('components/boton_stripe') ?>
+    <?= $this->include('components/correo_stripe') ?>
 
     <script>
         function executeAjaxRequest() {

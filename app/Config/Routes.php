@@ -45,6 +45,9 @@ $routes->post('/admin/eliminarOrden', 'Admin::eliminarOrden');
 $routes->post('/admin/editarOrden', 'Admin::editarOrden');
 $routes->post('/admin/updateOrdenes', 'Admin::updateOrdenes');
 
+$routes->post('/admin/emailOrdenes', 'Admin::emailOrdenes');
+
+
 
 $routes->get('/admin/listarUsuarios', 'Admin::listarUsuarios');
 $routes->get('/admin/crearUsuario', 'Admin::crearUsuario');
@@ -52,6 +55,8 @@ $routes->post('/admin/saveUsuario', 'Admin::saveUsuario');
 $routes->post('/admin/actualizarUsuario', 'Admin::actualizarUsuario');
 $routes->post('/admin/updateUser', 'Admin::updateUser');
 $routes->post('/admin/deleteUser', 'Admin::deleteUser');
+
+
 
 
 
@@ -69,6 +74,8 @@ $routes->get('/ordenes', 'Ordenes::index');
 
 $routes->get('/pagos', 'Pagos::index');
 $routes->get('/pagos/tarjeta', 'Pagos::tarjeta');
+$routes->get('/pagos/deposito', 'Pagos::deposito');
+
 //$routes->get('/pagos/stripe', 'Pagos::stripe');
 
 $routes->get('/verificador', 'Verificador::index');
@@ -80,7 +87,21 @@ $routes->get('/confirmacion', 'Confirmacion::index');
 $routes->get('/comprobantes', 'Comprobantes::index');
 
 
+
+
 $routes->post('/email', 'Email::index');
+
+$routes->get('/correo', 'Correo::index');
+$routes->get('/correo/deposito', 'Correo::deposito');
+$routes->get('/correo/tarjeta', 'Correo::tarjeta');
+
+
+
+$routes->get('/paypal', 'Paypal::index');
+
+$routes->get('/payu', 'Payu::index');
+
+$routes->get('/stripe', 'Stripe::index');
 
 
 

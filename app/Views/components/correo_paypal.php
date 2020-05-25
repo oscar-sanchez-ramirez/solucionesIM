@@ -29,8 +29,8 @@
                             total: '<?= $pagoMes ?>',
                             currency: 'MXN'
                         },
-                        description: "$<?= $pagoMes ?> MXN, Concepto: <?= $concepto ?>, ID orden: <?= $idVenta ?>",
-                        custom: "<?= session('id') ?>#<?php echo openssl_encrypt($idVenta, $CODE, $KEY); ?>"
+                        description: "$<?= $pagoMes ?> MXN, Concepto: <?= $concepto ?>",
+                        custom: "<?php echo openssl_encrypt($idVenta, $CODE, $KEY); ?>"
                     }]
                 }
             });
@@ -41,10 +41,7 @@
         onAuthorize: function(data, actions) {
             return actions.payment.execute().then(function() {
                 console.log(data);
-                //window.location="verificador.php?paymentToken="+data.paymentToken
-                window.location = "<?= base_url('verificador').'?paymentToken=' ?>" + data.paymentToken + "&paymentID=" + data.paymentID;
-                // http://solucionesim.ddns.net/verificador?paymentToken=
-                // window.alert('Pago completado');
+                window.location = "<?= base_url('/paypal').'?paymentToken=' ?>" + data.paymentToken + "&paymentID=" + data.paymentID;
             });
         }
 

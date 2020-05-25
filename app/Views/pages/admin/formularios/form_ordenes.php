@@ -49,7 +49,7 @@
             <div class="form-group col-md-4">
             <label for="">Status pago</label>
                 <select id="inputState" name="id_status_pago" class="form-control">
-                    <option>ID Status pago</option>
+                    <!-- <option>ID Status pago</option> -->
                     <?php foreach ($status as $statu) : ?>
                         <option value="<?= $statu['id_status_pagos'] ?>"><?= $statu['status_tipo'] ?></option>
                     <?php endforeach; ?>

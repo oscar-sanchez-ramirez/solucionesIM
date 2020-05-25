@@ -5,6 +5,7 @@ html {
 }
 
 body {
+  background-image: url('/img/ecom.jpg') no-repeat center center fixed;
   font-family: "Poppins", sans-serif;
   height: 100vh;
   /* background-color: #d6d6d6; */
@@ -32,7 +33,7 @@ h2 {
 /* STRUCTURE */
 
 .body {
-  background: url('../img/image.jpg') no-repeat center center fixed;
+  background-image: url('./../img/ecom2.jpeg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
