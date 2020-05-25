@@ -40,6 +40,22 @@
             <?= session()->get('danger') ?>
         </div>
     <?php endif; ?>
+    <?php if (session()->get('correo')) : ?>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">
+                &times;
+            </button>
+            <?= session()->get('correo') ?>
+        </div>
+    <?php endif; ?>
+    <?php if (session()->get('FalloCorreo')) : ?>
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">
+                &times;
+            </button>
+            <?= session()->get('FalloCorreo') ?>
+        </div>
+    <?php endif; ?>
 
 </div>
 <div class="container-fluid">
@@ -56,7 +72,7 @@
                     <th scope="col">Concepto</th>
                     <th scope="col">Total</th>
                     <th scope="col">RFC emisor</th>
-                    <th colspan="3">Acciones</th>
+                    <th colspan="4" class="text-center">Administrador</th>
                 </tr>
             </thead>
             <tbody>
@@ -79,6 +95,12 @@
                         <td><?= $orden['orden_concepto'] ?></td>
                         <td>$ <?= $orden['orden_total'] ?></td>
                         <td><?= $orden['orden_RfcEmisorCtaOrd'] ?></td>
+                        <td>
+                            <form action="<?= base_url('admin/emailOrdenes') ?>" method="POST">
+                                <input type="hidden" name="idOrden" value="<?= $orden['id_orden_pagos'] ?>">
+                                <button class="btn btn-success  btn-sm" onclick="return confirm('¿Estas seguro?')"><i class="fas fa-envelope-square"></i></button>
+                            </form>
+                        </td>
                         <td>
                             <form action="<?= base_url('admin/verOrden') ?>" method="POST">
                                 <input type="hidden" name="idOrden" value="<?= $orden['id_orden_pagos'] ?>">

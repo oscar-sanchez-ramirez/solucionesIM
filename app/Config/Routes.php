@@ -45,6 +45,9 @@ $routes->post('/admin/eliminarOrden', 'Admin::eliminarOrden');
 $routes->post('/admin/editarOrden', 'Admin::editarOrden');
 $routes->post('/admin/updateOrdenes', 'Admin::updateOrdenes');
 
+$routes->post('/admin/emailOrdenes', 'Admin::emailOrdenes');
+
+
 
 $routes->get('/admin/listarUsuarios', 'Admin::listarUsuarios');
 $routes->get('/admin/crearUsuario', 'Admin::crearUsuario');
@@ -52,6 +55,8 @@ $routes->post('/admin/saveUsuario', 'Admin::saveUsuario');
 $routes->post('/admin/actualizarUsuario', 'Admin::actualizarUsuario');
 $routes->post('/admin/updateUser', 'Admin::updateUser');
 $routes->post('/admin/deleteUser', 'Admin::deleteUser');
+
+
 
 
 

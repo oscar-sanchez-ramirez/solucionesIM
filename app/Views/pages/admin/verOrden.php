@@ -103,9 +103,9 @@
             </div>
         </div>
     <?php endforeach; ?>
+<br><br>
+</div>
 
-</div>
-</div>
 
 <?= $this->endSection() ?>
 

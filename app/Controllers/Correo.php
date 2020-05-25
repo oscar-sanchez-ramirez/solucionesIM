@@ -17,9 +17,15 @@ class Correo extends BaseController
 {
 	public function index()
 	{
-
-
-		$idOrden = $_GET['id'];;
+		
+		$token = $_GET['token'];
+		// var_dump($token);
+		// die();
+		//$token = 'E7Mm+4+wA4I293Hxf4BVaQ==';
+		$CODE = 'AES-128-ECB';
+        $KEY = 'SolucionesIM';		
+		$idOrden = openssl_decrypt($token, $CODE, $KEY);
+		
 
 		$total = new OrdenpagosModel();
 		$pagoTotal = $total->where('id_orden_pagos', $idOrden)->findColumn('orden_total');

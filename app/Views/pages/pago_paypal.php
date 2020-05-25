@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">
-                    Datos de la orden
+               <h3><i class="fas fa-digital-tachograph">&nbsp;Datos de orden</i></h3> 
                 </div>
                 <div class="card-body">
                     <?php foreach ($pagos as $pago) : ?>
@@ -26,8 +26,8 @@
                         <p>ID: <?= $pago['id_orden_pagos'] ?></p>
                         <p>Calle: <?= $pago['orden_direccion_calle'] ?>, Numero interior: <?= $pago['orden_direccion_numero_interior'] ?>, Numero exterior: <?= $pago['orden_direccion_numero_exterior'] ?></p>
                         <p>Colonia: <?= $pago['orden_direccion_colonia'] ?>, CP: <?= $pago['orden_direccion_cp'] ?></p>
-                        <p>Pais: <?= $pago['orden_direccion_pais'] ?>, Estado: <?= $pago['orden_direccion_estado'] ?> Ciudad: <?= $pago['orden_direccion_ciudad'] ?></p>
-                        <p>Telefono: <?= $pago['orden_direccion_telefono'] ?></p>
+                        <p>País: <?= $pago['orden_direccion_pais'] ?>, Estado: <?= $pago['orden_direccion_estado'] ?> Ciudad: <?= $pago['orden_direccion_ciudad'] ?></p>
+                        <p>Teléfono: <?= $pago['orden_direccion_telefono'] ?></p>
                         <p>Forma requerida: <?= $pago['orden_forma_de_pago_requerido'] ?></p>
                         <hr>
                         <p class="">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
@@ -47,7 +47,7 @@
                 <!-- <h3 class="text-center">Soluciones <span class="text-success">IM</span></h3>
                 
                 <hr class="my-4"> -->
-                <p class="lead text-center">Total a Pagar: <span class="text-danger">$<?= number_format($pagoMes, 2) ?> </span><?= $pago['orden_moneda_de_pago'] ?></p>
+                <p class="lead text-center">Total a pagar: <span class="text-danger"><i class="fas fa-dollar-sign">&nbsp;<?= number_format($pagoMes, 2) ?></i></span>&nbsp;<?= $pago['orden_moneda_de_pago'] ?></p>
                 <hr>
                 <br>
                 <div id="paypal-button-container"></div>
@@ -72,7 +72,7 @@
                 </div>
             <?php endforeach; ?>
             <hr>
-            <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
+            <p class="text-center">Centro de atención telefónica: <i class="fas fa-phone-volume">&nbsp;(55) 5970 6848</i></p>
             </div>
         </div>
     </div>
