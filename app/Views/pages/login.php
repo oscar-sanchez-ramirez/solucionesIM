@@ -9,17 +9,20 @@
     <link rel="icon" href="img/icono.ico" type="image/icon">
     <link rel="stylesheet" href="css/login.css">
     <title>FACTICOM</title>
+    <style>
+       
+    </style>
 </head>
 
-<body style="background-image: url('img/ecom2.jpeg');">
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+<body style="background-image: url('img/ecom2.jpeg')">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #37517e;">
         <div class="container">
             <a class="navbar-brand" href="<?= base_url('/') ?>">
                 <h3 style="color: white">FACTICOM</h3>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> -->
         </div>
     </nav>
 
@@ -63,7 +66,7 @@
     <!-- <p class="text-center">© Copyright 2020 soluciones.com.net</p> -->
 
     <!-- Footer -->
-    <footer class="page-footer font-small bg-info    fixed-bottom">
+    <footer class="page-footer font-small fixed-bottom" style="background-color: #37517e;">
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3 text-white">

@@ -18,6 +18,8 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -51,8 +53,8 @@
         <ul>
           <li class="active"><a href="<?= base_url('/') ?>">INICIO</a></li>
           <li><a href="#about">Nosotros</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="<?= base_url('login') ?>">Iniciar Sesion</a></li>
+          <li><a href="#team">Equipo</a></li>
+          <li><a href="<?= base_url('login') ?>"><i class="fas fa-user">&nbsp;Iniciar Sesión</i></a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -69,7 +71,7 @@
           <h2>El sistema que te garantiza dar una solución a todas tus necesidades de Banca y Facturación Electrónica en un sólo Click</h2>
           <div class="d-lg-flex">
             <a href="#about" class="btn-get-started scrollto">Comenzar</a>
-            <a href="https://www.youtube.com/watch?v=E_WoQPAse_g" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Ver Video <i class="icofont-play-alt-2"></i></a>
+            <a href="https://www.youtube.com/watch?v=XdiBjwJmvEE" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Ver Video <i class="icofont-play-alt-2"></i></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -157,7 +159,7 @@
             <p>Solicita tu cuenta ahora mismo en Soluciones IM y brindanos la confianza de llevarte hasta tu hogar las mejores pasarelas de pago en linea</p>
            </div>
            <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="https://www.solucionesim.net/">Registrate</a>
+            <a class="cta-btn align-middle" href="https://www.solucionesim.net/" target="_blank">Registrate</a>
           </div>
         </div>
 
@@ -171,7 +173,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>TEAM</h2>
+          <h2>EQUIPO</h2>
           <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
 
