@@ -17,7 +17,7 @@
                         <?php if ($pago['id_status_pago'] == 1) : ?>
                             <p class="text-warning">Estatus: <?php echo "Por pagar" ?></p>
                         <?php elseif ($pago['id_status_pago'] == 2) : ?>
-                            <p class="text-primary">Estatus: <?php echo "Aprovado" ?></p>
+                            <p class="text-primary">Estatus: <?php echo "Aprobado" ?></p>
                         <?php elseif ($pago['id_status_pago'] == 3) : ?>
                             <p class="text-success">Estatus: <?php echo "Completado" ?></p>
                         <?php endif; ?>

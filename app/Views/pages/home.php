@@ -6,6 +6,15 @@
     <nav id="sidebar" class="active">
         <h1><a href="index.html" class="logo">F</a></h1>
         <ul class="list-unstyled components mb-5">
+            <li>
+                <a href="#"><span class="fa fa-user"></span><?= session('nombre') ?></a>
+            </li>
+            <li>
+                <a href="<?= base_url('clientes') ?>"><span class="fa fa-credit-card-alt"></span>Cliente</a>
+            </li>
+            <li>
+                <a href="#"><span class="fa fa-bar-chart"></span>Grafica</a>
+            </li>
             <li class="active">
                 <?php foreach ($clientes as $cliente) : ?>
                     <form action="<?= base_url('ordenes') ?>" method="POST">
@@ -14,15 +23,6 @@
                     </form>
                 <?php endforeach; ?>
                 <hr>
-            </li>
-            <li>
-                <a href="<?= base_url('clientes') ?>"><span class="fa fa-credit-card-alt"></span>Cliente</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa fa-bar-chart"></span>Grafica</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa fa-user"></span>Mi cuenta</a>
             </li>
         </ul>
 
