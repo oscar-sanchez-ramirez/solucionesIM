@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="<?= base_url('home') ?>">Soluciones IM</a>
+        <a class="navbar-brand" href="<?= base_url('home') ?>">FACTICOM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,7 +10,7 @@
                     <a class="nav-link" href="<?= base_url('home') ?>"><i class="fas fa-home">&nbspHome</i><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('clientes') ?>"><i class="fas fa-digital-tachograph">&nbspBilletera</i></a>
+                    <a class="nav-link" href="<?= base_url('clientes') ?>"><i class="fas fa-digital-tachograph">&nbspDatos Fiscales</i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"></a>

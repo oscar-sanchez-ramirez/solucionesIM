@@ -5,10 +5,19 @@ html {
 }
 
 body {
+  background-image: url('/img/ecom.jpg') no-repeat center center fixed;
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  /* background-color: #d6d6d6; */
+   background-color: #d6d6d6; 
 }
+
+/* .body {
+  background-image: url('img/fact.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
 
 a {
   color: #92badd;
@@ -16,8 +25,6 @@ a {
   text-decoration: none;
   font-weight: 400;
 }
-
-
 
 h2 {
   text-align: center;
@@ -32,12 +39,11 @@ h2 {
 /* STRUCTURE */
 
 .body {
-  background: url('../img/image.jpg') no-repeat center center fixed;
+  background-image: url("./../img/ecom2.jpeg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-
 }
 .wrapper {
   display: flex;
@@ -171,7 +177,6 @@ input[type="email"]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
-
 
 input[type="email"]:placeholder {
   color: #cccccc;
@@ -309,4 +314,3 @@ input[type="email"]:placeholder {
 #icon {
   width: 60%;
 }
-

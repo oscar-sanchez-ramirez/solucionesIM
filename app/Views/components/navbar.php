@@ -12,7 +12,7 @@
                 <li class="nav-item">
                     <div class="dropdown right">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-friends">&nbspUsuarios</i>
+                            <i class="fas fa-user-friends">&nbspUsuarios</i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" id="Iniciar_sesion" href="<?= base_url('/admin/listarUsuarios') ?>"><i class="fas fa-list">&nbspListar Usuarios</i></a>
@@ -21,7 +21,15 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('admin/crear-ordenes') ?>">Ordenes de pago</a>
+                    <div class="dropdown right">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-money-bill-alt">&nbspOrdenes</i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" href="<?= base_url('admin/listarOrdenes') ?>"><i class="fas fa-list">&nbsplistar Ordenes</i></a>
+                            <a class="nav-link" href="<?= base_url('admin/crearOrdenes') ?>"><i class="fas fa-plus-circle">&nbspCrear Ordenes</i></a>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>

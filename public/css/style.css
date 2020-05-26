@@ -13,6 +13,16 @@
 } */
 
 
+.my-custom-scrollbar {
+  position: relative;
+  height: 500px;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+
 
 .card {
   -webkit-box-shadow: -1px 5px 23px -1px rgba(189, 179, 189, 1);
@@ -30,9 +40,22 @@
   box-shadow: -2px 7px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.sombra-tabla {
-  -webkit-box-shadow: -4px 0px 12px 1px rgba(136, 186, 168, 1);
-  -moz-box-shadow: -4px 0px 12px 1px rgba(136, 186, 168, 1);
-  box-shadow: -4px 0px 12px 1px rgba(136, 186, 168, 1);
+.som-tabla{
+-webkit-box-shadow: -1px 0px 18px 0px rgba(99,109,122,0.88);
+-moz-box-shadow: -1px 0px 18px 0px rgba(99,109,122,0.88);
+box-shadow: -1px 0px 18px 0px rgba(99,109,122,0.88);
 }
 
+
+#carga{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 9999;
+  background: url('/img/giphy14.gif') 50% 50% no-repeat rgb(249, 249, 249);
+  opacity: .8;
+  background-color: black;
+}

@@ -6,32 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
+    <link rel="icon" href="img/icono.ico" type="image/icon">
     <link rel="stylesheet" href="css/login.css">
-    <title>Soluciones IM</title>
+    <title>FACTICOM</title>
+    <style>
+       
+    </style>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body style="background-image: url('img/ecom2.jpeg')">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #37517e;">
         <div class="container">
             <a class="navbar-brand" href="<?= base_url('/') ?>">
-                <h3 style="color: black">Soluciones IM</h3>
+                <h3 style="color: white">FACTICOM</h3>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" id="nosotros" href="#">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="contacto" href="#">Contacto</a>
-                        <!-- <i class="fab fa-adn"></i> -->
-                    </li>
-                </ul>
-            </div>
+            </button> -->
         </div>
     </nav>
 
@@ -59,7 +50,7 @@
 
 
             <!-- Login Form -->
-            <form action="<?= base_url('/perfil') ?>" method="POST">
+            <form action="<?= base_url('/perfil') ?>" method="POST" autocomplete="">
                 <input type="email" id="login" class="fadeIn second" name="correo" placeholder="Correo" required=required>
                 <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" minlength="4" required=required>
                 <input type="submit" class="fadeIn fourth" value="Iniciar sesión">
@@ -72,7 +63,20 @@
 
         </div>
     </div>
-    <p class="text-center">© Copyright 2020 soluciones.com.net</p>
+    <!-- <p class="text-center">© Copyright 2020 soluciones.com.net</p> -->
+
+    <!-- Footer -->
+    <footer class="page-footer font-small fixed-bottom" style="background-color: #37517e;">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-white">
+            © 2020 Copyright: FACTICOM
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -1,4 +1,6 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use CodeIgniter\Model;
 
@@ -25,8 +27,13 @@ class UsuariosModel extends Model
                 'id_rol' => 'required|numeric'
 
         ];
-        protected $validationMessages = [];
+        protected $validationMessages = [
+
+                'email'        => [
+                        'is_unique' => 'Este correo pertenece a otra cuenta'
+                ]
+        ];
+
+
         protected $skipValidation     = false;
 }
-
-
