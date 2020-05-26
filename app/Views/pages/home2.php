@@ -1,64 +1,21 @@
-<?= $this->extend('templates/home') ?>
+<?= $this->extend('templates/inicio') ?>
 <?= $this->section('content') ?>
+<div class="page-wrapper chiller-theme toggled">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+        <i class="fas fa-bars"></i>
+    </a>
 
+    <?= $this->include('components/sideBar') ?>
 
-<div class="wrapper d-flex align-items-stretch">
-    <nav id="sidebar" class="active">
-        <h1><a href="index.html" class="logo">F</a></h1>
-        <ul class="list-unstyled components mb-5">
-            <li class="active">
-                <?php foreach ($clientes as $cliente) : ?>
-                    <form action="<?= base_url('ordenes') ?>" method="POST">
-                        <input type="hidden" name="idCliente" value="<?= $cliente['id_clientes'] ?>">
-                        <button type="submit" class="btn btn-primary btn-block btn-sm"><span class="fa fa-shopping-cart"></span> Ordenes</button>
-                    </form>
-                <?php endforeach; ?>
-                <hr>
-            </li>
-            <li>
-                <a href="<?= base_url('clientes') ?>"><span class="fa fa-credit-card-alt"></span>Cliente</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa fa-bar-chart"></span>Grafica</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa fa-user"></span>Mi cuenta</a>
-            </li>
-        </ul>
+    <!-- sidebar-wrapper  -->
+    <main class="page-content">
 
-        <div class="footer">
-            <p class="text-center">
-                Bienvenido
-            </p>
-        </div>
-    </nav>
+        <div class="container-fluid">
 
-    <!-- Page Content  -->
-    <div id="content" class="p-4 p-md-5">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                    <i class="fa fa-bars"></i>
-                    <span class="sr-only">Toggle Menu</span>
-                </button>
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="<?= base_url('/perfil/signout') ?>">Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="form-group col-md-12">
+                <h1 class="text-center"><strong>FACTICOM</strong></h1>
             </div>
-        </nav>
 
-        <h2 class="mb-4 text-center">FACTICOM</h2>
-        <div class="container">
             <div class="row">
                 <div class="col col-md-4">
                     <?php if (session()->get('correo')) : ?>
@@ -78,9 +35,13 @@
                         </div>
                     <?php endif; ?>
                 </div>
+
+
             </div>
+            <h5><i class="fas fa-cart-arrow-down">&nbspPasarelas de pagos con las que contamos</i></h5>
+            <hr>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                     <div class="card rounded-0 p-0 shadow-sm">
                         <img src="img/stripe.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
                         <div class="card-body text-center">
@@ -90,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                     <div class="card rounded-0 p-0 shadow-sm">
                         <img src="img/payu.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
                         <div class="card-body text-center">
@@ -100,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                     <div class="card rounded-0 p-0 shadow-sm">
                         <img src="img/paypal.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
                         <div class="card-body text-center">
@@ -113,7 +74,8 @@
             </div>
         </div>
 
-    </div>
+    </main>
+    <!-- page-content" -->
 </div>
-
+<!-- page-wrapper -->
 <?= $this->endSection() ?>

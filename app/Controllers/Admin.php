@@ -199,9 +199,9 @@ class Admin extends BaseController
 
 
         if ($model->update($id, $data) === false) {
-            return redirect()->to('/admin/listarOrdenes')->with('danger', 'No se pudo actualizar el usuario');
+            return redirect()->to('/admin/listarOrdenes')->with('danger', 'No se pudo actualizar la orden');
         } else {
-            return redirect()->to('/admin/listarOrdenes')->with('success', 'Usuario actualizado con exito');
+            return redirect()->to('/admin/listarOrdenes')->with('success', 'Orden actualizada con exito');
         }
     }
 
