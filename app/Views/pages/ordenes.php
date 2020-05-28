@@ -24,7 +24,7 @@
             <?php if ($orden['id_status_pago'] == 1) : ?>
               <td class="text-warning"><?php echo "Por pagar" ?></td>
             <?php elseif ($orden['id_status_pago'] == 2) : ?>
-              <td class="text-primary"><?php echo "Aprovado" ?></td>
+              <td class="text-primary"><?php echo "Aprobado" ?></td>
             <?php elseif ($orden['id_status_pago'] == 3) : ?>
               <td class="text-success"><?php echo "Completado" ?></td>
             <?php elseif ($orden['id_status_pago'] == 4) : ?>

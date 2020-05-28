@@ -107,7 +107,7 @@ class Pagos extends BaseController
 			$dompdf->render();
 
 			// Salida del PDF generador al navegador
-			$dompdf->stream($filename . ".pdf", array("Attachment" => 1));
+			$dompdf->stream($filename . ".pdf", array("Attachment" => true));
 
 			return true;
 		}

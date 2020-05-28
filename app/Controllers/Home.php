@@ -9,9 +9,7 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		if ($this->session->logged_in) {
-			return redirect()->to('/home');
-		}
+		
 		return view('inicio');
 	}
 
