@@ -101,7 +101,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading" id="accordion">
                             <p class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><i class="fas fa-plus-circle fa-2x"></i></a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><i class="fas fa-plus-circle fa-2x" ></i></a>
                             </p>
                         </div>
                         <div id="collapse1" class="panel-collapse collapse">
@@ -224,6 +224,8 @@
         </div>
 </div>
 <br><br>
+
+
 
 
 <?= $this->endSection() ?>

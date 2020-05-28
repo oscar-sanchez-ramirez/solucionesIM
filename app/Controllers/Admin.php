@@ -139,15 +139,15 @@ class Admin extends BaseController
 
         
         $email = Services::email();
-        $email->setFrom('cnavarro@solucionesim.net', 'Soluciones IM');
+        $email->setFrom('facturacion@c1550361.ferozo.com', 'Soluciones IM');
         $email->setTo($correo);
-        $email->setSubject('Soluciones IM, Comprobante');
+        $email->setSubject('Soluciones IM, Fecha de pago');
         $email->setMessage(view('pages/admin/admin_correo', $data));
 
         if($email->send()){
-            return redirect()->to('/admin/listarOrdenes')->with('correo', 'Correo envíado con exito');
+            return redirect()->to(base_url('admin/listarOrdenes'))->with('correo', 'Correo envíado con exito');
         }else{
-            return redirect()->to('/admin/listarOrdenes')->with('FalloCorreo', 'Fallo al envío de correo');
+            return redirect()->to(base_url('admin/listarOrdenes'))->with('FalloCorreo', 'Fallo al envío de correo');
         }
 
 
@@ -199,9 +199,9 @@ class Admin extends BaseController
 
 
         if ($model->update($id, $data) === false) {
-            return redirect()->to('/admin/listarOrdenes')->with('danger', 'No se pudo actualizar la orden');
+            return redirect()->to('listarOrdenes')->with('danger', 'No se pudo actualizar la orden');
         } else {
-            return redirect()->to('/admin/listarOrdenes')->with('success', 'Orden actualizada con exito');
+            return redirect()->to('listarOrdenes')->with('success', 'Orden actualizada con exito');
         }
     }
 
@@ -276,7 +276,7 @@ class Admin extends BaseController
                 $data = ['rols' => $model->orderBy('id', 'desc')->findAll(), 'title' => 'Usuarios', 'msj' => $msj];
                 return view('pages/admin/formularios/form_usuarios', $data);
             } else {
-                return redirect()->to('/admin/listarUsuarios')->with('successUsr', 'Usuario creado con exito');
+                return redirect()->to('listarUsuarios')->with('successUsr', 'Usuario creado con exito');
             }
         }
         return redirect()->to(base_url('login'));
@@ -323,9 +323,9 @@ class Admin extends BaseController
 
 
             if ($model->update($id, $data) === false) {
-                return redirect()->to('/admin/listarUsuarios')->with('danger', 'No se pudo actualizar el usuario');
+                return redirect()->to('listarUsuarios')->with('danger', 'No se pudo actualizar el usuario');
             } else {
-                return redirect()->to('/admin/listarUsuarios')->with('success', 'Usuario actualizado con exito');
+                return redirect()->to('listarUsuarios')->with('success', 'Usuario actualizado con exito');
             }
         }
         return redirect()->to(base_url('login'));

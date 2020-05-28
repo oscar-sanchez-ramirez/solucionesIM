@@ -89,7 +89,7 @@ class Confirmacion extends BaseController
 
         $email = Services::email();
 
-        $email->setFrom('cnavarro@solucionesim.net', 'Soluciones IM');
+        $email->setFrom('facturacion@c1550361.ferozo.com', 'Soluciones IM');
         $email->setTo($correo);
         $email->setSubject('Soluciones IM, Comprobante');
         $email->setMessage(view('pages/confirmacion', $data));

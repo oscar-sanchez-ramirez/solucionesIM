@@ -18,11 +18,11 @@ class Perfil extends BaseController
         $user = $model->where('email', $inUser)->first();
 
         if ($user === null) {
-            return redirect()->to('/login');
+            return redirect()->to('login');
         } else {
             if (!password_verify($inPass, $user['password'])) {
                 
-                return redirect()->to('/login')->with('error', 'Tu cuenta o contraseña no es correcta');
+                return redirect()->to('login')->with('error', 'Tu cuenta o contraseña no es correcta');
             }
             $user['logged_in'] = true;
             $this->session->set($user);
@@ -31,17 +31,17 @@ class Perfil extends BaseController
                 if ($user['email'] === 'admin@solucionesim.net') {
                     $user['logged_admin'] = true;
                     $this->session->set($user);
-                    return redirect()->to('/admin');
+                    return redirect()->to('admin');
                 }
             }
-            return redirect()->to('/home');
+            return redirect()->to('home');
         }
     }
 
     public function signout()
     {
         $this->session->destroy();
-        return redirect()->to('/login');
+        return redirect()->to(base_url('login'));
     }
     
 }
