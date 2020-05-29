@@ -13,3 +13,13 @@ function fecha_formato_humano($fecha = "")
 
   return $arr_fecha[2] . " de " . $arr_meses[$arr_fecha[1] - 1] . " del " . $arr_fecha[0];
 }
+
+
+function vencer($fecha = ""){
+  if ($fecha == "")
+  return false;
+
+  $vencimiento =  date("Y-m-d",strtotime($fecha."+ 10 days"));
+
+  return $vencimiento;
+}

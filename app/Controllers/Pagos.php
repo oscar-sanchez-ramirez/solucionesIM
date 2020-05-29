@@ -31,6 +31,9 @@ class Pagos extends BaseController
 			$concepto = $total->where('id_orden_pagos', $idOrden)->findColumn('orden_concepto');
 			$concepto_R = $concepto[0];
 			$idVenta = (int) $idVe[0];
+			
+			
+			
 
 			$idCliente = $total->where('id_orden_pagos', $idOrden)->findColumn('id_clientes');
 			$cliente = new ClientesModel();

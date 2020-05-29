@@ -122,6 +122,7 @@ class Admin extends BaseController
 
         $model = new OrdenpagosModel();
         $idCliente = $model->where('id_orden_pagos', $idOrden)->findColumn('id_clientes');
+        
 
         $cliente = new ClientesModel();
         $correo_cliente = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_direccion_email');
