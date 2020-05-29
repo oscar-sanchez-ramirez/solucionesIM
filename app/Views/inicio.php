@@ -12,7 +12,7 @@
   <!-- Favicons -->
   <link rel="icon" href="img/icono.ico" type="image/icon">
 
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://www.solucionesim.net/imgusr/logo_solucionesim.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -124,39 +124,47 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Sobre nosotros</h2>
+          <h2>Información</h2>
         </div>
-
         <div class="row content">
           <div class="col-lg-6">
-            <!-- <p>
-            Nos dedicamos a la administracion de los pagos de nuestros clientes al llevarles un control echas por nuestras pasarelas de pagos.
-            </p> -->
-            <ul>
-              <li><i class="ri-check-double-line"></i>PayPal</li>
-              <li><i class="ri-check-double-line"></i>Stripe</li>
-              <li><i class="ri-check-double-line"></i>PayU</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
+            <h3>¿Que es la banca electrónica?</h3>
             <p>
-            <!-- ¿Buscas alguna función en específico para tu sitio web o tienda en línea? Contamos con programadores especializados en desarrollo de web a la medida. -->
+              Es un servicio telemático prestado por las entidades financieras,
+              permitiendo que los clientes realicen operaciónes y transacciones
+              en tiempo real de forma autónoma, independiente, segura y rapída.
             </p>
-            <!-- <a href="#" class="btn-learn-more">Learn More</a> -->
+
+          </div>
+          <div class="col-lg-6">
+            <h3>Ventajas</h3>
+            <ul>
+              <li><i class="ri-check-double-line"></i>Rapidez y ahorro de tiempo</li>
+              <li><i class="ri-check-double-line"></i>Transparencia en la información</li>
+              <li><i class="ri-check-double-line"></i>Comodidad y disponibilidad las 24 horas del día</li>
+              <li><i class="ri-check-double-line"></i>Ahorro en costes tanto para el banco como para el cliente</li>
+            </ul>
           </div>
         </div>
 
       </div>
     </section><!-- End About Us Section -->
 
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
+   <!-- ======= Cta Section ======= -->
+   <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
 
         <div class="row">
            <div class="col-lg-9 text-center text-lg-left">
-            <h3>La manera más inteligente de hacer tus pagos  </h3>
-            <p>Solicita tu cuenta ahora mismo en Soluciones IM y brindanos la confianza de llevarte hasta tu hogar las mejores pasarelas de pago en linea</p>
+            <h3>FATICOM</h3> 
+            <p>Nos dedicamos a la administración de nuestros clientes al llevarles seguridad y control sobre sus pagos que realizan en el sistema.
+              Contamos con las mejores pasarelas de pagos del mercado actual junto a Soluciones IM buscamos la manera mas rapida de hacer esto posible.
+            </p>
+            <p><i class="ri-check-double-line"></i>PayPal</p>
+          <p><i class="ri-check-double-line"></i>Stripe</p>
+          <p><i class="ri-check-double-line"></i>PayU</p>
+            
+            
            </div>
            <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="https://www.solucionesim.net/" target="_blank">Registrate</a>
@@ -222,8 +230,8 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  
-  <footer id="footer">  
+
+  <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
         &copy; Derechos de autor <strong><span>FACTICOM</span></strong>.Todos los derechos reservados

@@ -2,8 +2,9 @@
 <?= $this->section('content') ?>
 
 
+
 <div class="container margen">
-<h3 class="text-center"><i class="fas fa-shopping-cart fa-2x"></i></h3>
+  <h3 class="text-center"><i class="fas fa-shopping-cart fa-2x"></i></h3>
   <input class="form-control col-md-3 light-table-filter " data-table="order-table" type="text" placeholder="Buscar..">
   <div class="table-wrapper-scroll-y my-custom-scrollbar som-tabla margen">
     <table class="order-table table table-bordered table-hover w-auto">
@@ -19,7 +20,7 @@
         <?php foreach ($ordenes as $orden) : ?>
           <tr>
             <td><?= $orden['id_orden_pagos'] ?></td>
-            <td><?= $orden['orden_fecha_pago'] ?></td>
+            <td><?= fecha_formato_humano($orden['orden_fecha_pago']); ?></td>
 
             <?php if ($orden['id_status_pago'] == 1) : ?>
               <td class="text-warning"><?php echo "Por pagar" ?></td>

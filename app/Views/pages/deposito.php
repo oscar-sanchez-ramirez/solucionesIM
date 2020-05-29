@@ -153,14 +153,16 @@
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
         }
-        
-        
+
+        .id_fact {
+            text-align: center;
+        }
     </style>
 
 </head>
 
 <body>
-<br><br><br><br>
+    <br><br><br><br>
     <div id="page_pdf">
         <?php foreach ($ordenes as $orden) : ?>
 
@@ -168,13 +170,18 @@
                 <tr>
                     <td class="col-sm-4">
                         <div>
-                            <span class="h2">FACTICOM </span>
+                            <img src="assets/img/clients/Soluciones.png" alt="" width="200px">
                         </div>
                     </td>
+                    <!-- <td class="col-sm-4">
+                        <div>
+                            <span class="h2">FACTICOM </span>
+                        </div>
+                    </td> -->
                     <td class="col-sm-4">
                         <div class="round">
-                            <span class="h3">Ficha de Deposito</span>
-                                <p class="label_gracias"><?= $orden['id_orden_pagos'] ?></p>
+                            <span class="h3">Ficha de Depósito</span>
+                            <p class="id_fact"><?= $orden['id_orden_pagos'] ?></p>
                         </div>
                     </td>
                 </tr>
@@ -214,7 +221,7 @@
                                 <tr>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Codigo postal: <?= $orden['orden_direccion_cp'] ?></p>
+                                            <p>Código postal: <?= $orden['orden_direccion_cp'] ?></p>
                                         </div>
                                     </td>
                                     <td>
@@ -244,7 +251,19 @@
                                     </td>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Moneda : <?= $orden['orden_moneda_de_pago'] ?></p>
+                                            <p>Moneda : <?= strtoupper($orden['orden_moneda_de_pago']) ?></p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <p>Subtotal: <?= $orden['orden_subtotal'] ?></p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <p>Total a pagar: <b><?= number_format($orden['orden_total'], 2) ?></b></p>
                                         </div>
                                     </td>
                                 </tr>
@@ -262,27 +281,40 @@
                                 <tr>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Subtotal: <?= $orden['orden_subtotal'] ?></p>
+                                            <p>Nombre: Soluciones IM.net, S.A. de C.V.</p>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Total a pagar: <?= $orden['orden_total'] ?></p>
+                                            <p>Banco: Banamex</p>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Cuenta: 43456 35678 94512 45321</p>
+                                            <p> No. de cuenta: 2027618</p>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Referencia: Soluciones IM</p>
+                                            <p>No. de Sucursal: 7003</p>
                                         </div>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <p>CLABE: 002180700320276185</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <p></p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            
                             </table>
                         </div>
                     </td>
@@ -294,9 +326,11 @@
 
         <div>
             <p class="label_gracias">
-                San Pablo Iztapalapa Calle.Estrella #4 102-B <br>
-                Teléfono: +(52)59706848 <br>
-                correo: cnavarro@solucionesim.net
+                Teléfono: +(52)55 5970-6848 <br>
+                WhatsApp 55 1262 3929 <br>
+                contacto@solucionesim.net <br>
+                Calle Estrella #4, int 102B, San Pablo, <br>
+                Iztapalapa, México CDMX, CP 09000.
             </p>
         </div>
     </div>

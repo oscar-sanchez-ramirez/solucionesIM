@@ -30,7 +30,7 @@
                         <p>Teléfono: <?= $pago['orden_direccion_telefono'] ?></p>
                         <p>Forma requerida: <?= $pago['orden_forma_de_pago_requerido'] ?></p>
                         <hr>
-                        <p class="">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
+                        <p class="">Fecha a pagar: <?= fecha_formato_humano($pago['orden_fecha_pago']); ?></p>
                         <p class="">Monto: $<?= number_format($pago['orden_monto'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
                         <p class="">Subtotal: $<?= number_format($pago['orden_subtotal'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
                         <p class="card-title">Concepto: <?= $pago['orden_concepto'] ?></p>

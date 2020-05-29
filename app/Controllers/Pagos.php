@@ -95,7 +95,7 @@ class Pagos extends BaseController
 
 			$data = ['title' => 'Referencia', 'id' => $idOrden, 'ordenes' => $ordenes];
 
-			$filename = 'comprobante_pago';
+			$filename = 'ficha_deposito';
 			// instanciar y usar la clase dompdf
 			$dompdf = new DOMPDF();
 			$dompdf->loadHtml(view('pages/deposito', $data));
