@@ -223,7 +223,7 @@
         </div>
       </div>
     </section><!-- End Team Section -->
-
+    
 
 
 
@@ -245,6 +245,9 @@
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
 
+  <!-- Código de instalación Cliengo para oscar_sr_609@hotmail.com --> 
+  <!-- <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/5ed33c7da4bd89002af28bd7/5ed33c7ea4bd89002af28bda.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script> -->
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -258,6 +261,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  
 
 </body>
 

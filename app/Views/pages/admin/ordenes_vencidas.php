@@ -13,51 +13,8 @@
     }
 </style>
 <br>
-<h1 class="text-center margen"><i class="fas fa-shopping-cart fa-2x"></i></h1>
+<h1 class="text-center margen"><i class="fas fa-times fa-2x"> <i class="fas fa-shopping-cart"></i></i></h1>
 <br>
-<div class="container">
-    <?php if (session()->get('delete')) : ?>
-        <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert">
-                &times;
-            </button>
-            <?= session()->get('delete') ?>
-        </div>
-    <?php endif; ?>
-    <?php if (session()->get('success')) : ?>
-        <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">
-                &times;
-            </button>
-            <?= session()->get('success') ?>
-        </div>
-    <?php endif; ?>
-    <?php if (session()->get('danger')) : ?>
-        <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert">
-                &times;
-            </button>
-            <?= session()->get('danger') ?>
-        </div>
-    <?php endif; ?>
-    <?php if (session()->get('correo')) : ?>
-        <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">
-                &times;
-            </button>
-            <?= session()->get('correo') ?>
-        </div>
-    <?php endif; ?>
-    <?php if (session()->get('FalloCorreo')) : ?>
-        <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert">
-                &times;
-            </button>
-            <?= session()->get('FalloCorreo') ?>
-        </div>
-    <?php endif; ?>
-
-</div>
 <div class="container-fluid">
     <input class="form-control col-md-3 light-table-filter " data-table="order-table" type="text" placeholder="Buscar..">
     <br>
@@ -77,8 +34,7 @@
             </thead>
             <tbody>
                 <?php foreach ($ordenes as $orden) : ?>
-                    <?php if($fecha_actual <=  strtotime(vencer($orden['orden_fecha_pago']))) : ?>
-
+                    <?php if($fecha_actual >  strtotime(vencer($orden['orden_fecha_pago']))) : ?>
                     <tr>
                         <td><?= $orden['id_orden_pagos'] ?></td>
                         <td><?= $orden['id_clientes'] ?></td>

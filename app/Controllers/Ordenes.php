@@ -20,12 +20,22 @@ class Ordenes extends BaseController
             $req = Services::request();
             $idCliente = $req->getPost('idCliente');
 
+
             $model = new OrdenpagosModel();
             $ordenes = $model->where('id_clientes', $idCliente)->orderBy('orden_fecha_pago', 'desc')->findAll();
+            $fecha = $model->where('id_orden_pagos', $idCliente)->findColumn('orden_fecha_pago');
+
+            $fecha_actual = strtotime(date("Y-m-d", time()));
+            $fecha_entrada =  strtotime(vencer($fecha[0]));
+             
+
             // $paginator = $model->pager;
             // $paginator->setPath('ordenes');
 
-            $data = ['ordenes' => $ordenes, 'title' => 'Ordenes de pago'];
+            $data = [
+                'ordenes' => $ordenes, 'title' => 'Ordenes de pago',
+                'fecha_actual' => $fecha_actual, 'fecha_entrada' => $fecha_entrada
+            ];
 
             return view('pages/ordenes', $data);
         }

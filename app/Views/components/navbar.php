@@ -27,6 +27,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="nav-link" href="<?= base_url('admin/listarOrdenes') ?>"><i class="fas fa-list">&nbsplistar Ordenes</i></a>
+                            <a class="nav-link" href="<?= base_url('admin/vencidasOrdenes') ?>"><i class="fas fa-list">&nbspOrden Vencida</i></a>
                             <a class="nav-link" href="<?= base_url('admin/crearOrdenes') ?>"><i class="fas fa-plus-circle">&nbspCrear Ordenes</i></a>
                         </div>
                     </div>

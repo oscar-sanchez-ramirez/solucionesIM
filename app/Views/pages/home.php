@@ -24,6 +24,15 @@
                 <?php endforeach; ?>
                 <hr>
             </li>
+            <li class="active">
+                <?php foreach ($clientes as $cliente) : ?>
+                    <form action="<?= base_url('comprobantes') ?>" method="POST">
+                        <input type="hidden" name="idCliente" value="<?= $cliente['id_clientes'] ?>">
+                        <button type="submit" class="btn btn-primary btn-block btn-sm"><span class="fa fa-ticket"></span> Tickets</button>
+                    </form>
+                <?php endforeach; ?>
+                <hr>
+            </li>
         </ul>
 
         <div class="footer">
@@ -77,6 +86,30 @@
                             <p class="text-center"><?= session()->get('correoFallo') ?></p>
                         </div>
                     <?php endif; ?>
+                    <?php if (session()->get('status')) : ?>
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">
+                                &times;
+                            </button>
+                            <p class="text-center"><?= session()->get('status') ?></p>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (session()->get('comprobante')) : ?>
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">
+                                &times;
+                            </button>
+                            <?= session()->get('comprobante') ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (session()->get('comprobanteError')) : ?>
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">
+                                &times;
+                            </button>
+                            <?= session()->get('comprobanteError') ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="row">
@@ -89,8 +122,8 @@
                             <a href="https://www.paypal.com/mx/webapps/mpp/account-selection" target="_blank" class="btn btn-success btn-sm">Registro</a>
                         </div>
                     </div>
-                </div>            
-               
+                </div>
+
                 <div class="col-md-4">
                     <div class="card rounded-0 p-0 shadow-sm">
                         <img src="img/payu.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
@@ -101,7 +134,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-4">
                     <div class="card rounded-0 p-0 shadow-sm">
                         <img src="img/stripe.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
