@@ -15,6 +15,12 @@
             <li>
                 <a href="#"><span class="fa fa-bar-chart"></span>Grafica</a>
             </li>
+            <li>
+                <a href="<?= base_url('comprobantes/subir') ?>"><span class="fa fa-upload"></span>Archivo</a>
+            </li>
+            <li>
+                <a href="<?= base_url('comprobantes/ver') ?>"><span class="fa fa-file"></span>Archivos</a>
+            </li>
             <li class="active">
                 <?php foreach ($clientes as $cliente) : ?>
                     <form action="<?= base_url('ordenes') ?>" method="POST">

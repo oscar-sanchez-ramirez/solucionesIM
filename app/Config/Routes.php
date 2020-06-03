@@ -91,6 +91,10 @@ $routes->get('/comprobantes/show', 'Comprobantes::show');
 $routes->get('/comprobantes/pdf', 'Comprobantes::pdf');
 $routes->get('/comprobantes/email', 'Comprobantes::email');
 $routes->get('/comprobantes/subir', 'Comprobantes::subir');
+$routes->get('/comprobantes/guardar', 'Comprobantes::guardar');
+$routes->get('/comprobantes/ver', 'Comprobantes::ver');
+
+
 
 
 

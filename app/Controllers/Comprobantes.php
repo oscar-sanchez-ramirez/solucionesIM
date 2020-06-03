@@ -5,6 +5,9 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ComprobantesModel;
 use App\Models\ClientesModel;
+use App\Models\OrdenpagosModel;
+use App\Models\ArchivosModel;
+
 
 
 use Dompdf\Dompdf;
@@ -70,8 +73,10 @@ class Comprobantes extends BaseController
 
 
 
-            $data = ['title' => 'Comprobante', 'comprobantes' => $comprobantes, 'id' => $comprobantes_id,
-                      'nombre' => $nombre, 'apellidos' => $apellidos, 'correo' => $correo ];
+            $data = [
+                'title' => 'Comprobante', 'comprobantes' => $comprobantes, 'id' => $comprobantes_id,
+                'nombre' => $nombre, 'apellidos' => $apellidos, 'correo' => $correo
+            ];
 
             $filename = 'comprobante_solucionesIM';
             // instanciar y usar la clase dompdf
@@ -131,7 +136,60 @@ class Comprobantes extends BaseController
         }
     }
 
-    public function subir(){
-        return "Subir";
+    public function subir()
+    {
+
+        $data = ['title' => "Comprobantes"];
+        return view('pages/subir', $data);
+    }
+
+    public function guardar()
+    {
+        $model = new ArchivosModel();
+        $req = Services::request();
+
+        $descripcion = $req->getPost('archivos_descripcion');
+        $usuario = $req->getPost('id_usuario');
+        $file = $req->getFile('archivos_file');
+
+
+        // $fileName = $file->getRandomName();
+        $carpeta = './uploads/comprobantes/';
+
+
+
+        if (!is_dir($carpeta)) {
+            mkdir($carpeta, 0755, true);
+        }
+
+        $nombre = $_FILES['archivos_file']['name'];
+
+
+        if (isset($_FILES['archivos_file'])) {
+            move_uploaded_file($file->getTempName(), "{$carpeta}/{$nombre}");
+
+            $data['id_usuario'] = $usuario;
+            $data['archivos_descripcion'] = $descripcion;
+            $data['archivos_file'] = $nombre;
+
+
+            if ($model->save($data)) {
+                return redirect()->to('ver');
+            }
+        } else {
+            return redirect()->back()->with('archivo', 'Error al subir el archivo');
+        }
+    }
+
+    public function ver()
+    {
+
+        $id = session('id');
+        $model = new ArchivosModel();
+        $archivos = $model->where('id_usuario', $id)->findAll();
+
+        $data = ['title' => "Comprobantes", 'archivos' => $archivos];
+
+        return view('pages/archivos', $data);
     }
 }
