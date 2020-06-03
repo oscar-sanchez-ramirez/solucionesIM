@@ -93,6 +93,8 @@ $routes->get('/comprobantes/email', 'Comprobantes::email');
 $routes->get('/comprobantes/subir', 'Comprobantes::subir');
 $routes->get('/comprobantes/guardar', 'Comprobantes::guardar');
 $routes->get('/comprobantes/ver', 'Comprobantes::ver');
+$routes->get('/comprobantes/delete', 'Comprobantes::delete');
+
 
 
 

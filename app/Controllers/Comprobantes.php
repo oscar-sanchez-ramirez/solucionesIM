@@ -192,4 +192,25 @@ class Comprobantes extends BaseController
 
         return view('pages/archivos', $data);
     }
+
+    public function delete()
+    {
+        
+
+        $req = Services::request();
+        $id = $req->getPost('id');
+        $model = new ArchivosModel();
+        $nombre = $model->where('id_archivos', $id)->findColumn('archivos_file');
+        
+        $carpeta = './uploads/comprobantes';
+        if(is_file("$carpeta/$nombre[0]")){
+        if (unlink("$carpeta/$nombre[0]")) {
+            
+             $model->delete($id);
+             return redirect()->back()->with('success', 'Comprobante eliminado');
+         }
+        }
+         $model->delete($id);
+         return redirect()->back()->with('danger', 'Comprobante no eliminado');
+    }
 }

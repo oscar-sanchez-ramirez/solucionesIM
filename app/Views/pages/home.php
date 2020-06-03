@@ -25,7 +25,7 @@
                 <?php foreach ($clientes as $cliente) : ?>
                     <form action="<?= base_url('ordenes') ?>" method="POST">
                         <input type="hidden" name="idCliente" value="<?= $cliente['id_clientes'] ?>">
-                        <button type="submit" class="btn btn-primary btn-block btn-sm"><span class="fa fa-shopping-cart"></span> Ordenes</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-sm"><span class="fa fa-shopping-cart fa-2x"></span> Ordenes</button>
                     </form>
                 <?php endforeach; ?>
                 <hr>
@@ -34,7 +34,7 @@
                 <?php foreach ($clientes as $cliente) : ?>
                     <form action="<?= base_url('comprobantes') ?>" method="POST">
                         <input type="hidden" name="idCliente" value="<?= $cliente['id_clientes'] ?>">
-                        <button type="submit" class="btn btn-primary btn-block btn-sm"><span class="fa fa-ticket"></span> Tickets</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-sm"><span class="fa fa-ticket fa-2x"></span> Tickets</button>
                     </form>
                 <?php endforeach; ?>
                 <hr>
