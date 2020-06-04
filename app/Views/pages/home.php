@@ -74,8 +74,8 @@
 
         <!-- <h2 class="mb-4 text-center">FACTICOM</h2> -->
         <div class="container">
-            <div class="row">
-                <div class="col col-md-4">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
                     <?php if (session()->get('correo')) : ?>
                         <div class="alert alert-success">
                             <button type="button" class="close" data-dismiss="alert">
@@ -118,7 +118,7 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center margen">
                 <div class="col-sm-8">
                     <div id="carouselExampleControls" class="carousel slide sombra" data-ride="carousel">
                         <div class="carousel-inner">

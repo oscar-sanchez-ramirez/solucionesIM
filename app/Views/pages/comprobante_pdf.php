@@ -286,6 +286,10 @@
         </div>
     </div>
 
+    <script>
+        alert("Tu comprobante fue guardado con exito");
+    </script>
+
 </body>
 
 </html>

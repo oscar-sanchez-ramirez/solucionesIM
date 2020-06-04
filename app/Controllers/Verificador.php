@@ -135,7 +135,7 @@ class Verificador extends BaseController
 					}
 					if ($model->update($ClaveVenta, $data)) {
 						$state = 3;
-			             $datos['comprobantes_status'] = $state = 3;
+			             $datos['comprobantes_status'] = $state;
 
                          if($comprobantes->save($datos)){
                              return redirect()->to('home')->with('comprobante', 'Comprobante guardado con exito');
