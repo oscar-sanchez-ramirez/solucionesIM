@@ -39,6 +39,15 @@
                     <i class="fas fa-exclamation-triangle"></i>&nbsp<?= session()->get('error') ?>
                 </div>
             <?php endif; ?>
+            <?php if (session()->get('correo')) : ?>
+                <div class="alert alert-danger">
+
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;
+                    </button>
+                    <i class="fas fa-exclamation-triangle"></i>&nbsp<?= session()->get('correo') ?>
+                </div>
+            <?php endif; ?>
         </div>
         <div id="formContent">
             <!-- Tabs Titles -->
@@ -76,6 +85,7 @@
 
     </footer>
     <!-- Footer -->
+
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -5,7 +5,39 @@
 <div id="carga"></div>
 
 <div class="container margen">
+    <p class="text-center text-danger"><?= "Fecha límite de pago: " . fecha_formato_humano(vencer($fecha)); ?></p> <br>
     <div class="row">
+        <div class="col-md-4">
+            <div class="jumbotron sombra">
+                <p class="lead text-center">Pagar: <span class="text-danger">$<?= number_format($pagoMes, 2) ?> </span><?= $moneda ?></p>
+                <hr>
+                <br>
+                <div id="paypal-button-container"></div>
+                <hr class="my-4">
+                <div class="text-center">
+                    <form action="<?= base_url('correo/tarjeta') ?>" method="POST">
+                        <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fab fa-cc-stripe">&nbspPagar con Stripe</i></button>
+                    </form>
+                </div>
+                <hr class="my-4">
+
+                <?= $this->include('components/correo_payu') ?>
+
+
+                <hr>
+
+                <div class="text-center">
+                    <form action="<?= base_url('correo/deposito') ?>" method="POST">
+                        <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
+                        <button type="submit" class="btn btn-secondary btn-lg btn-block"><i class="far fa-file-pdf">&nbspFicha de Deposito</i></button>
+                    </form>
+                </div>
+
+                <hr>
+                <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
+            </div>
+        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">
@@ -30,54 +62,19 @@
                         <p>Telefono: <?= $pago['orden_direccion_telefono'] ?></p>
                         <p>Forma requerida: <?= $pago['orden_forma_de_pago_requerido'] ?></p>
                         <hr>
-                        <p class="">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
+                        <p class="">Fecha a pagar: <?= fecha_formato_humano($pago['orden_fecha_pago']); ?></p>
                         <p class="">Monto: $<?= number_format($pago['orden_monto'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
                         <p class="">Subtotal: $<?= number_format($pago['orden_subtotal'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
                         <p class="card-title">Concepto: <?= $pago['orden_concepto'] ?></p>
-
-
                         <hr>
                         <h4 class="card-text text-primary text-right">Total a pagar: $<?= number_format($pago['orden_total'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></h4>
-
+                    <?php endforeach; ?>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="jumbotron sombra">
-                <!-- <h3 class="text-center">Soluciones <span class="text-success">IM</span></h3>
-                
-                <hr class="my-4"> -->
-                <p class="lead text-center">Pagar: <span class="text-danger">$<?= number_format($pagoMes, 2) ?> </span><?= $pago['orden_moneda_de_pago'] ?></p>
-                <hr>
-                <br>
-                <div id="paypal-button-container"></div>
-                <hr class="my-4">
-                <div class="text-center">
-                    <form action="<?= base_url('correo/tarjeta') ?>" method="POST">
-                        <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fab fa-cc-stripe">&nbspPagar con Stripe</i></button>
-                    </form>
-                </div>
-                <hr class="my-4">
-
-                <?= $this->include('components/correo_payu') ?>
-
-
-                <hr>
-
-                <div class="text-center">
-                    <form action="<?= base_url('correo/deposito') ?>" method="POST">
-                        <input type="hidden" value="<?= $idVenta ?>" name="id_orden_stripe">
-                        <button type="submit" class="btn btn-secondary btn-lg btn-block"><i class="far fa-file-pdf">&nbspFicha de Deposito</i></button>
-                    </form>
-                </div>
-            <?php endforeach; ?>
-            <hr>
-            <p class="text-center">Centro de atención telefonica: <br> (55) 5970 6848</p>
             </div>
         </div>
     </div>
 </div>
+
 
 
 <script>

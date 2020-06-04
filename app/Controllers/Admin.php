@@ -33,11 +33,31 @@ class Admin extends BaseController
         if ($this->session->logged_admin) {
 
             $model = new OrdenpagosModel();
+            $fecha_actual = strtotime(date("Y-m-d", time()));
 
-
-            $date = ['ordenes' => $model->orderBy('id_orden_pagos', 'desc')->findAll(), 'title' => 'Ordenes'];
+            $date = ['ordenes' => $model->orderBy('id_orden_pagos', 'desc')->findAll(), 'title' => 'Ordenes', 'fecha_actual' => $fecha_actual];
 
             return view('pages/admin/ordenes', $date);
+        }
+
+        return redirect()->to(base_url('login'));
+    }
+
+    public function vencidasOrdenes()
+    {
+        if ($this->session->logged_admin) {
+
+            $model = new OrdenpagosModel();
+            
+
+            $fecha_actual = strtotime(date("Y-m-d", time()));
+           
+             
+
+
+            $date = ['ordenes' => $model->orderBy('id_orden_pagos', 'desc')->findAll(), 'title' => 'Ordenes', 'fecha_actual' => $fecha_actual];
+
+            return view('pages/admin/ordenes_vencidas', $date);
         }
 
         return redirect()->to(base_url('login'));
@@ -118,10 +138,11 @@ class Admin extends BaseController
         $CODE = 'AES-128-ECB';
         $KEY = 'SolucionesIM';
         $token = openssl_encrypt($idOrden, $CODE, $KEY);
-      
+
 
         $model = new OrdenpagosModel();
         $idCliente = $model->where('id_orden_pagos', $idOrden)->findColumn('id_clientes');
+
 
         $cliente = new ClientesModel();
         $correo_cliente = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_direccion_email');
@@ -137,21 +158,18 @@ class Admin extends BaseController
             'nombre' => $nombre, 'apellidos' => $apellidos, 'correo' => $correo, 'idOrden' => $idOrden, 'token' => $token
         ];
 
-        
+
         $email = Services::email();
         $email->setFrom('facturacion@c1550361.ferozo.com', 'Soluciones IM');
         $email->setTo($correo);
         $email->setSubject('Soluciones IM, Fecha de pago');
         $email->setMessage(view('pages/admin/admin_correo', $data));
 
-        if($email->send()){
+        if ($email->send()) {
             return redirect()->to(base_url('admin/listarOrdenes'))->with('correo', 'Correo envíado con exito');
-        }else{
+        } else {
             return redirect()->to(base_url('admin/listarOrdenes'))->with('FalloCorreo', 'Fallo al envío de correo');
         }
-
-
-        
     }
 
     public function editarOrden()

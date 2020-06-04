@@ -29,8 +29,16 @@ class Pagos extends BaseController
 			$id_or = new OrdenpagosModel();
 			$idVe = $id_or->where('id_orden_pagos', $idOrden)->findColumn('id_orden_pagos');
 			$concepto = $total->where('id_orden_pagos', $idOrden)->findColumn('orden_concepto');
+			$moneda = $total->where('id_orden_pagos', $idOrden)->findColumn('orden_moneda_de_pago');
+			$fecha = $total->where('id_orden_pagos', $idOrden)->findColumn('orden_fecha_pago');
+
 			$concepto_R = $concepto[0];
 			$idVenta = (int) $idVe[0];
+			$moneda_R = $moneda[0];
+			$fecha_R = $fecha[0];
+
+
+
 
 			$idCliente = $total->where('id_orden_pagos', $idOrden)->findColumn('id_clientes');
 			$cliente = new ClientesModel();
@@ -52,7 +60,8 @@ class Pagos extends BaseController
 				'pagos' => $model->where('id_orden_pagos', $idOrden)->findAll(),  'title' => 'Pagos Paypal', 'KEY' => 'SolucionesIM',
 				'CODE' => 'AES-128-ECB', 'pagoMes' => $pagoMes, 'idVenta' => $idVenta, 'concepto' => $concepto_R,
 				'apiKey' => $apiKey, 'merchantId' => $merchantId, 'referenceCode' => $referenceCode, 'amount' => $amount,
-				'currency' => $currency, 'signature' => $signature, 'extra3' => $extra3, 'correo' => $correo_cliente[0]
+				'currency' => $currency, 'signature' => $signature, 'extra3' => $extra3, 'correo' => $correo_cliente[0],
+				 'moneda' => $moneda_R, 'fecha' => $fecha_R
 			];
 
 
@@ -95,7 +104,7 @@ class Pagos extends BaseController
 
 			$data = ['title' => 'Referencia', 'id' => $idOrden, 'ordenes' => $ordenes];
 
-			$filename = 'comprobante_pago';
+			$filename = 'ficha_deposito';
 			// instanciar y usar la clase dompdf
 			$dompdf = new DOMPDF();
 			$dompdf->loadHtml(view('pages/deposito', $data));

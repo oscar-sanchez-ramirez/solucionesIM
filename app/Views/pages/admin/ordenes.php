@@ -77,6 +77,8 @@
             </thead>
             <tbody>
                 <?php foreach ($ordenes as $orden) : ?>
+                    <?php if($fecha_actual <=  strtotime(vencer($orden['orden_fecha_pago']))) : ?>
+
                     <tr>
                         <td><?= $orden['id_orden_pagos'] ?></td>
                         <td><?= $orden['id_clientes'] ?></td>
@@ -120,6 +122,7 @@
                             </form>
                         </td>
                     </tr>
+                        <?php endif; ?>
                 <?php endforeach; ?>
             </tbody>
         </table>

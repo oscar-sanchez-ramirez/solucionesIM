@@ -40,6 +40,8 @@ $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/crearOrdenes', 'Admin::crearOrdenes');
 $routes->post('/admin/saveOrdenes', 'Admin::saveOrdenes');
 $routes->post('/admin/listarOrdenes', 'Admin::listarOrdenes');
+$routes->post('/admin/vencidasOrdenes', 'Admin::vencidasOrdenes');
+
 $routes->get('/admin/verOrden', 'Admin::verOrden');
 $routes->post('/admin/eliminarOrden', 'Admin::eliminarOrden');
 $routes->post('/admin/editarOrden', 'Admin::editarOrden');
@@ -85,6 +87,20 @@ $routes->get('/checador', 'Checador::index');
 $routes->get('/confirmacion', 'Confirmacion::index');
 
 $routes->get('/comprobantes', 'Comprobantes::index');
+$routes->get('/comprobantes/show', 'Comprobantes::show');
+$routes->get('/comprobantes/pdf', 'Comprobantes::pdf');
+$routes->get('/comprobantes/email', 'Comprobantes::email');
+$routes->get('/comprobantes/subir', 'Comprobantes::subir');
+$routes->get('/comprobantes/guardar', 'Comprobantes::guardar');
+$routes->get('/comprobantes/ver', 'Comprobantes::ver');
+$routes->get('/comprobantes/delete', 'Comprobantes::delete');
+
+
+
+
+
+
+
 
 
 

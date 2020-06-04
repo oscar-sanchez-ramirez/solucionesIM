@@ -17,15 +17,15 @@ class Correo extends BaseController
 {
 	public function index()
 	{
-		
+
 		$token = $_GET['token'];
 		// var_dump($token);
 		// die();
-		//$token = 'E7Mm+4+wA4I293Hxf4BVaQ==';
+
 		$CODE = 'AES-128-ECB';
-        $KEY = 'SolucionesIM';		
+		$KEY = 'SolucionesIM';
 		$idOrden = openssl_decrypt($token, $CODE, $KEY);
-		
+
 
 		$total = new OrdenpagosModel();
 		$pagoTotal = $total->where('id_orden_pagos', $idOrden)->findColumn('orden_total');
@@ -34,8 +34,11 @@ class Correo extends BaseController
 		$id_or = new OrdenpagosModel();
 		$idVe = $id_or->where('id_orden_pagos', $idOrden)->findColumn('id_orden_pagos');
 		$concepto = $total->where('id_orden_pagos', $idOrden)->findColumn('orden_concepto');
+		$moneda = $total->where('id_orden_pagos', $idOrden)->findColumn('orden_moneda_de_pago');
 		$concepto_R = $concepto[0];
 		$idVenta = (int) $idVe[0];
+
+		$fecha = $total->where('id_orden_pagos', $idOrden)->findColumn('orden_fecha_pago');
 
 
 		$model = new OrdenpagosModel();
@@ -57,11 +60,19 @@ class Correo extends BaseController
 			'pagos' => $model->where('id_orden_pagos', $idOrden)->findAll(),  'title' => 'Correo de orden', 'KEY' => 'SolucionesIM',
 			'CODE' => 'AES-128-ECB', 'pagoMes' => $pagoMes, 'idVenta' => $idVenta, 'concepto' => $concepto_R,
 			'apiKey' => $apiKey, 'merchantId' => $merchantId, 'referenceCode' => $referenceCode, 'amount' => $amount,
-			'currency' => $currency, 'signature' => $signature, 'extra3' => $extra3, 'correo' => $correo_cliente[0]
+			'currency' => $currency, 'signature' => $signature, 'extra3' => $extra3, 'correo' => $correo_cliente[0], 'fecha' => $fecha[0],
+			'moneda' => $moneda[0]
 		];
 
-
-		return view('pages/correo/correo', $data) . view('components/correo_paypal', $data);
+		$fecha_actual = strtotime(date("Y-m-d", time()));
+		$fecha_entrada =  strtotime(vencer($fecha[0]));
+		// var_dump($fecha_actual."<br>");
+		// var_dump($fecha_entrada."<br>");
+        // die(); 
+        if($fecha_actual <= $fecha_entrada){
+			return view('pages/correo/correo', $data) . view('components/correo_paypal', $data);
+		}
+		return redirect()->to('login')->with('correo', 'Tu orden expiró');
 		//return $data;		
 	}
 

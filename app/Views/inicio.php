@@ -12,7 +12,7 @@
   <!-- Favicons -->
   <link rel="icon" href="img/icono.ico" type="image/icon">
 
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://www.solucionesim.net/imgusr/logo_solucionesim.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -128,21 +128,21 @@
         </div>
         <div class="row content">
           <div class="col-lg-6">
-          <h3>¿Que es la banca electrónica?</h3>   
-          <p>
-            Es un servicio telemático prestado por las entidades financieras,
-            permitiendo que los clientes realicen operaciónes y transacciones 
-            en tiempo real de forma autónoma, independiente, segura y rapída.
-          </p> 
+            <h3>¿Que es la banca electrónica?</h3>
+            <p>
+              Es un servicio telemático prestado por las entidades financieras,
+              permitiendo que los clientes realicen operaciónes y transacciones
+              en tiempo real de forma autónoma, independiente, segura y rapída.
+            </p>
 
           </div>
           <div class="col-lg-6">
-          <h3>Ventajas</h3>
-          <ul>
-          <li><i class="ri-check-double-line"></i>Rapidez y ahorro de tiempo</li>
-          <li><i class="ri-check-double-line"></i>Transparencia en la información</li>
-          <li><i class="ri-check-double-line"></i>Comodidad y disponibilidad las 24 horas del día</li>
-          <li><i class="ri-check-double-line"></i>Ahorro en costes tanto para el banco como para el cliente</li>
+            <h3>Ventajas</h3>
+            <ul>
+              <li><i class="ri-check-double-line"></i>Rapidez y ahorro de tiempo</li>
+              <li><i class="ri-check-double-line"></i>Transparencia en la información</li>
+              <li><i class="ri-check-double-line"></i>Comodidad y disponibilidad las 24 horas del día</li>
+              <li><i class="ri-check-double-line"></i>Ahorro en costes tanto para el banco como para el cliente</li>
             </ul>
           </div>
         </div>
@@ -150,8 +150,8 @@
       </div>
     </section><!-- End About Us Section -->
 
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
+   <!-- ======= Cta Section ======= -->
+   <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
 
         <div class="row">
@@ -223,15 +223,15 @@
         </div>
       </div>
     </section><!-- End Team Section -->
-
+    
 
 
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  
-  <footer id="footer">  
+
+  <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
         &copy; Derechos de autor <strong><span>FACTICOM</span></strong>.Todos los derechos reservados
@@ -244,6 +244,9 @@
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
+
+  <!-- Código de instalación Cliengo para oscar_sr_609@hotmail.com --> 
+  <!-- <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/5ed33c7da4bd89002af28bd7/5ed33c7ea4bd89002af28bda.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script> -->
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -258,6 +261,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  
 
 </body>
 

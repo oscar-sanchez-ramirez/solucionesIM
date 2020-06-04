@@ -5,49 +5,14 @@
 <div id="carga"></div>
 
 <div class="container margen">
+<p class="text-center text-danger"><?= "Fecha límite de pago: " . fecha_formato_humano(vencer($fecha)); ?></p> <br>
     <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header text-center">
-               <h3><i class="fas fa-digital-tachograph">&nbsp;Datos de orden</i></h3> 
-                </div>
-                <div class="card-body">
-                    <?php foreach ($pagos as $pago) : ?>
-
-                        <?php if ($pago['id_status_pago'] == 1) : ?>
-                            <p class="text-warning">Estatus: <?php echo "Por pagar" ?></p>
-                        <?php elseif ($pago['id_status_pago'] == 2) : ?>
-                            <p class="text-primary">Estatus: <?php echo "Aprobado" ?></p>
-                        <?php elseif ($pago['id_status_pago'] == 3) : ?>
-                            <p class="text-success">Estatus: <?php echo "Completado" ?></p>
-                        <?php endif; ?>
-
-                        <hr>
-                        <p>ID: <?= $pago['id_orden_pagos'] ?></p>
-                        <p>Calle: <?= $pago['orden_direccion_calle'] ?>, Numero interior: <?= $pago['orden_direccion_numero_interior'] ?>, Numero exterior: <?= $pago['orden_direccion_numero_exterior'] ?></p>
-                        <p>Colonia: <?= $pago['orden_direccion_colonia'] ?>, CP: <?= $pago['orden_direccion_cp'] ?></p>
-                        <p>País: <?= $pago['orden_direccion_pais'] ?>, Estado: <?= $pago['orden_direccion_estado'] ?> Ciudad: <?= $pago['orden_direccion_ciudad'] ?></p>
-                        <p>Teléfono: <?= $pago['orden_direccion_telefono'] ?></p>
-                        <p>Forma requerida: <?= $pago['orden_forma_de_pago_requerido'] ?></p>
-                        <hr>
-                        <p class="">Fecha a pagar: <?= $pago['orden_fecha_pago'] ?></p>
-                        <p class="">Monto: $<?= number_format($pago['orden_monto'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
-                        <p class="">Subtotal: $<?= number_format($pago['orden_subtotal'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
-                        <p class="card-title">Concepto: <?= $pago['orden_concepto'] ?></p>
-
-
-                        <hr>
-                        <h4 class="card-text text-primary text-right">Total a pagar: $<?= number_format($pago['orden_total'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></h4>
-
-                </div>
-            </div>
-        </div>
         <div class="col-md-4">
             <div class="jumbotron sombra">
                 <!-- <h3 class="text-center">Soluciones <span class="text-success">IM</span></h3>
                 
                 <hr class="my-4"> -->
-                <p class="lead text-center">Total a pagar: <span class="text-danger"><i class="fas fa-dollar-sign">&nbsp;<?= number_format($pagoMes, 2) ?></i></span>&nbsp;<?= $pago['orden_moneda_de_pago'] ?></p>
+                <p class="lead text-center">Total a pagar: <span class="text-danger"><i class="fas fa-dollar-sign">&nbsp;<?= number_format($pagoMes, 2) ?></i></span>&nbsp;<?= strtoupper($moneda) ?></p>
                 <hr>
                 <br>
                 <div id="paypal-button-container"></div>
@@ -70,13 +35,51 @@
                         <button type="submit" class="btn btn-secondary btn-lg btn-block"><i class="far fa-file-pdf">&nbspFicha de Deposito</i></button>
                     </form>
                 </div>
-            <?php endforeach; ?>
-            <hr>
-            <p class="text-center">Centro de atención telefónica: <i class="fas fa-phone-volume">&nbsp;(55) 5970 6848</i></p>
+
+                <hr>
+                <p class="text-center">Centro de atención telefónica: <i class="fas fa-phone-volume">&nbsp;(55) 5970 6848</i></p>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3><i class="fas fa-digital-tachograph">&nbsp;Datos de orden</i></h3>
+                </div>
+                <div class="card-body">
+                    <?php foreach ($pagos as $pago) : ?>
+
+                        <?php if ($pago['id_status_pago'] == 1) : ?>
+                            <p class="text-warning">Estatus: <?php echo "Por pagar" ?></p>
+                        <?php elseif ($pago['id_status_pago'] == 2) : ?>
+                            <p class="text-primary">Estatus: <?php echo "Aprobado" ?></p>
+                        <?php elseif ($pago['id_status_pago'] == 3) : ?>
+                            <p class="text-success">Estatus: <?php echo "Completado" ?></p>
+                        <?php endif; ?>
+
+                        <hr>
+                        <p>ID: <?= $pago['id_orden_pagos'] ?></p>
+                        <p>Calle: <?= $pago['orden_direccion_calle'] ?>, Numero interior: <?= $pago['orden_direccion_numero_interior'] ?>, Numero exterior: <?= $pago['orden_direccion_numero_exterior'] ?></p>
+                        <p>Colonia: <?= $pago['orden_direccion_colonia'] ?>, CP: <?= $pago['orden_direccion_cp'] ?></p>
+                        <p>País: <?= $pago['orden_direccion_pais'] ?>, Estado: <?= $pago['orden_direccion_estado'] ?> Ciudad: <?= $pago['orden_direccion_ciudad'] ?></p>
+                        <p>Teléfono: <?= $pago['orden_direccion_telefono'] ?></p>
+                        <p>Forma requerida: <?= $pago['orden_forma_de_pago_requerido'] ?></p>
+                        <hr>
+                        <p class="">Fecha a pagar: <?= fecha_formato_humano($pago['orden_fecha_pago']); ?></p>
+                        <p class="">Monto: $<?= number_format($pago['orden_monto'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
+                        <p class="">Subtotal: $<?= number_format($pago['orden_subtotal'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></p>
+                        <p class="card-title">Concepto: <?= $pago['orden_concepto'] ?></p>
+
+
+                        <hr>
+                        <h4 class="card-text text-primary text-right">Total a pagar: $<?= number_format($pago['orden_total'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?></h4>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
 
 
 <script>
