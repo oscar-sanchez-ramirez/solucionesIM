@@ -8325,3 +8325,9 @@ a[data-toggle="collapse"] {
   .btn.btn-primary:hover, .btn.btn-primary:focus {
     background: #3e64ff !important;
     border-color: #3e64ff !important; }
+
+    .carousel {
+      -webkit-box-shadow: -1px 3px 46px -12px rgba(20, 20, 20, 0.51);
+      -moz-box-shadow: -1px 3px 46px -12px rgba(20, 20, 20, 0.51);
+      box-shadow: -1px 3px 46px -12px rgba(20, 20, 20, 0.51);
+    }
