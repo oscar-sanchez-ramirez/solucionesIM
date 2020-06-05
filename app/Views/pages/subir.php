@@ -19,9 +19,12 @@
                 <input type="text" class="form-control" name="archivos_descripcion" placeholder="">
                 <input type="hidden" class="form-control" name="id_usuario" value="<?= session('id') ?>">
             </div>
-            <div class="form-group">
-                <label for="FormControlFile1">Comprobante</label>
-                <input type="file" class="form-control-file" name="archivos_file">
+            <div class="text-center">
+                <label for="file-upload" id="subir">
+                    <p id="info" class="text-info"></p>
+                    <p class="btn btn-secondary"><i class="fas fa-cloud-upload-alt"> Archivo</i></p>
+                </label>
+                <input type="file" id="file-upload" onchange="cambiar()" name="archivos_file" style='display: none;' required=required>
             </div>
             <br>
             <div class="text-center">
@@ -30,5 +33,8 @@
         </form>
     </div>
 </div>
+
+<?= $this->include('components/subir.php') ?>
+
 
 <?= $this->endSection() ?>

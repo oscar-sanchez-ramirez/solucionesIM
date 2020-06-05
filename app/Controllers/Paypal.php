@@ -146,7 +146,7 @@ class Paypal extends BaseController
                         $data_R = ['title' => 'Comprobante', 'comprobantes' => $comprobantes_R];
 
 
-                        return view('pages/comprobante_pdf', $data_R);
+                        return view('pages/comprobante_back', $data_R);
                     } else {
                         return redirect()->to('login')->with('comprobanteError', 'No se pudo guardar el comprobante');
                     }
