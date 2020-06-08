@@ -57,7 +57,7 @@ class Pagos extends BaseController
 			$signature = md5($apiKey . "~" . $merchantId . "~" . $referenceCode . "~" . $amount . "~" . $currency);
 
 			$data = [
-				'pagos' => $model->where('id_orden_pagos', $idOrden)->findAll(),  'title' => 'Pagos Paypal', 'KEY' => 'SolucionesIM',
+				'pagos' => $model->where('id_orden_pagos', $idOrden)->findAll(),  'title' => 'Soluciones IM', 'KEY' => 'SolucionesIM',
 				'CODE' => 'AES-128-ECB', 'pagoMes' => $pagoMes, 'idVenta' => $idVenta, 'concepto' => $concepto_R,
 				'apiKey' => $apiKey, 'merchantId' => $merchantId, 'referenceCode' => $referenceCode, 'amount' => $amount,
 				'currency' => $currency, 'signature' => $signature, 'extra3' => $extra3, 'correo' => $correo_cliente[0],

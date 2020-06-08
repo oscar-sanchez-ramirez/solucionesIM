@@ -287,13 +287,20 @@
 
             </div>
     </div>
-    
-        <div class="container col-md-4">
-            <form action="<?= base_url('comprobantes/pdf') ?>" method="POST">
-                <input type="hidden" name="id_comprobante" value="<?= $comprobante['id_comprobantes'] ?>">
-                <button class="btn btn-block btn-info">Generar PDF</button>
-            </form>
-        </div>
+
+    <div class="container col-md-4">
+        <form action="<?= base_url('comprobantes/pdf') ?>" method="POST">
+            <input type="hidden" name="id_comprobante" value="<?= $comprobante['id_comprobantes'] ?>">
+            <button class="btn btn-block btn-info">Generar PDF</button>
+        </form>
+    </div>
+    <br>
+    <div class="container col-md-4">
+        <form action="<?= base_url('comprobantes/email') ?>" method="POST">
+            <input type="hidden" name="id_comprobante" value="<?= $comprobante['id_comprobantes'] ?>">
+            <button class="btn btn-block btn-success">Enviar Correo Electrónico</button>
+        </form>
+    </div>
 
 <?php endforeach; ?>
 <script>

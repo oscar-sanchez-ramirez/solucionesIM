@@ -234,7 +234,7 @@ Sizes: [
 										tables centered in the emailBody table,
 										in case its width is set to 100%.
 									-->
-									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="color:#FFFFFF;" bgcolor="#3498db">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="color:#FFFFFF;" bgcolor="#2D9EB0">
 										<tr>
 											<td align="center" valign="top">
 												<!-- FLEXIBLE CONTAINER // -->
@@ -257,7 +257,9 @@ Sizes: [
 															<table border="0" cellpadding="30" cellspacing="0" width="100%">
 																<tr>
 																	<td align="center" valign="top" class="textContent">
-																		<h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Soluciones IM</h1>
+                                                                    <img src="https://www.solucionesim.net/imgusr/logo_solucionesim.png" alt="" width="200px">
+                                                                    <br>    
+                                                                    <!-- <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Soluciones IM</h1> -->
 																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#010102c2;line-height:135%;"></h2>
 																		<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:16px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Gracias por realizar tu pago.</div>
 																	</td>
@@ -397,7 +399,7 @@ Sizes: [
 															<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
 																<tr>				
 																	</td>
-																	<td align="right" valign="top" class="flexibleContainerBox" style="background-color:#27ae60;">
+																	<td align="right" valign="top" class="flexibleContainerBox" style="background-color:#2D9EB0;">
 																		<table class="flexibleContainerBoxNext" border="0" cellpadding="30" cellspacing="0" width="100%" style="max-width:100%;">
 																			<tr>
 																				<td align="left" class="textContent">
