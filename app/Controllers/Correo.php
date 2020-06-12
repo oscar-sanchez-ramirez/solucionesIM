@@ -46,6 +46,8 @@ class Correo extends BaseController
 		$idCliente = $model->where('id_orden_pagos', $idOrden)->findColumn('id_clientes');
 		$cliente = new ClientesModel();
 		$correo_cliente = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_direccion_email');
+		$rfc_cliente = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_fiscal_rfc');
+
 
 
 		$apiKey = "4Vj8eK4rloUd272L48hsrarnUA";
@@ -61,7 +63,7 @@ class Correo extends BaseController
 			'CODE' => 'AES-128-ECB', 'pagoMes' => $pagoMes, 'idVenta' => $idVenta, 'concepto' => $concepto_R,
 			'apiKey' => $apiKey, 'merchantId' => $merchantId, 'referenceCode' => $referenceCode, 'amount' => $amount,
 			'currency' => $currency, 'signature' => $signature, 'extra3' => $extra3, 'correo' => $correo_cliente[0], 'fecha' => $fecha[0],
-			'moneda' => $moneda[0]
+			'moneda' => $moneda[0], 'rfc' => $rfc_cliente[0]
 		];
 
 		$fecha_actual = strtotime(date("Y-m-d", time()));
@@ -101,11 +103,18 @@ class Correo extends BaseController
 		$idOrden = $req->getPost('id_orden_stripe');
 		$filename = 'comprobante_pago';
 
+
 		$model = new OrdenpagosModel();
 		$ordenes = $model->where('id_orden_pagos', $idOrden)->findAll();
+		$idCliente = $model->where('id_orden_pagos', $idOrden)->findColumn('id_clientes');
+		
+
+		$cliente = new ClientesModel();
+		$clientes_rfc = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_fiscal_rfc');
+        $rfc = $clientes_rfc[0];
 
 
-		$data = ['title' => 'Stripe', 'id' => $idOrden, 'ordenes' => $ordenes];
+		$data = ['title' => 'Ficha de deposito', 'id' => $idOrden, 'ordenes' => $ordenes, 'rfc' => $rfc];
 
 		// instanciar y usar la clase dompdf
 		$dompdf = new DOMPDF();

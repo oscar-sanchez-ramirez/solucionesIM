@@ -7,6 +7,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\OrdenpagosModel;
 use App\Models\ComprobantesModel;
+use App\Models\ClientesModel;
+
 
 
 use Config\Services;
@@ -28,7 +30,6 @@ class Checador extends BaseController
 			$status = $model->where('id_orden_pagos', $id_venta)->findColumn('id_status_pago');
 			$fecha_orden = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_fecha_pago');
 			$concepto = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_concepto');
-			$RfcEmisorCtaOrd = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_RfcEmisorCtaOrd');
 			$idCliente = $model->where('id_orden_pagos', $id_venta)->findColumn('id_clientes');
 			$metodo = 2;
 
@@ -63,14 +64,19 @@ class Checador extends BaseController
 				$cardNumero  = $charge['payment_method_details']['card']['last4'];
 				$cardTipo  = $charge['payment_method_details']['card']['network'];
 
+				$cliente = new ClientesModel();
+				$cliente_rfc = $cliente->where('id_clientes', $idCliente[0])->findColumn('clientes_fiscal_rfc');
+				
+
 				$datos['id_clientes'] = $idCliente[0];
 				$datos['id_orden_pagos'] = $idVenta;
 				$datos['comprobantes_status'] = $status[0];
 				$datos['comprobantes_fecha_orden'] = $fecha_orden[0];
 				$datos['comprobantes_concepto'] = $concepto[0];
 				$datos['comprobantes_total'] = $pagoMes;
-				$datos['comprobantes_RfcEmisorCtaOrd'] = $RfcEmisorCtaOrd[0];
 				$datos['comprobantes_metodo_pago'] = $metodo;
+				$datos['comprobante_rfc_cliente'] = $cliente_rfc[0];
+
 
 				$comprobantes = new ComprobantesModel();
 

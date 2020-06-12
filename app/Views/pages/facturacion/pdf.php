@@ -6,6 +6,6 @@
     <title><?= $title ?></title>
 </head>
 <body>
-<a href="<?='/PDF/'.$pdf?>" target="_blank" rel="noopener noreferrer" class="text-center">Descargar</a>
+<a href="<?='/uploads/PDF/'.$pdf?>" target="_blank" rel="noopener noreferrer" class="text-center">Descargar</a>
 </body>
 </html>

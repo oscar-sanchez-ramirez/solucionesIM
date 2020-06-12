@@ -43,6 +43,8 @@ class Pagos extends BaseController
 			$idCliente = $total->where('id_orden_pagos', $idOrden)->findColumn('id_clientes');
 			$cliente = new ClientesModel();
 			$correo_cliente = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_direccion_email');
+			$rfc_cliente = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_fiscal_rfc');
+
 
 
 
@@ -61,7 +63,7 @@ class Pagos extends BaseController
 				'CODE' => 'AES-128-ECB', 'pagoMes' => $pagoMes, 'idVenta' => $idVenta, 'concepto' => $concepto_R,
 				'apiKey' => $apiKey, 'merchantId' => $merchantId, 'referenceCode' => $referenceCode, 'amount' => $amount,
 				'currency' => $currency, 'signature' => $signature, 'extra3' => $extra3, 'correo' => $correo_cliente[0],
-				 'moneda' => $moneda_R, 'fecha' => $fecha_R
+				'moneda' => $moneda_R, 'fecha' => $fecha_R, 'rfc' => $rfc_cliente[0]
 			];
 
 
@@ -101,8 +103,14 @@ class Pagos extends BaseController
 
 			$model = new OrdenpagosModel();
 			$ordenes = $model->where('id_orden_pagos', $idOrden)->findAll();
+			$idCliente = $model->where('id_orden_pagos', $idOrden)->findColumn('id_clientes');
 
-			$data = ['title' => 'Referencia', 'id' => $idOrden, 'ordenes' => $ordenes];
+			
+			$cliente = new ClientesModel();
+			$rfc = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_fiscal_rfc');
+
+
+			$data = ['title' => 'Referencia', 'id' => $idOrden, 'ordenes' => $ordenes, 'rfc' => $rfc[0]];
 
 			$filename = 'ficha_deposito';
 			// instanciar y usar la clase dompdf

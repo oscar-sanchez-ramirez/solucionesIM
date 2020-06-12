@@ -67,13 +67,16 @@
 
                     <div class="flex-col size2">
                         <span class="txt1 p-b-20">
-                            Total a pagar: $<?= number_format($pago['orden_total'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?>
+                            Total+IVA: $<?= number_format($pago['orden_total'], 2) ?> <?= $pago['orden_moneda_de_pago'] ?>
                         </span>
 
                         <span class="txt3">
                             Monto: $<?= number_format($pago['orden_monto'], 2) ?> <br>
                             Subtotal: $<?= number_format($pago['orden_subtotal'], 2) ?> <br>
+                            IVA: $<?= number_format($pago['iva'], 2) ?> <br>
                             Concepto: <?= $pago['orden_concepto'] ?> <br>
+                            Condiciones de pago: <?= $pago['CondicionesDePago'] ?> <br>
+                            ID: <?= $pago['id_orden_pagos'] ?> <br>
                         </span>
                     </div>
                 </div>
@@ -85,33 +88,16 @@
 
                     <div class="flex-col size2">
                         <span class="txt1 p-b-20">
-                            Fecha a pagar: <?= fecha_formato_humano($pago['orden_fecha_pago']); ?> <br>
+                          RFC: <?= $rfc ?>
                         </span>
 
                         <span class="txt3">
-                            Forma requerida: <?= $pago['orden_forma_de_pago_requerido'] ?> <br>
-                            ID: <?= $pago['id_orden_pagos'] ?>
+                           
                         </span>
                     </div>
                 </div>
 
-                <div class="dis-flex size1 p-b-47">
-                    <div class="txt1 p-r-25">
-                        <span class="lnr lnr-envelope"></span>
-                    </div>
-
-                    <div class="flex-col size2">
-                        <span class="txt1 p-b-20">
-                            Dirección
-                        </span>
-
-                        <span class="txt3">
-                            Colonia: <?= $pago['orden_direccion_colonia'] ?>, CP: <?= $pago['orden_direccion_cp'] ?> <br>
-                            Numero interior: <?= $pago['orden_direccion_numero_interior'] ?>, Numero exterior: <?= $pago['orden_direccion_numero_exterior'] ?>, <br>
-                            Teléfono: <?= $pago['orden_direccion_telefono'] ?>
-                        </span>
-                    </div>
-                </div>
+               
             </div>
         <?php endforeach; ?>
 

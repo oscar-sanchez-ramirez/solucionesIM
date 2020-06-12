@@ -458,7 +458,6 @@
 
                                         <?php foreach ($ordenes as $orden) : ?>
                                             <li><a class="last">Id orden: <?= $orden['id_orden_pagos'] ?></a></li>
-                                            <li><a class="last">RFC: <?= $orden['orden_RfcEmisorCtaOrd'] ?></a></li>
                                             <li><a class="last">Concepto: <?= $orden['orden_concepto'] ?></a></li>
                                             <li><a class="last">Fecha pago: <?= $orden['orden_fecha_pago'] ?></a></li>
                                         <?php endforeach; ?>

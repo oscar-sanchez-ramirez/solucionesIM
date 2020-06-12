@@ -305,8 +305,6 @@ Sizes: [
 																		
 																					<!-- <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Datos</h3> -->
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">No.Oden: <?= $comprobante['id_orden_pagos'] ?> </div> <hr>
-																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Fecha de orden:<?= fecha_formato_humano($comprobante['comprobantes_fecha_orden']) ?> </div> <hr>
-																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">RfcEmisorCtaOrd:<?= $comprobante['comprobantes_RfcEmisorCtaOrd'] ?> </div> <hr>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
 																					<?php if ($comprobante['comprobantes_metodo_pago'] == 1) : ?>
 																							Método de pago: <?php echo "PayPal" ?>
@@ -329,7 +327,8 @@ Sizes: [
 																					</div> <hr>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Concepto: <?= $comprobante['comprobantes_concepto'] ?></div> <hr>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Fecha: <?= fecha_formato_humano($comprobante['comprobantes_fecha']) ?></div> <hr>
-																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Total: <?= number_format($comprobante['comprobantes_total'], 2) ?></div> <hr>
+																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">RFC: <?= $comprobante['comprobante_rfc_cliente'] ?></div> <hr>
+																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Total+IVA: <?= number_format($comprobante['comprobantes_total'], 2) ?></div> <hr>
 																	</td>
 																</tr>
 															</table>

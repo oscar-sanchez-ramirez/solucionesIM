@@ -89,23 +89,15 @@ class Admin extends BaseController
             $data['id_clientes'] = $req->getPost('id_clientes');
             $data['id_status_pago'] = $req->getPost('id_status_pago');
             $data['orden_fecha_pago'] = $req->getPost('orden_fecha_pago');
-            $data['orden_direccion_calle'] = $req->getPost('orden_direccion_calle');
-            $data['orden_direccion_numero_exterior'] = $req->getPost('orden_direccion_numero_exterior');
-            $data['orden_direccion_numero_interior'] = $req->getPost('orden_direccion_numero_interior');
-            $data['orden_direccion_colonia'] = $req->getPost('orden_direccion_colonia');
-            $data['orden_direccion_cp'] = $req->getPost('orden_direccion_cp');
-            $data['orden_direccion_pais'] = $req->getPost('orden_direccion_pais');
-            $data['orden_direccion_estado'] = $req->getPost('orden_direccion_estado');
-            $data['orden_direccion_ciudad'] = $req->getPost('orden_direccion_ciudad');
-            $data['orden_direccion_telefono'] = $req->getPost('orden_direccion_telefono');
             $data['orden_concepto'] = $req->getPost('orden_concepto');
-            $data['orden_forma_de_pago_requerido'] = $req->getPost('orden_forma_de_pago_requerido');
+            $data['CondicionesDePago'] = $req->getPost('CondicionesDePago');
+            $data['cantidad'] = $req->getPost('cantidad');
             $data['orden_moneda_de_pago'] = $req->getPost('orden_moneda_de_pago');
             $data['orden_monto'] = $req->getPost('orden_monto');
             $data['orden_subtotal'] = $req->getPost('orden_subtotal');
+            $data['iva'] = $req->getPost('iva');
             $data['orden_total'] = $req->getPost('orden_total');
-            $data['orden_numero_de_operacion'] = $req->getPost('orden_numero_de_operacion');
-            $data['orden_RfcEmisorCtaOrd'] = $req->getPost('orden_RfcEmisorCtaOrd');
+           
 
 
             if ($model->save($data) === false) {
@@ -148,14 +140,18 @@ class Admin extends BaseController
         $correo_cliente = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_direccion_email');
         $paterno = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_apellido_paterno');
         $clientes_nombre = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_nombre');
+        $clientes_rfc = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_fiscal_rfc');
+
 
         $nombre =  $clientes_nombre[0];
         $apellidos =  $paterno[0];
         $correo =  $correo_cliente[0];
+        $rfc = $clientes_rfc['0'];
 
         $data = [
             'ordenes' => $model->where('id_orden_pagos', $idOrden)->findAll(), 'title' => 'Soluciones IM',
-            'nombre' => $nombre, 'apellidos' => $apellidos, 'correo' => $correo, 'idOrden' => $idOrden, 'token' => $token
+            'nombre' => $nombre, 'apellidos' => $apellidos, 'correo' => $correo, 'idOrden' => $idOrden, 'token' => $token,
+            'rfc' => $rfc
         ];
 
 
@@ -196,23 +192,16 @@ class Admin extends BaseController
         $data['id_clientes'] = $req->getPost('id_clientes');
         $data['id_status_pago'] = $req->getPost('id_status_pago');
         $data['orden_fecha_pago'] = $req->getPost('orden_fecha_pago');
-        $data['orden_direccion_calle'] = $req->getPost('orden_direccion_calle');
-        $data['orden_direccion_numero_exterior'] = $req->getPost('orden_direccion_numero_exterior');
-        $data['orden_direccion_numero_interior'] = $req->getPost('orden_direccion_numero_interior');
-        $data['orden_direccion_colonia'] = $req->getPost('orden_direccion_colonia');
-        $data['orden_direccion_cp'] = $req->getPost('orden_direccion_cp');
-        $data['orden_direccion_pais'] = $req->getPost('orden_direccion_pais');
-        $data['orden_direccion_estado'] = $req->getPost('orden_direccion_estado');
-        $data['orden_direccion_ciudad'] = $req->getPost('orden_direccion_ciudad');
-        $data['orden_direccion_telefono'] = $req->getPost('orden_direccion_telefono');
         $data['orden_concepto'] = $req->getPost('orden_concepto');
-        $data['orden_forma_de_pago_requerido'] = $req->getPost('orden_forma_de_pago_requerido');
+        $data['CondicionesDePago'] = $req->getPost('CondicionesDePago');
+        $data['cantidad'] = $req->getPost('cantidad');
         $data['orden_moneda_de_pago'] = $req->getPost('orden_moneda_de_pago');
         $data['orden_monto'] = $req->getPost('orden_monto');
         $data['orden_subtotal'] = $req->getPost('orden_subtotal');
+        $data['iva'] = $req->getPost('iva');
         $data['orden_total'] = $req->getPost('orden_total');
-        $data['orden_numero_de_operacion'] = $req->getPost('orden_numero_de_operacion');
-        $data['orden_RfcEmisorCtaOrd'] = $req->getPost('orden_RfcEmisorCtaOrd');
+        
+       
 
 
 

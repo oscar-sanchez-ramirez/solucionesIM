@@ -103,8 +103,10 @@ class Paypal extends BaseController
         $status_p = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('id_status_pago');
         $fecha_orden = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('orden_fecha_pago');
         $concepto = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('orden_concepto');
-        $RfcEmisorCtaOrd = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('orden_RfcEmisorCtaOrd');
         $metodo = 1;
+
+        $cliente = new ClientesModel();
+        $cliente_rfc = $cliente->where('id_clientes', $idCliente[0])->findColumn('clientes_fiscal_rfc');
 
 
         $datos['id_clientes'] = $idCliente[0];
@@ -113,8 +115,11 @@ class Paypal extends BaseController
         $datos['comprobantes_fecha_orden'] = $fecha_orden[0];
         $datos['comprobantes_concepto'] = $concepto[0];
         $datos['comprobantes_total'] = $pagoMes;
-        $datos['comprobantes_RfcEmisorCtaOrd'] = $RfcEmisorCtaOrd[0];
         $datos['comprobantes_metodo_pago'] = $metodo;
+        $datos['comprobantes_metodo_pago'] = $metodo;
+        $datos['comprobante_rfc_cliente'] = $cliente_rfc[0];
+
+
 
         $comprobantes = new ComprobantesModel();
 

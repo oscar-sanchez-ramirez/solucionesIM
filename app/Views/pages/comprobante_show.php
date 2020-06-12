@@ -25,7 +25,7 @@
             <button type="button" class="list-group-item list-group-item-action">Fecha: <?= fecha_formato_humano($comprobante['comprobantes_fecha']) ?></button>
             <button type="button" class="list-group-item list-group-item-action">Concepto: <?= $comprobante['comprobantes_concepto'] ?></button>
             <button type="button" class="list-group-item list-group-item-action">Total: $ <?= number_format($comprobante['comprobantes_total']) ?></button>
-            <button type="button" class="list-group-item list-group-item-action">RfcEmisorCtaOrd: <?= $comprobante['comprobantes_RfcEmisorCtaOrd'] ?></button>
+            <button type="button" class="list-group-item list-group-item-action">RFC: <?= $comprobante['comprobante_rfc_cliente'] ?></button>
             <button type="button" class="list-group-item list-group-item-action">
                 <?php if ($comprobante['comprobantes_metodo_pago'] == 1) : ?>
                    Método de pago: <?php echo "PayPal" ?>                  

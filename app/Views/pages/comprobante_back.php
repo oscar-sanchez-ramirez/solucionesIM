@@ -226,25 +226,12 @@
                                 <tr>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Fecha orden: <?= fecha_formato_humano($comprobante['comprobantes_fecha_orden']) ?></p>
+                                            <p>Fecha: <?= fecha_formato_humano($comprobante['comprobantes_fecha']) ?></p>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="col-sm-4">
                                             <p>Concepto: <?= $comprobante['comprobantes_concepto'] ?></p>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>RfcEmisorCtaOrd: <?= $comprobante['comprobantes_RfcEmisorCtaOrd'] ?></p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Fecha: <?= fecha_formato_humano($comprobante['comprobantes_fecha']) ?></p>
                                         </div>
                                     </td>
 
@@ -267,7 +254,14 @@
                                     </td>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Total: <b>$ <?= number_format($comprobante['comprobantes_total'], 2) ?></b></p>
+                                            <p>Total+IVA: <b>$ <?= number_format($comprobante['comprobantes_total'], 2) ?></b></p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <p>RFC: <?= $comprobante['comprobante_rfc_cliente'] ?></p>
                                         </div>
                                     </td>
                                 </tr>

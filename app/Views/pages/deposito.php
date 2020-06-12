@@ -190,80 +190,54 @@
                 <tr>
                     <td class="info_cliente">
                         <div class="round">
-                            <span class="h3">Datos de la orden</span>
+                            <span class="h3">Datos de la órden</span>
                             <table class="datos_cliente">
-                                <tr>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Colonia: <?= $orden['orden_direccion_colonia'] ?></p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Calle: <?= $orden['orden_direccion_calle'] ?></p>
-                                        </div>
-                                    </td>
 
-                                </tr>
                                 <tr>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>No.exterior: <?= $orden['orden_direccion_numero_exterior'] ?></p>
+                                            <p>Fecha límite: <?= fecha_formato_humano(vencer($orden['orden_fecha_pago'])) ?></p>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>No.Interior: <?= $orden['orden_direccion_numero_interior'] ?></p>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Código postal: <?= $orden['orden_direccion_cp'] ?></p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Teléfono: <?= $orden['orden_direccion_telefono'] ?></p>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Fecha: <?= $orden['orden_fecha_pago'] ?></p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>RFC: <?= $orden['orden_RfcEmisorCtaOrd'] ?></p>
+                                            <p>Concepto: <?= $orden['orden_concepto'] ?></p>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Forma de pago: <?= $orden['orden_forma_de_pago_requerido'] ?></p>
-                                        </div>
-                                    </td>
                                     <td>
                                         <div class="col-sm-4">
                                             <p>Moneda : <?= strtoupper($orden['orden_moneda_de_pago']) ?></p>
                                         </div>
                                     </td>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <p>Cantidad: <?= $orden['cantidad'] ?></p>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Subtotal: <?= $orden['orden_subtotal'] ?></p>
+                                            <p>Subtotal: <?= number_format($orden['orden_subtotal'], 2) ?></p>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Total a pagar: <b><?= number_format($orden['orden_total'], 2) ?></b></p>
+                                            <p>IVA: <?= number_format($orden['iva'], 2) ?></p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <p>Total+IVA: <b><?= number_format($orden['orden_total'], 2) ?></b></p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <p>RFC: <?= $rfc ?></p>
                                         </div>
                                     </td>
                                 </tr>
@@ -314,7 +288,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                            
+
                             </table>
                         </div>
                     </td>

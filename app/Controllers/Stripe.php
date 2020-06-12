@@ -34,7 +34,6 @@ class Stripe extends BaseController
         $idCliente = $model->where('id_orden_pagos', $id_venta)->findColumn('id_clientes');
         $status_R = $model->where('id_orden_pagos', $id_venta)->findColumn('id_status_pago');
         $fecha_orden = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_fecha_pago');
-        $RfcEmisorCtaOrd = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_RfcEmisorCtaOrd');
         $metodo = 2;
 
 
@@ -71,14 +70,18 @@ class Stripe extends BaseController
             $cardNumero  = $charge['payment_method_details']['card']['last4'];
             $cardTipo  = $charge['payment_method_details']['card']['network'];
 
+            $cliente = new ClientesModel();
+            $cliente_rfc = $cliente->where('id_clientes', $idCliente[0])->findColumn('clientes_fiscal_rfc');
+            
+
             $datos['id_clientes'] = $idCliente[0];
             $datos['id_orden_pagos'] = $idVenta;
             $datos['comprobantes_status'] = $status_R[0];
             $datos['comprobantes_fecha_orden'] = $fecha_orden[0];
             $datos['comprobantes_concepto'] = $concepto_R;
             $datos['comprobantes_total'] = $pagoMes;
-            $datos['comprobantes_RfcEmisorCtaOrd'] = $RfcEmisorCtaOrd[0];
             $datos['comprobantes_metodo_pago'] = $metodo;
+            $datos['comprobante_rfc_cliente'] = $cliente_rfc[0];
 
             $comprobantes = new ComprobantesModel();
 
