@@ -306,9 +306,9 @@ Sizes: [
 
 																					<br>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">ID.Orden: <?= $orden['id_orden_pagos'] ?></div><hr>
-																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">RFC: <?= $orden['orden_RfcEmisorCtaOrd'] ?></div><hr>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Concepto: <?= $orden['orden_concepto'] ?></div><hr>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Fecha de pago:  <?= fecha_formato_humano($orden['orden_fecha_pago']); ?></div><hr>
+																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">RFC:  <?= $rfc ?></div><hr>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Total: <?= $orden['orden_total'] . " " . $orden['orden_moneda_de_pago'] ?></div><hr>
 																				</td>
 																			</tr>

@@ -38,6 +38,7 @@
     },
     {
         "name": "doctrine/instantiator",
+<<<<<<< HEAD
         "version": "1.3.0",
         "version_normalized": "1.3.0.0",
         "source": {
@@ -53,6 +54,23 @@
         },
         "require": {
             "php": "^7.1"
+=======
+        "version": "1.3.1",
+        "version_normalized": "1.3.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/instantiator.git",
+            "reference": "f350df0268e904597e3bd9c4685c53e0e333feea"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/instantiator/zipball/f350df0268e904597e3bd9c4685c53e0e333feea",
+            "reference": "f350df0268e904597e3bd9c4685c53e0e333feea",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1 || ^8.0"
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         },
         "require-dev": {
             "doctrine/coding-standard": "^6.0",
@@ -63,7 +81,11 @@
             "phpstan/phpstan-shim": "^0.11",
             "phpunit/phpunit": "^7.0"
         },
+<<<<<<< HEAD
         "time": "2019-10-21T16:45:58+00:00",
+=======
+        "time": "2020-05-29T17:27:14+00:00",
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -95,6 +117,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "name": "dompdf/dompdf",
         "version": "v0.8.5",
         "version_normalized": "0.8.5.0",
@@ -130,19 +153,53 @@
         "extra": {
             "branch-alias": {
                 "dev-develop": "0.7-dev"
+=======
+        "name": "econea/nusoap",
+        "version": "v0.9.8",
+        "version_normalized": "0.9.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pwnlabs/nusoap.git",
+            "reference": "45fa816515fbfc692619493836d674c8aad323d1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pwnlabs/nusoap/zipball/45fa816515fbfc692619493836d674c8aad323d1",
+            "reference": "45fa816515fbfc692619493836d674c8aad323d1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "jakub-onderka/php-parallel-lint": "~1.0.0"
+        },
+        "time": "2020-04-15T16:04:27+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-0.9.x": "0.9.7.x-dev",
+                "dev-develop": "1.0.x-dev"
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
             }
         },
         "installation-source": "dist",
         "autoload": {
+<<<<<<< HEAD
             "psr-4": {
                 "Dompdf\\": "src/"
             },
             "classmap": [
                 "lib/"
+=======
+            "classmap": [
+                "src/"
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
             ]
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
+<<<<<<< HEAD
             "LGPL-2.1"
         ],
         "authors": [
@@ -161,6 +218,27 @@
         ],
         "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
         "homepage": "https://github.com/dompdf/dompdf"
+=======
+            "LGPL-2.0-only"
+        ],
+        "authors": [
+            {
+                "name": "Milan Felix Šulc",
+                "homepage": "https://f3l1x.io"
+            }
+        ],
+        "description": "Fixed NuSOAP for PHP 5.6 - 7.3",
+        "homepage": "https://github.com/econea/nusoap",
+        "keywords": [
+            "client",
+            "http",
+            "nusoap",
+            "php",
+            "soap",
+            "transport",
+            "xml"
+        ]
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
     },
     {
         "name": "kint-php/kint",
@@ -337,12 +415,15 @@
             "autoloading",
             "laminas",
             "zf"
+<<<<<<< HEAD
         ],
         "funding": [
             {
                 "url": "https://funding.communitybridge.org/projects/laminas-project",
                 "type": "community_bridge"
             }
+=======
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         ]
     },
     {
@@ -550,6 +631,7 @@
         "description": "Library for handling version information and constraints"
     },
     {
+<<<<<<< HEAD
         "name": "phenx/php-font-lib",
         "version": "0.5.2",
         "version_normalized": "0.5.2.0",
@@ -631,6 +713,8 @@
         "homepage": "https://github.com/PhenX/php-svg-lib"
     },
     {
+=======
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         "name": "phpdocumentor/reflection-common",
         "version": "2.1.0",
         "version_normalized": "2.1.0.0",
@@ -1194,6 +1278,7 @@
             "phpunit",
             "testing",
             "xunit"
+<<<<<<< HEAD
         ],
         "funding": [
             {
@@ -1204,6 +1289,8 @@
                 "url": "https://github.com/sebastianbergmann",
                 "type": "github"
             }
+=======
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         ]
     },
     {
@@ -1256,6 +1343,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "name": "sabberworm/php-css-parser",
         "version": "8.3.0",
         "version_normalized": "8.3.0.0",
@@ -1303,6 +1391,8 @@
         ]
     },
     {
+=======
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         "name": "sebastian/code-unit-reverse-lookup",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -1996,6 +2086,7 @@
     },
     {
         "name": "stripe/stripe-php",
+<<<<<<< HEAD
         "version": "v7.36.1",
         "version_normalized": "7.36.1.0",
         "source": {
@@ -2007,6 +2098,19 @@
             "type": "zip",
             "url": "https://api.github.com/repos/stripe/stripe-php/zipball/80979c8959dff86bf7b0610e44599a67132ebcd3",
             "reference": "80979c8959dff86bf7b0610e44599a67132ebcd3",
+=======
+        "version": "v7.36.2",
+        "version_normalized": "7.36.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/stripe/stripe-php.git",
+            "reference": "a8981c169e6842fc6a4d4e7028b706b8291ad4ec"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/stripe/stripe-php/zipball/a8981c169e6842fc6a4d4e7028b706b8291ad4ec",
+            "reference": "a8981c169e6842fc6a4d4e7028b706b8291ad4ec",
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
             "shasum": ""
         },
         "require": {
@@ -2022,7 +2126,11 @@
             "squizlabs/php_codesniffer": "^3.3",
             "symfony/process": "~3.4"
         },
+<<<<<<< HEAD
         "time": "2020-05-28T18:11:30+00:00",
+=======
+        "time": "2020-06-03T19:16:18+00:00",
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2111,6 +2219,7 @@
             "ctype",
             "polyfill",
             "portable"
+<<<<<<< HEAD
         ],
         "funding": [
             {
@@ -2125,6 +2234,8 @@
                 "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                 "type": "tidelift"
             }
+=======
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         ]
     },
     {

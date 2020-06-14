@@ -4,7 +4,11 @@
 
 namespace Composer\Autoload;
 
+<<<<<<< HEAD
 class ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c
+=======
+class ComposerStaticInitd926f4cf155fbec5fe384839c8aca936
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -25,7 +29,10 @@ class ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
+<<<<<<< HEAD
             'Svg\\' => 4,
+=======
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
             'Stripe\\' => 7,
         ),
         'P' => 
@@ -42,6 +49,7 @@ class ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c
         array (
             'Kint\\' => 5,
         ),
+<<<<<<< HEAD
         'F' => 
         array (
             'FontLib\\' => 8,
@@ -49,6 +57,10 @@ class ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c
         'D' => 
         array (
             'Dompdf\\' => 7,
+=======
+        'D' => 
+        array (
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
         ),
@@ -73,10 +85,13 @@ class ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+<<<<<<< HEAD
         'Svg\\' => 
         array (
             0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
         ),
+=======
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         'Stripe\\' => 
         array (
             0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
@@ -101,6 +116,7 @@ class ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c
         array (
             0 => __DIR__ . '/..' . '/kint-php/kint/src',
         ),
+<<<<<<< HEAD
         'FontLib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
@@ -109,6 +125,8 @@ class ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c
         array (
             0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
         ),
+=======
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
@@ -131,6 +149,7 @@ class ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c
                 0 => __DIR__ . '/..' . '/mikey179/vfsstream/src/main/php',
             ),
         ),
+<<<<<<< HEAD
         'S' => 
         array (
             'Sabberworm\\CSS' => 
@@ -147,6 +166,11 @@ class ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c
         'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
         'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
         'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
+=======
+    );
+
+    public static $classMap = array (
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/AssertionFailedError.php',
@@ -726,15 +750,41 @@ class ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
+<<<<<<< HEAD
+=======
+        'XMLSchema' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_base' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_client' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_fault' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_parser' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_server' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_wsdlcache' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_xmlschema' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soap_fault' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soap_parser' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soap_server' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soap_transport_http' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soapclient' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soapval' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'wsdl' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'wsdlcache' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+<<<<<<< HEAD
             $loader->prefixLengthsPsr4 = ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit6a9e130c17f29608f0171431fe6a8f5c::$classMap;
+=======
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd926f4cf155fbec5fe384839c8aca936::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd926f4cf155fbec5fe384839c8aca936::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd926f4cf155fbec5fe384839c8aca936::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitd926f4cf155fbec5fe384839c8aca936::$classMap;
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
 
         }, null, ClassLoader::class);
     }

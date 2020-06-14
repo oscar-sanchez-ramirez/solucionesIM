@@ -6,12 +6,15 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
     'Dompdf\\Cpdf' => $vendorDir . '/dompdf/dompdf/lib/Cpdf.php',
     'HTML5_Data' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Data.php',
     'HTML5_InputStream' => $vendorDir . '/dompdf/dompdf/lib/html5lib/InputStream.php',
     'HTML5_Parser' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Parser.php',
     'HTML5_Tokenizer' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
     'HTML5_TreeBuilder' => $vendorDir . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
+=======
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
     'PHPUnit\\Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/Framework/Assert.php',
     'PHPUnit\\Framework\\AssertionFailedError' => $vendorDir . '/phpunit/phpunit/src/Framework/Exception/AssertionFailedError.php',
@@ -591,4 +594,23 @@ return array(
     'TheSeer\\Tokenizer\\TokenCollectionException' => $vendorDir . '/theseer/tokenizer/src/TokenCollectionException.php',
     'TheSeer\\Tokenizer\\Tokenizer' => $vendorDir . '/theseer/tokenizer/src/Tokenizer.php',
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
+<<<<<<< HEAD
+=======
+    'XMLSchema' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'nusoap_base' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'nusoap_client' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'nusoap_fault' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'nusoap_parser' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'nusoap_server' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'nusoap_wsdlcache' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'nusoap_xmlschema' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'soap_fault' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'soap_parser' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'soap_server' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'soap_transport_http' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'soapclient' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'soapval' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'wsdl' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+    'wsdlcache' => $vendorDir . '/econea/nusoap/src/nusoap.php',
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
 );

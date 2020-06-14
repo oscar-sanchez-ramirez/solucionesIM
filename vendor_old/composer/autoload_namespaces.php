@@ -7,5 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'org\\bovigo\\vfs\\' => array($vendorDir . '/mikey179/vfsstream/src/main/php'),
+<<<<<<< HEAD
     'Sabberworm\\CSS' => array($vendorDir . '/sabberworm/php-css-parser/lib'),
+=======
+>>>>>>> 03a274e78eec7419183865d8b05928751910e203
 );

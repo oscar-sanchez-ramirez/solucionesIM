@@ -11,40 +11,31 @@
 		</div>
 	<?php endif; ?>
 </div>
-
-<div class="limiter">
-	<div class="container-login100">
-		<div class="wrap-login100">
-			<div class="login100-form-title" style="background-image: url(/img/ecom2.jpg);">
-			</div>
-			<form action="<?= base_url('comprobantes/guardar') ?>" method="POST" enctype="multipart/form-data" class="login100-form validate-form">
-				<div class="wrap-input100 validate-input m-b-26">
-					<span class="label-input100">Comentario</span>
-					<input class="input100" type="text" name="archivos_descripcion" placeholder="Añade un comentario.." required="required">
-					<input type="hidden" class="form-control" name="id_usuario" value="<?= session('id') ?>">
-					<span class="focus-input100"></span>
-				</div>
-				<div class="flex-sb-m w-full p-b-30">
-					<label for="file-upload" id="subir">
-						<div id="info" class="text-info"></div>
-						<p class="btn btn-secondary"><i class="fas fa-cloud-upload-alt"> Seleccionar Archivo</i></p>
-					</label>
-					<input type="file" id="file-upload" name="archivos_file" style='display: none;' class="login100-form-btn" onchange='cambiar()'>
-				</div>
-				<div class="text-center">
-					<input type="submit" class="login100-form-btn" value="Guardar">
-				</div>
-			</form>
-		</div>
-	</div>
+<div class="container col-md-4 ">
+    <div class="jumbotron">
+        <form action="<?= base_url('comprobantes/guardar') ?>" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="FormControlInput1">Comentario:</label>
+                <input type="text" class="form-control" name="archivos_descripcion" placeholder="">
+                <input type="hidden" class="form-control" name="id_usuario" value="<?= session('id') ?>">
+            </div>
+            <div class="text-center">
+                <label for="file-upload" id="subir">
+                    <p id="info" class="text-info"></p>
+                    <p class="btn btn-secondary"><i class="fas fa-cloud-upload-alt"> Archivo</i></p>
+                </label>
+                <input type="file" id="file-upload" onchange="cambiar()" name="archivos_file" style='display: none;' required=required>
+            </div>
+            <br>
+            <div class="text-center">
+                <input type="submit" class="btn btn-success" value="Guardar">
+            </div>
+        </form>
+    </div>
 </div>
 
-<script>
-	function cambiar() {
-		var file = document.getElementById('file-upload').files[0].name;
-		document.getElementById('info').innerHTML = file;
 
-	}
-</script>
+<?= $this->include('components/subir.php') ?>
+
 
 <?= $this->endSection() ?>

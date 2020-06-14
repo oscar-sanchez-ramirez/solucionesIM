@@ -32,13 +32,9 @@
 
     <form action="<?= base_url('/admin/saveOrdenes') ?>" method="POST">
         <div class="form-row">
+
             <div class="form-group col-md-4">
-            <label>  </label>
-                <input type="hidden" class="form-control" name="id_orden_pagos" placeholder="ID Orden pagos" required="required">
-                <h4 class="text-center text-info">Datos</h4>
-            </div>
-            <div class="form-group col-md-4">
-            <label>Clientes</label>
+                <label>Clientes</label>
                 <select id="inputState" name="id_clientes" class="form-control">
                     <option>ID Clientes</option>
                     <?php foreach ($clientes as $cliente) : ?>
@@ -47,7 +43,7 @@
                 </select>
             </div>
             <div class="form-group col-md-4">
-            <label for="">Status pago</label>
+                <label for="">Status pago</label>
                 <select id="inputState" name="id_status_pago" class="form-control">
                     <!-- <option>ID Status pago</option> -->
                     <?php foreach ($status as $statu) : ?>
@@ -56,78 +52,41 @@
                 </select>
             </div>
             <div class="form-group col-md-4">
-            <label>Fecha de pago</label>
+                <label>Fecha de pago</label>
                 <input type="date" class="form-control" name="orden_fecha_pago" placeholder="Fecha pago" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Calle</label>
-                <input type="text" class="form-control" name="orden_direccion_calle" placeholder="Dirección calle" required="required">
-            </div>
-            <div class="form-group col-md-4">
-            <label>Calle No.exterior</label>
-                <input type="text" class="form-control" name="orden_direccion_numero_exterior" placeholder="Dirección calle No.exterior" required="required">
-            </div>
-            <div class="form-group col-md-4">
-            <label>Calle No.interior</label>
-                <input type="text" class="form-control" name="orden_direccion_numero_interior" placeholder="Dirección calle No.Interior" required="required">
-            </div>
-            <div class="form-group col-md-4">
-            <label>Colonia</label>
-                <input type="text" class="form-control" name="orden_direccion_colonia" placeholder="Dirección colonia" required="required">
-            </div>
-            <div class="form-group col-md-4">
-            <label>Código postal</label>
-                <input type="text" class="form-control" name="orden_direccion_cp" placeholder="Dirección Código postal" required="required">
-            </div>
-            <div class="form-group col-md-4">
-            <label for="">País No.</label>
-                <input type="text" class="form-control" name="orden_direccion_pais" placeholder="Dirección País No." required="required">
-            </div>
-            <div class="form-group col-md-4">
-            <label>Estado No.</label>
-                <input type="text" class="form-control" name="orden_direccion_estado" placeholder="Dirección Estado No." required="required">
-            </div>
-            <div class="form-group col-md-4">
-            <label>Ciudad No.</label>
-                <input type="text" class="form-control" name="orden_direccion_ciudad" placeholder="Dirección Ciudad No." required="required">
-            </div>
-            <div class="form-group col-md-4">
-            <label>Teléfono</label>
-                <input type="text" class="form-control" name="orden_direccion_telefono" placeholder="Orden dirección Teléfono" required="required">
-            </div>
-            <div class="form-group col-md-4">
-            <label>Orden concepto </label>
+                <label>Orden concepto </label>
                 <input type="text" class="form-control" name="orden_concepto" placeholder="Orden concepto" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Forma de pago </label>
-                <input type="text" class="form-control" name="orden_forma_de_pago_requerido" placeholder="Orden forma de pago requerido" required="required">
+                <label>Condiciones de pago</label>
+                <input type="text" class="form-control" name="CondicionesDePago" placeholder="Condiciones de pago" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Moneda de pago </label>
-                <input type="text" class="form-control" name="orden_moneda_de_pago" placeholder="Orden modena de pago" required="required">
+                <label>Moneda de pago </label>
+                <input type="text" class="form-control" name="orden_moneda_de_pago" value="MXN" placeholder="Orden modena de pago" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Monto </label>
-                <input type="text" class="form-control" name="orden_monto" placeholder="Orden monto" required="required">
+                <label>Cantidad </label>
+                <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="cantidad" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Subtotal</label>
-                <input type="text" class="form-control" name="orden_subtotal" placeholder="Orden subtotal" required="required">
+                <label>Importe </label>
+                <input type="number" step='0.01' class="form-control" name="orden_monto" id="importe" placeholder="Orden monto" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Total</label>
-                <input type="text" class="form-control" name="orden_total" placeholder="Orden total" required="required">
+                <label>Subtotal</label>
+                <input type="number" class="form-control" name="orden_subtotal" id="subtotal" placeholder="Orden subtotal" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Número de operación </label>
-                <input type="text" class="form-control" name="orden_numero_de_operacion" placeholder="Orden número de operción" required="required">
+                <label>IVA</label>
+                <input type="number" class="form-control" name="iva" id="iva" placeholder="iva" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>RfcEmisorCtaOrd</label>
-                <input type="text" class="form-control" name="orden_RfcEmisorCtaOrd" placeholder="RFC Emisor CtaOrd" required="required">
+                <label>Total</label>
+                <input type="number" class="form-control" name="orden_total" id="total" placeholder="Orden total" required="required">
             </div>
-
         </div>
         <br>
         <div class="text-center">
@@ -135,8 +94,35 @@
         </div>
 
     </form>
-<br>
+    <br>
 </div>
+
+
+<script>
+    window.addEventListener('load', () => {
+        var cantidad = document.querySelector("#cantidad");
+        var importe = document.querySelector("#importe");
+        var subtotal = document.querySelector("#subtotal");
+        var iva = document.querySelector("#iva");
+        var total = document.querySelector("#total");
+
+        importe.addEventListener('change', function() {
+            var can = parseFloat(cantidad.value);
+            var impor = parseFloat(importe.value);
+            var resul = (can * impor);
+            subtotal.value = resul.toFixed(2);
+            var sub = subtotal.value;
+            var subR = parseFloat(sub);
+            let ivaP = parseFloat(0.160000);
+            var ivaR = (subR * ivaP);
+            iva.value = parseFloat(ivaR).toFixed(2);
+            totalR = (subR + ivaR);
+            total.value = totalR.toFixed(2);
+
+        });
+
+    });
+</script>
 
 
 

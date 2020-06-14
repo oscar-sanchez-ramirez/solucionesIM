@@ -261,7 +261,7 @@ Sizes: [
                                                                     <br>    
                                                                     <!-- <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Soluciones IM</h1> -->
 																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#010102c2;line-height:135%;"></h2>
-																		<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:16px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Gracias por realizar tu pago</div>
+																		<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:16px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Gracias por realizar tu pago.</div>
 																	</td>
 																</tr>
 															</table>
@@ -305,8 +305,6 @@ Sizes: [
 																		
 																					<!-- <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Datos</h3> -->
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">No.Oden: <?= $comprobante['id_orden_pagos'] ?> </div> <hr>
-																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Fecha de orden:<?= fecha_formato_humano($comprobante['comprobantes_fecha_orden']) ?> </div> <hr>
-																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">RfcEmisorCtaOrd:<?= $comprobante['comprobantes_RfcEmisorCtaOrd'] ?> </div> <hr>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
 																					<?php if ($comprobante['comprobantes_metodo_pago'] == 1) : ?>
 																							Método de pago: <?php echo "PayPal" ?>
@@ -329,7 +327,8 @@ Sizes: [
 																					</div> <hr>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Concepto: <?= $comprobante['comprobantes_concepto'] ?></div> <hr>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Fecha: <?= fecha_formato_humano($comprobante['comprobantes_fecha']) ?></div> <hr>
-																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Total: <?= number_format($comprobante['comprobantes_total'], 2) ?></div> <hr>
+																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">RFC: <?= $comprobante['comprobante_rfc_cliente'] ?></div> <hr>
+																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Total+IVA: <?= number_format($comprobante['comprobantes_total'], 2) ?></div> <hr>
 																	</td>
 																</tr>
 															</table>
@@ -454,7 +453,7 @@ Sizes: [
 																	<td valign="top" bgcolor="#E1E1E1">
 
 																		<div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-																			<div>Derechos de autor &#169; 2020 <span style="color:#828282;">Soluciones IM</span></a>.Todos los derechos reservados.</div>
+																			<div>Derechos de autor  &#169; 2020 <span style="color:#828282;">Soluciones IM</span></a>.Todos los derechos reservados.</div>
 																			
 																		</div>
 
