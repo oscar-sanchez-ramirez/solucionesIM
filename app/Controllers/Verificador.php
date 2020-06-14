@@ -5,10 +5,10 @@ namespace App\Controllers;
 
 
 use App\Controllers\BaseController;
-use App\Models\UsuariosModel;
+
 use App\Models\OrdenpagosModel;
 use App\Models\ComprobantesModel;
-
+use App\Models\ClientesModel;
 
 use Config\Services;
 
@@ -71,7 +71,7 @@ class Verificador extends BaseController
 			$custom = $objDatosTransaccion->transactions[0]->custom;
 			$email_Rec = $objDatosTransaccion->transactions[0]->payee->email;
 
-		
+
 
 
 			$total_N =  $total;
@@ -98,22 +98,25 @@ class Verificador extends BaseController
 			$status = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('id_status_pago');
 			$fecha_orden = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('orden_fecha_pago');
 			$concepto = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('orden_concepto');
-			$RfcEmisorCtaOrd = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('orden_RfcEmisorCtaOrd');
 			$metodo = 1;
 
 
-            
+			$cliente = new ClientesModel();
+			$cliente_rfc = $cliente->where('id_clientes', $idCliente[0])->findColumn('clientes_fiscal_rfc');
+			
+
 			$datos['id_clientes'] = $idCliente[0];
 			$datos['id_orden_pagos'] = $ClaveVenta;
 			$datos['comprobantes_status'] = $status[0];
 			$datos['comprobantes_fecha_orden'] = $fecha_orden[0];
 			$datos['comprobantes_concepto'] = $concepto[0];
 			$datos['comprobantes_total'] = $pagoMes;
-			$datos['comprobantes_RfcEmisorCtaOrd'] = $RfcEmisorCtaOrd[0];
 			$datos['comprobantes_metodo_pago'] = $metodo;
+			$datos['comprobante_rfc_cliente'] = $cliente_rfc[0];
+
 
 			$comprobantes = new ComprobantesModel();
-			
+
 
 			//echo $ClaveVenta;
 			// $msjpaypal = "";
@@ -131,17 +134,16 @@ class Verificador extends BaseController
 					if ($total_nuevo == 0) {
 						$state = 3;
 						$data['id_status_pago'] = $state;
-						
 					}
 					if ($model->update($ClaveVenta, $data)) {
 						$state = 3;
-			             $datos['comprobantes_status'] = $state = 3;
+						$datos['comprobantes_status'] = $state;
 
-                         if($comprobantes->save($datos)){
-                             return redirect()->to('home')->with('comprobante', 'Comprobante guardado con exito');
-						 }else{
+						if ($comprobantes->save($datos)) {
+							return redirect()->to('home')->with('comprobante', 'Comprobante guardado con exito');
+						} else {
 							return redirect()->to('home')->with('comprobanteError', 'No se pudo guardar el comprobante');
-						 }
+						}
 					}
 				}
 			} else {
@@ -170,16 +172,16 @@ class Verificador extends BaseController
 			// $email->setTo($correo);
 			// $email->setSubject('Soluciones IM, Comprobante');
 			// $email->setMessage(view('pages/verificador', $info));
-			
-			
+
+
 			// if($email->send()){
 			// 	return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
 			// //return $RespuestaVenta;
 			// }else{
 			// 	return redirect()->to('home')->with('correoFallo', "Error al envío de comprobante al correo");
 			// }
-						
-			
+
+
 		}
 		return redirect()->to('login');
 	}

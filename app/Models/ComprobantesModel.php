@@ -14,7 +14,7 @@ class ComprobantesModel extends Model
 
         protected $allowedFields = [
           'id_clientes', 'id_orden_pagos','comprobantes_status', 'comprobantes_fecha_orden', 'comprobantes_fecha datetime',
-          'comprobantes_concepto', 'comprobantes_total', 'comprobantes_RfcEmisorCtaOrd', 'comprobantes_metodo_pago'
+          'comprobantes_concepto', 'comprobantes_total',  'comprobantes_metodo_pago', 'comprobante_rfc_cliente'
         ];
 
         protected $useTimestamps = false;

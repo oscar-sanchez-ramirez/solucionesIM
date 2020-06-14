@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title><?= $title ?></title>
     <link rel="stylesheet" href="deposito.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
     <style>
         @import url('fonts/BrixSansRegular.css');
@@ -164,13 +168,13 @@
 <body>
     <br><br><br><br>
     <div id="page_pdf">
-        <?php foreach ($ordenes as $orden) : ?>
 
+        <?php foreach ($comprobantes as $comprobante) : ?>
             <table id="factura_head">
                 <tr>
                     <td class="col-sm-4">
                         <div>
-                            <img src="assets/img/clients/Soluciones.png" alt="" width="200px">
+                            <img src="https://www.solucionesim.net/imgusr/logo_solucionesim.png" alt="" width="200px">
                         </div>
                     </td>
                     <!-- <td class="col-sm-4">
@@ -180,8 +184,8 @@
                     </td> -->
                     <td class="col-sm-4">
                         <div class="round">
-                            <span class="h3">Ficha de Depósito</span>
-                            <p class="id_fact"><?= $orden['id_orden_pagos'] ?></p>
+                            <span class="h3">Comprobante</span>
+                            <p class="id_fact"><?= $comprobante['id_comprobantes'] ?></p>
                         </div>
                     </td>
                 </tr>
@@ -190,54 +194,74 @@
                 <tr>
                     <td class="info_cliente">
                         <div class="round">
-                            <span class="h3">Datos de la órden</span>
+                            <span class="h3">Datos</span>
                             <table class="datos_cliente">
+                                <tr>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <p>No.Orden: <?= $comprobante['id_orden_pagos'] ?></p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <?php if ($comprobante['comprobantes_status'] == 1) : ?>
+                                            <div class="col-sm-4">
+                                                <p>Estatus: <?php echo "Por pagar" ?></p>
+                                            </div>
+                                        <?php elseif ($comprobante['comprobantes_status'] == 2) : ?>
+                                            <div class="col-sm-4">
+                                                <p>Estatus: <?php echo "Aprobado" ?></p>
+                                            </div>
+                                        <?php elseif ($comprobante['comprobantes_status'] == 3) : ?>
+                                            <div class="col-sm-4">
+                                                <p>Estatus: <?php echo "Completado" ?></p>
+                                            </div>
+                                        <?php elseif ($comprobante['comprobantes_status'] == 4) : ?>
+                                            <div class="col-sm-4">
+                                                <p>Estatus: <?php echo "Rechazado" ?></p>
+                                            </div>
+                                        <?php endif; ?>
+                                    </td>
 
+                                </tr>
                                 <tr>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Fecha límite: <?= fecha_formato_humano(vencer($orden['orden_fecha_pago'])) ?></p>
+                                            <p>Fecha: <?= fecha_formato_humano($comprobante['comprobantes_fecha']) ?></p>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Concepto: <?= $orden['orden_concepto'] ?></p>
+                                            <p>Concepto: <?= $comprobante['comprobantes_concepto'] ?></p>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <?php if ($comprobante['comprobantes_metodo_pago'] == 1) : ?>
+                                            <div class="col-sm-4">
+                                                <p>Método de pago: <?php echo "PayPal" ?></p>
+                                            </div>
+                                        <?php elseif ($comprobante['comprobantes_metodo_pago'] == 2) : ?>
+                                            <div class="col-sm-4">
+                                                <p>Método de pago:: <?php echo "Stripe" ?></p>
+                                            </div>
+                                        <?php elseif ($comprobante['comprobantes_metodo_pago'] == 3) : ?>
+                                            <div class="col-sm-4">
+                                                <p>Método de pago: <?php echo "PayU" ?></p>
+                                            </div>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <p>Total+IVA: <b>$ <?= number_format($comprobante['comprobantes_total'], 2) ?></b></p>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <div class="col-sm-4">
-                                            <p>Moneda : <?= strtoupper($orden['orden_moneda_de_pago']) ?></p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Cantidad: <?= $orden['cantidad'] ?></p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Subtotal: <?= number_format($orden['orden_subtotal'], 2) ?></p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>IVA: <?= number_format($orden['iva'], 2) ?></p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Total+IVA: <b><?= number_format($orden['orden_total'], 2) ?></b></p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>RFC: <?= $rfc ?></p>
+                                            <p>RFC: <?= $comprobante['comprobante_rfc_cliente'] ?></p>
                                         </div>
                                     </td>
                                 </tr>
@@ -246,68 +270,36 @@
                     </td>
                 </tr>
             </table>
-            <table id="factura_cliente">
-                <tr>
-                    <td class="info_cliente">
-                        <div class="round">
-                            <span class="h3">Datos Bancarios</span>
-                            <table class="datos_cliente">
-                                <tr>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Nombre: Soluciones IM.net, S.A. de C.V.</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>Banco: Banamex</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p> No. de cuenta: 2027618</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>No. de Sucursal: 7003</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p>CLABE: 002180700320276185</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-4">
-                                            <p></p>
-                                        </div>
-                                    </td>
-                                </tr>
+            <div>
+                <p class="label_gracias">
+                    Teléfono: +(52)55 5970-6848 <br>
+                    WhatsApp 55 1262 3929 <br>
+                    contacto@solucionesim.net <br>
+                    Calle Estrella #4, int 102B, San Pablo, <br>
+                    Iztapalapa, México CDMX, CP 09000.
+                </p>
 
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        <?php endforeach; ?>
-
-
-
-        <div>
-            <p class="label_gracias">
-                Teléfono: +(52)55 5970-6848 <br>
-                WhatsApp 55 1262 3929 <br>
-                contacto@solucionesim.net <br>
-                Calle Estrella #4, int 102B, San Pablo, <br>
-                Iztapalapa, México CDMX, CP 09000.
-            </p>
-        </div>
+            </div>
     </div>
+
+    <div class="container col-md-4">
+        <form action="<?= base_url('comprobantes/pdf') ?>" method="POST">
+            <input type="hidden" name="id_comprobante" value="<?= $comprobante['id_comprobantes'] ?>">
+            <button class="btn btn-block btn-info">Generar PDF</button>
+        </form>
+    </div>
+    <br>
+    <div class="container col-md-4">
+        <form action="<?= base_url('comprobantes/email') ?>" method="POST">
+            <input type="hidden" name="id_comprobante" value="<?= $comprobante['id_comprobantes'] ?>">
+            <button class="btn btn-block btn-success">Enviar Correo Electrónico</button>
+        </form>
+    </div>
+
+<?php endforeach; ?>
+<script>
+    alert("Comprobante guardado con exito");
+</script>
 
 </body>
 

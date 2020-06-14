@@ -16,5 +16,5 @@
     <input name="responseUrl" type="hidden" value="<?= base_url('confirmacion') ?>">
     <input name="confirmationUrl" type="hidden" value="<?= base_url('confirmacion') ?>">
     <!-- <input name="Submit" class="btn btn-success btn-lg btn-block" type="submit" value="Pagar con PayU"> -->
-    <button name="Submit" class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-credit-card">&nbspPagar con PayU</i></button>
+    <button name="Submit" class="btn btn-success btn-lg btn-block border sombra" type="submit"><i class="fas fa-credit-card">&nbspPagar con PayU</i></button>
 </form>

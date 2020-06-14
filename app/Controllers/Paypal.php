@@ -7,6 +7,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\OrdenpagosModel;
 use App\Models\ClientesModel;
+use App\Models\ComprobantesModel;
+
 use Dompdf\Dompdf;
 
 
@@ -98,9 +100,28 @@ class Paypal extends BaseController
         $idCliente = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('id_clientes');
         $cliente = new ClientesModel();
         $correo_cliente = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_direccion_email');
+        $status_p = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('id_status_pago');
+        $fecha_orden = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('orden_fecha_pago');
+        $concepto = $model->where('id_orden_pagos', $ClaveVenta)->findColumn('orden_concepto');
+        $metodo = 1;
+
+        $cliente = new ClientesModel();
+        $cliente_rfc = $cliente->where('id_clientes', $idCliente[0])->findColumn('clientes_fiscal_rfc');
+
+
+        $datos['id_clientes'] = $idCliente[0];
+        $datos['id_orden_pagos'] = $ClaveVenta;
+        $datos['comprobantes_status'] = $status_p[0];
+        $datos['comprobantes_fecha_orden'] = $fecha_orden[0];
+        $datos['comprobantes_concepto'] = $concepto[0];
+        $datos['comprobantes_total'] = $pagoMes;
+        $datos['comprobantes_metodo_pago'] = $metodo;
+        $datos['comprobantes_metodo_pago'] = $metodo;
+        $datos['comprobante_rfc_cliente'] = $cliente_rfc[0];
 
 
 
+        $comprobantes = new ComprobantesModel();
 
         $msjpaypal = "";
         $msj = "";
@@ -119,11 +140,21 @@ class Paypal extends BaseController
                 if ($total_nuevo == 0) {
                     $state = 3;
                     $data['id_status_pago'] = $state;
-                    $msjpaypal = "Estatus: completado";
                 }
                 if ($model->update($ClaveVenta, $data)) {
 
-                    $msj = "Pago realizado con exito";
+                    $state = 3;
+                    $datos['comprobantes_status'] = $state;
+
+                    if ($comprobantes->save($datos)) {
+                        $comprobantes_R  = $comprobantes->where('id_orden_pagos', $ClaveVenta)->findAll();
+                        $data_R = ['title' => 'Comprobante', 'comprobantes' => $comprobantes_R];
+
+
+                        return view('pages/comprobante_back', $data_R);
+                    } else {
+                        return redirect()->to('login')->with('comprobanteError', 'No se pudo guardar el comprobante');
+                    }
                 }
             }
         } else {
@@ -132,39 +163,38 @@ class Paypal extends BaseController
             $data['orden_total'] = $pagoMes;
             if ($model->update($ClaveVenta, $data)) {
 
-                $msj = "Tu pago fue rechazado";
+                return redirect()->to('login')->with('status', 'Tu pago fue rechazado');
             }
-            $msjpaypal = "Hay un problema con su pago, no fue aprovado";
         }
 
-        $correo =  $correo_cliente[0];
+        // $correo =  $correo_cliente[0];
 
 
-        $info = [
-            'title' => 'Comprobante PayPal', 'id' => $ClaveVenta, 'total' => $total,
-            'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email, 'ordenes' => $orden,
-            'msj' => $msj, 'correo' => $correo, 'payId' => $idPay, 'email_r' => $email_Rec, 'state' => $state,
-            'cart' => $cart, 'nombre' => $nombre, 'paterno' => $paterno, 'pay_id' => $payer_id, 'status' => $status
-        ];
+        // $info = [
+        //     'title' => 'Comprobante PayPal', 'id' => $ClaveVenta, 'total' => $total,
+        //     'moneda' => $currency, 'msjpaypal' => $msjpaypal, 'email' => $email, 'ordenes' => $orden,
+        //     'msj' => $msj, 'correo' => $correo, 'payId' => $idPay, 'email_r' => $email_Rec, 'state' => $state,
+        //     'cart' => $cart, 'nombre' => $nombre, 'paterno' => $paterno, 'pay_id' => $payer_id, 'status' => $status
+        // ];
 
-        $email = Services::email();
+        // $email = Services::email();
 
-        $email->setFrom('facturacion@c1550361.ferozo.com', 'Soluciones IM');
-        $email->setTo($correo);
-        $email->setSubject('Soluciones IM, Comprobante');
-        $email->setMessage(view('pages/verificador', $info));
+        // $email->setFrom('facturacion@c1550361.ferozo.com', 'Soluciones IM');
+        // $email->setTo($correo);
+        // $email->setSubject('Soluciones IM, Comprobante');
+        // $email->setMessage(view('pages/verificador', $info));
 
-       
 
-        if ($email->send()) {
-           
-            return view('pages/verificador', $info);
 
-            // return $RespuestaVenta;
-        } else {
+        // if ($email->send()) {
 
-            return redirect()->to('/login');
-        }
+        //     return view('pages/verificador', $info);
+
+        //     // return $RespuestaVenta;
+        // } else {
+
+        //     return redirect()->to('/login');
+        // }
     }
 
 

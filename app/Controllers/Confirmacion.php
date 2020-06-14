@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\OrdenpagosModel;
 use App\Models\ComprobantesModel;
+use App\Models\ClientesModel;
+
 
 
 use Config\Services;
@@ -43,8 +45,11 @@ class Confirmacion extends BaseController
         $status = $model->where('id_orden_pagos', $extra3)->findColumn('id_status_pago');
         $fecha_orden = $model->where('id_orden_pagos', $extra3)->findColumn('orden_fecha_pago');
         $concepto = $model->where('id_orden_pagos', $extra3)->findColumn('orden_concepto');
-        $RfcEmisorCtaOrd = $model->where('id_orden_pagos', $extra3)->findColumn('orden_RfcEmisorCtaOrd');
         $metodo = 3;
+
+        $cliente = new ClientesModel();
+        $cliente_rfc = $cliente->where('id_clientes', $idCliente[0])->findColumn('clientes_fiscal_rfc');
+
 
         $datos['id_clientes'] = $idCliente[0];
         $datos['id_orden_pagos'] = $extra3;
@@ -52,8 +57,9 @@ class Confirmacion extends BaseController
         $datos['comprobantes_fecha_orden'] = $fecha_orden[0];
         $datos['comprobantes_concepto'] = $concepto[0];
         $datos['comprobantes_total'] = $pagoMes;
-        $datos['comprobantes_RfcEmisorCtaOrd'] = $RfcEmisorCtaOrd[0];
         $datos['comprobantes_metodo_pago'] = $metodo;
+        $datos['comprobante_rfc_cliente'] = $cliente_rfc[0];
+
 
         $comprobantes = new ComprobantesModel();
 

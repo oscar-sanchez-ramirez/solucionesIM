@@ -7,6 +7,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\OrdenpagosModel;
 use App\Models\ClientesModel;
+use App\Models\ComprobantesModel;
+
 
 
 use Config\Services;
@@ -29,6 +31,15 @@ class Stripe extends BaseController
         $idVenta = (int) $venta[0];
         $concepto_R = $concepto[0];
         $pagoMes = (int) $pagoTotal[0];
+        $idCliente = $model->where('id_orden_pagos', $id_venta)->findColumn('id_clientes');
+        $status_R = $model->where('id_orden_pagos', $id_venta)->findColumn('id_status_pago');
+        $fecha_orden = $model->where('id_orden_pagos', $id_venta)->findColumn('orden_fecha_pago');
+        $metodo = 2;
+
+
+
+
+
 
 
 
@@ -47,7 +58,7 @@ class Stripe extends BaseController
                 "source" => $token
             ]);
 
-            //echo "<pre>", print_r($charge), "</pre>";
+           
 
             $id = $charge["id"];
             $monto = $charge["amount"];
@@ -58,6 +69,22 @@ class Stripe extends BaseController
             //$card  = $charge['payment_method_details']['card']['brand'];
             $cardNumero  = $charge['payment_method_details']['card']['last4'];
             $cardTipo  = $charge['payment_method_details']['card']['network'];
+
+            $cliente = new ClientesModel();
+            $cliente_rfc = $cliente->where('id_clientes', $idCliente[0])->findColumn('clientes_fiscal_rfc');
+            
+
+            $datos['id_clientes'] = $idCliente[0];
+            $datos['id_orden_pagos'] = $idVenta;
+            $datos['comprobantes_status'] = $status_R[0];
+            $datos['comprobantes_fecha_orden'] = $fecha_orden[0];
+            $datos['comprobantes_concepto'] = $concepto_R;
+            $datos['comprobantes_total'] = $pagoMes;
+            $datos['comprobantes_metodo_pago'] = $metodo;
+            $datos['comprobante_rfc_cliente'] = $cliente_rfc[0];
+
+            $comprobantes = new ComprobantesModel();
+
 
 
 
@@ -82,8 +109,18 @@ class Stripe extends BaseController
                         $msjStripe = "Estatus: completado";
                     }
                     if ($model->update($id_venta, $data)) {
+                        //$msj = "Pago realizado con exito";
+                        $state = 3;
+                        $datos['comprobantes_status'] = $state = 3;
 
-                        $msj = "Pago realizado con exito";
+                        if ($comprobantes->save($datos)) {
+
+                            $comprobantes_R  = $comprobantes->where('id_orden_pagos', $id_venta)->findAll();
+                            $data_R = ['title' => 'Comprobante', 'comprobantes' => $comprobantes_R];
+                            return view('pages/comprobante_back', $data_R);
+                        } else {
+                            return redirect()->to('login')->with('comprobanteError', 'No se pudo guardar el comprobante');
+                        }
                     }
                 }
             } else {
@@ -91,56 +128,13 @@ class Stripe extends BaseController
                 $data['id_status_pago'] = $state;
                 $data['orden_total'] = $pagoMes;
                 if ($model->update($id_venta, $data)) {
-
-                    $msj = "Tu pago fue rechazado";
+                    return redirect()->to('login')->with('status', 'Tu pago fue rechazado');
+                   
                 }
-                $msjStripe = "Hay un problema con su pago, no fue aprovado";
+               
             }
 
-            $idCliente = $model->where('id_orden_pagos', $id_venta)->findColumn('id_clientes');
-            $cliente = new ClientesModel();
-            $correo_cliente = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_direccion_email');
-            $paterno = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_apellido_paterno');
-            $clientes_nombre = $cliente->where('id_clientes', $idCliente)->findColumn('clientes_nombre');
-
-            $nombre =  $clientes_nombre[0];
-            $apellidos =  $paterno[0];
-            $correo =  $correo_cliente[0];
-
-            // $nombre =  session('nombre');
-            // $apellidos =  session('apellidos');
-            // $correo =  session('email');
-
-
-            $data = [
-                'id' => $id, 'monto' => $monto, 'moneda' => $moneda, 'descripcion' => $descripcion, 'status' => $status,
-                'concepto' => $concepto_R, 'title' => 'Stripe', 'msjStripe' => $msjStripe,
-                'msj' => $msj, 'idVenta' => $idVenta, 'cardNumero' => $cardNumero, 'cardTipo' => $cardTipo,
-                'nombre' => $nombre, 'paterno' => $apellidos, 'ordenes' => $model->where('id_orden_pagos', $id_venta)->findAll()
-            ];
-
-
-            $email = Services::email();
-
-            $email->setFrom('facturacion@c1550361.ferozo.com', 'Soluciones IM');
-            $email->setTo($correo);
-            $email->setSubject('Soluciones IM, Comprobante');
-            $email->setMessage(view('pages/tarjeta', $data));
-
-
-
-
-            if ($email->send()) {
-                return view('pages/tarjeta', $data);
-                //return $RespuestaVenta;
-            } else {
-                return redirect()->to('/');
-            }
-
-
-            //return view('pages/tarjeta', $data);
-            //return redirect()->to('home')->with('correo', "Comprobante envíado a tu correo");
-            //return $charge;
+           
         }
         return redirect()->to('login');
     }

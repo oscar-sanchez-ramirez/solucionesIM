@@ -71,7 +71,6 @@
                     <th scope="col">Fecha de pago</th>
                     <th scope="col">Concepto</th>
                     <th scope="col">Total</th>
-                    <th scope="col">RFC emisor</th>
                     <th colspan="4" class="text-center">Administrador</th>
                 </tr>
             </thead>
@@ -96,7 +95,6 @@
                         <td><?= $orden['orden_fecha_pago'] ?></td>
                         <td><?= $orden['orden_concepto'] ?></td>
                         <td>$ <?= $orden['orden_total'] ?></td>
-                        <td><?= $orden['orden_RfcEmisorCtaOrd'] ?></td>
                         <td>
                             <form action="<?= base_url('admin/emailOrdenes') ?>" method="POST">
                                 <input type="hidden" name="idOrden" value="<?= $orden['id_orden_pagos'] ?>">

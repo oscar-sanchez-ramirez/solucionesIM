@@ -53,7 +53,7 @@ class Comprobantes extends BaseController
 
     public function pdf()
     {
-        if ($this->session->logged_in) {
+        // if ($this->session->logged_in) {
             $req = Services::request();
             $idComprobante = $req->getPost('id_comprobante');
 
@@ -93,8 +93,8 @@ class Comprobantes extends BaseController
             $dompdf->stream($filename . ".pdf", array("Attachment" => true));
 
             return true;
-        }
-        return redirect()->to('login');
+        // }
+        // return redirect()->to('login');
     }
 
     public function email()

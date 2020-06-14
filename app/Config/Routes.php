@@ -96,6 +96,11 @@ $routes->get('/comprobantes/ver', 'Comprobantes::ver');
 $routes->get('/comprobantes/delete', 'Comprobantes::delete');
 
 
+$routes->get('/facturacion/GeneraCFDI', 'Facturacion::GeneraCFDI');
+$routes->get('/facturacion/GeneraPDF', 'Facturacion::GeneraPDF');
+
+
+
 
 
 
