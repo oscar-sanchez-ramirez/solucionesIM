@@ -32,9 +32,9 @@
 
     <form action="<?= base_url('/admin/saveOrdenes') ?>" method="POST">
         <div class="form-row">
-            
+
             <div class="form-group col-md-4">
-            <label>Clientes</label>
+                <label>Clientes</label>
                 <select id="inputState" name="id_clientes" class="form-control">
                     <option>ID Clientes</option>
                     <?php foreach ($clientes as $cliente) : ?>
@@ -43,7 +43,7 @@
                 </select>
             </div>
             <div class="form-group col-md-4">
-            <label for="">Status pago</label>
+                <label for="">Status pago</label>
                 <select id="inputState" name="id_status_pago" class="form-control">
                     <!-- <option>ID Status pago</option> -->
                     <?php foreach ($status as $statu) : ?>
@@ -52,40 +52,40 @@
                 </select>
             </div>
             <div class="form-group col-md-4">
-            <label>Fecha de pago</label>
+                <label>Fecha de pago</label>
                 <input type="date" class="form-control" name="orden_fecha_pago" placeholder="Fecha pago" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Orden concepto </label>
+                <label>Orden concepto </label>
                 <input type="text" class="form-control" name="orden_concepto" placeholder="Orden concepto" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Condiciones de pago</label>
+                <label>Condiciones de pago</label>
                 <input type="text" class="form-control" name="CondicionesDePago" placeholder="Condiciones de pago" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Cantidad </label>
-                <input type="number" class="form-control" name="cantidad" placeholder="cantidad" required="required">
+                <label>Moneda de pago </label>
+                <input type="text" class="form-control" name="orden_moneda_de_pago" value="MXN" placeholder="Orden modena de pago" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Moneda de pago </label>
-                <input type="text" class="form-control" name="orden_moneda_de_pago" placeholder="Orden modena de pago" required="required">
+                <label>Cantidad </label>
+                <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="cantidad" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Monto </label>
-                <input type="number" class="form-control" name="orden_monto" placeholder="Orden monto" required="required">
+                <label>Importe </label>
+                <input type="number" step='0.01' class="form-control" name="orden_monto" id="importe" placeholder="Orden monto" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Subtotal</label>
-                <input type="number" class="form-control" name="orden_subtotal" placeholder="Orden subtotal" required="required">
+                <label>Subtotal</label>
+                <input type="number" class="form-control" name="orden_subtotal" id="subtotal" placeholder="Orden subtotal" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>IVA</label>
-                <input type="number" class="form-control" name="iva" placeholder="iva" required="required">
+                <label>IVA</label>
+                <input type="number" class="form-control" name="iva" id="iva" placeholder="iva" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Total</label>
-                <input type="number" class="form-control" name="orden_total" placeholder="Orden total" required="required">
+                <label>Total</label>
+                <input type="number" class="form-control" name="orden_total" id="total" placeholder="Orden total" required="required">
             </div>
         </div>
         <br>
@@ -94,8 +94,35 @@
         </div>
 
     </form>
-<br>
+    <br>
 </div>
+
+
+<script>
+    window.addEventListener('load', () => {
+        var cantidad = document.querySelector("#cantidad");
+        var importe = document.querySelector("#importe");
+        var subtotal = document.querySelector("#subtotal");
+        var iva = document.querySelector("#iva");
+        var total = document.querySelector("#total");
+
+        importe.addEventListener('change', function() {
+            var can = parseFloat(cantidad.value);
+            var impor = parseFloat(importe.value);
+            var resul = (can * impor);
+            subtotal.value = resul.toFixed(2);
+            var sub = subtotal.value;
+            var subR = parseFloat(sub);
+            let ivaP = parseFloat(0.160000);
+            var ivaR = (subR * ivaP);
+            iva.value = parseFloat(ivaR).toFixed(2);
+            totalR = (subR + ivaR);
+            total.value = totalR.toFixed(2);
+
+        });
+
+    });
+</script>
 
 
 
