@@ -3,7 +3,7 @@
 
 
 <div class="container text-center margen">
-     <h1>Editar ordenes de pago</h1>
+     <h1>Editar órdenes de pago</h1>
 </div>
 <hr>
 <br>
@@ -45,7 +45,7 @@
                     <input type="text" class="form-control" name="orden_direccion_colonia" value="<?= $orden['orden_direccion_colonia'] ?>" required="required">
                </div>
                <div class="form-group col-md-4">
-               <label>Codigo postal</label>
+               <label>Código postal</label>
                     <input type="text" class="form-control" name="orden_direccion_cp" value="<?= $orden['orden_direccion_cp'] ?>" required="required">
                </div>
                <div class="form-group col-md-4">
@@ -89,7 +89,7 @@
                     <input type="text" class="form-control" name="orden_total" value="<?= $orden['orden_total'] ?>" required="required">
                </div>
                <div class="form-group col-md-4">
-               <label>Numero de operación </label>
+               <label>Número de operación </label>
                     <input type="text" class="form-control" name="orden_numero_de_operacion" value="<?= $orden['orden_numero_de_operacion'] ?>" required="required">
                </div>
                <div class="form-group col-md-4">

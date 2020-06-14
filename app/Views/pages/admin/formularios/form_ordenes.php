@@ -3,7 +3,7 @@
 
 
 <div class="container text-center margen">
-    <h1>Alta de ordenes de pago</h1>
+    <h1>Alta de órdenes de pago</h1>
 </div>
 <hr>
 
@@ -76,16 +76,16 @@
                 <input type="text" class="form-control" name="orden_direccion_colonia" placeholder="Dirección colonia" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Codigo postal</label>
-                <input type="text" class="form-control" name="orden_direccion_cp" placeholder="Dirección Codigo postal" required="required">
+            <label>Código postal</label>
+                <input type="text" class="form-control" name="orden_direccion_cp" placeholder="Dirección Código postal" required="required">
             </div>
             <div class="form-group col-md-4">
             <label for="">País No.</label>
-                <input type="text" class="form-control" name="orden_direccion_pais" placeholder="Dirección país No." required="required">
+                <input type="text" class="form-control" name="orden_direccion_pais" placeholder="Dirección País No." required="required">
             </div>
             <div class="form-group col-md-4">
             <label>Estado No.</label>
-                <input type="text" class="form-control" name="orden_direccion_estado" placeholder="Direccion estado No." required="required">
+                <input type="text" class="form-control" name="orden_direccion_estado" placeholder="Dirección Estado No." required="required">
             </div>
             <div class="form-group col-md-4">
             <label>Ciudad No.</label>
@@ -93,7 +93,7 @@
             </div>
             <div class="form-group col-md-4">
             <label>Teléfono</label>
-                <input type="text" class="form-control" name="orden_direccion_telefono" placeholder="Orden direccin Telefonico" required="required">
+                <input type="text" class="form-control" name="orden_direccion_telefono" placeholder="Orden dirección Teléfono" required="required">
             </div>
             <div class="form-group col-md-4">
             <label>Orden concepto </label>
@@ -120,8 +120,8 @@
                 <input type="text" class="form-control" name="orden_total" placeholder="Orden total" required="required">
             </div>
             <div class="form-group col-md-4">
-            <label>Numero de operación </label>
-                <input type="text" class="form-control" name="orden_numero_de_operacion" placeholder="Orden numero de operción" required="required">
+            <label>Número de operación </label>
+                <input type="text" class="form-control" name="orden_numero_de_operacion" placeholder="Orden número de operción" required="required">
             </div>
             <div class="form-group col-md-4">
             <label>RfcEmisorCtaOrd</label>
