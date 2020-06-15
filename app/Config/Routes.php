@@ -48,6 +48,8 @@ $routes->post('/admin/editarOrden', 'Admin::editarOrden');
 $routes->post('/admin/updateOrdenes', 'Admin::updateOrdenes');
 
 $routes->post('/admin/emailOrdenes', 'Admin::emailOrdenes');
+$routes->post('/admin/resOrden', 'Admin::resOrden');
+
 
 
 

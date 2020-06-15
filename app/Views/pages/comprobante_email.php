@@ -234,7 +234,7 @@ Sizes: [
 										tables centered in the emailBody table,
 										in case its width is set to 100%.
 									-->
-									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="color:#FFFFFF;" bgcolor="#2D9EB0">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="color:#FFFFFF;" bgcolor="#D1D1C9">  <!--#2D9EB0-->
 										<tr>
 											<td align="center" valign="top">
 												<!-- FLEXIBLE CONTAINER // -->
@@ -261,7 +261,7 @@ Sizes: [
                                                                     <br>    
                                                                     <!-- <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Soluciones IM</h1> -->
 																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#010102c2;line-height:135%;"></h2>
-																		<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:16px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Gracias por realizar tu pago.</div>
+																		<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:16px;margin-bottom:0;color:#6F6F6E;line-height:135%;">Gracias por realizar tu pago.</div>
 																	</td>
 																</tr>
 															</table>
@@ -309,7 +309,7 @@ Sizes: [
 																					<?php if ($comprobante['comprobantes_metodo_pago'] == 1) : ?>
 																							Método de pago: <?php echo "PayPal" ?>
 																					<?php elseif ($comprobante['comprobantes_metodo_pago'] == 2) : ?>
-																							Método de pago:: <?php echo "Stripe" ?>
+																							Método de pago: <?php echo "Stripe" ?>
 																					<?php elseif ($comprobante['comprobantes_metodo_pago'] == 3) : ?>
 																							Método de pago: <?php echo "PayU" ?>
 																					<?php endif; ?>
@@ -360,10 +360,10 @@ Sizes: [
 														<td style="padding-top:0;" align="center" valign="top" width="500" class="flexibleContainerCell">
 
 															<!-- CONTENT TABLE // -->
-															<table border="0" cellpadding="0" cellspacing="0" width="50%" class="emailButton" style="background-color: #3498DB;">
+															<table border="0" cellpadding="0" cellspacing="0" width="50%" class="emailButton" style="background-color:#D1D1C9;">
 																<tr>
 																	<td align="center" valign="middle" class="buttonContent" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;">
-																		<p style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:10%;" href="#" target="_blank">Compobante: <?= $comprobante['id_comprobantes'] ?></p>
+																		<p style="color:#6F6F6E;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:10%;" href="#" target="_blank">Compobante: <?= $comprobante['id_comprobantes'] ?></p>
 																	</td>
 																</tr>
 															</table>
@@ -398,16 +398,16 @@ Sizes: [
 															<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
 																<tr>				
 																	</td>
-																	<td align="right" valign="top" class="flexibleContainerBox" style="background-color:#2D9EB0;">
+																	<td align="right" valign="top" class="flexibleContainerBox" style="background-color:#D1D1C9;">
 																		<table class="flexibleContainerBoxNext" border="0" cellpadding="30" cellspacing="0" width="100%" style="max-width:100%;">
 																			<tr>
 																				<td align="left" class="textContent">
 																					<!-- <h3 style="color:#FFFFFF;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Right Column</h3> -->
-																					<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Teléfono: +(52)55 5970-6848</div>
-																					<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">WhatsApp 55 1262 3929</div>
-																					<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">contacto@solucionesim.net</div>
-																					<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Calle Estrella #4, int 102B, San Pablo</div>
-																					<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Iztapalapa, México CDMX, CP 09000</div>
+																					<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#6F6F6E;line-height:135%;">Teléfono: +(52)55 5970-6848</div>
+																					<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#6F6F6E;line-height:135%;">WhatsApp 55 1262 3929</div>
+																					<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#6F6F6E;line-height:135%;">contacto@solucionesim.net</div>
+																					<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#6F6F6E;line-height:135%;">Calle Estrella #4, int 102B, San Pablo</div>
+																					<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#6F6F6E;line-height:135%;">Iztapalapa, México CDMX, CP 09000</div>
 																				</td>
 																			</tr>
 																		</table>

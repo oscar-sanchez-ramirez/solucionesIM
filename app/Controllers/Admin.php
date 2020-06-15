@@ -48,11 +48,11 @@ class Admin extends BaseController
         if ($this->session->logged_admin) {
 
             $model = new OrdenpagosModel();
-            
+
 
             $fecha_actual = strtotime(date("Y-m-d", time()));
-           
-             
+
+
 
 
             $date = ['ordenes' => $model->orderBy('id_orden_pagos', 'desc')->findAll(), 'title' => 'Ordenes', 'fecha_actual' => $fecha_actual];
@@ -97,7 +97,7 @@ class Admin extends BaseController
             $data['orden_subtotal'] = $req->getPost('orden_subtotal');
             $data['iva'] = $req->getPost('iva');
             $data['orden_total'] = $req->getPost('orden_total');
-           
+
 
 
             if ($model->save($data) === false) {
@@ -183,33 +183,35 @@ class Admin extends BaseController
 
     public function updateOrdenes()
     {
+        if ($this->session->logged_admin) {
+            $data = [];
+            $model = new  OrdenpagosModel();
+            $req = Services::request();
 
-        $data = [];
-        $model = new  OrdenpagosModel();
-        $req = Services::request();
-
-        $id = $req->getPost('id_orden_pagos');
-        $data['id_clientes'] = $req->getPost('id_clientes');
-        $data['id_status_pago'] = $req->getPost('id_status_pago');
-        $data['orden_fecha_pago'] = $req->getPost('orden_fecha_pago');
-        $data['orden_concepto'] = $req->getPost('orden_concepto');
-        $data['CondicionesDePago'] = $req->getPost('CondicionesDePago');
-        $data['cantidad'] = $req->getPost('cantidad');
-        $data['orden_moneda_de_pago'] = $req->getPost('orden_moneda_de_pago');
-        $data['orden_monto'] = $req->getPost('orden_monto');
-        $data['orden_subtotal'] = $req->getPost('orden_subtotal');
-        $data['iva'] = $req->getPost('iva');
-        $data['orden_total'] = $req->getPost('orden_total');
-        
-       
+            $id = $req->getPost('id_orden_pagos');
+            $data['id_clientes'] = $req->getPost('id_clientes');
+            $data['id_status_pago'] = $req->getPost('id_status_pago');
+            $data['orden_fecha_pago'] = $req->getPost('orden_fecha_pago');
+            $data['orden_concepto'] = $req->getPost('orden_concepto');
+            $data['CondicionesDePago'] = $req->getPost('CondicionesDePago');
+            $data['cantidad'] = $req->getPost('cantidad');
+            $data['orden_moneda_de_pago'] = $req->getPost('orden_moneda_de_pago');
+            $data['orden_monto'] = $req->getPost('orden_monto');
+            $data['orden_subtotal'] = $req->getPost('orden_subtotal');
+            $data['iva'] = $req->getPost('iva');
+            $data['orden_total'] = $req->getPost('orden_total');
 
 
 
-        if ($model->update($id, $data) === false) {
-            return redirect()->to('listarOrdenes')->with('danger', 'No se pudo actualizar la orden');
-        } else {
-            return redirect()->to('listarOrdenes')->with('success', 'Orden actualizada con exito');
+
+
+            if ($model->update($id, $data) === false) {
+                return redirect()->to('listarOrdenes')->with('danger', 'No se pudo actualizar la orden');
+            } else {
+                return redirect()->to('listarOrdenes')->with('success', 'Orden actualizada con exito');
+            }
         }
+        return redirect()->to(base_url('login'));
     }
 
     public function eliminarOrden()
@@ -223,6 +225,24 @@ class Admin extends BaseController
                 return redirect()->back()->with('delete', 'La orden fue eliminada con exito');
             }
             return $idOrden;
+        }
+        return redirect()->to(base_url('login'));
+    }
+
+    public function resOrden()
+    {
+        if ($this->session->logged_admin) {
+            $req = Services::request();
+            $id = $req->getPost('idOrden');
+
+            $model = new OrdenpagosModel();
+            $data['orden_fecha_pago'] = date("Y-m-d", time());
+
+            if ($model->update($id, $data) === false) {
+                return redirect()->to('listarOrdenes')->with('danger', 'No se pudo restaurar la órden');
+            } else {
+                return redirect()->to('listarOrdenes')->with('success', 'Órden restaurar con exito');
+            }
         }
         return redirect()->to(base_url('login'));
     }

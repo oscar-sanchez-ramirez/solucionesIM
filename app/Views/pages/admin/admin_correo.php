@@ -234,7 +234,7 @@ Sizes: [
 										tables centered in the emailBody table,
 										in case its width is set to 100%.
 									-->
-									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="color:#FFFFFF;" bgcolor="#2D9EB0">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="color:#FFFFFF;" bgcolor="#D1D1C9">
 										<tr>
 											<td align="center" valign="top">
 												<!-- FLEXIBLE CONTAINER // -->
@@ -260,8 +260,8 @@ Sizes: [
 																		<img src="https://www.solucionesim.net/imgusr/logo_solucionesim.png" alt="" width="200px">
 																		<br>
 																		<!-- <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Soluciones IM</h1> -->
-																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:white;line-height:135%;"><?= $nombre . " " . $apellidos ?></h2>
-																		<h3 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:10px;color:white;line-height:135%;">No dejes pasar la fecha limite de tu pago</h3>
+																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#6F6F6E;line-height:135%;"><?= $nombre . " " . $apellidos ?></h2>
+																		<h3 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:10px;color:#525251;line-height:135%;">No dejes pasar la fecha limite de tu pago</h3>
 																		
 																	</td>
 																</tr>
@@ -342,10 +342,10 @@ Sizes: [
 														<td style="padding-top:0;" align="center" valign="top" width="500" class="flexibleContainerCell">
 
 															<!-- CONTENT TABLE // -->
-															<table border="0" cellpadding="0" cellspacing="0" width="50%" class="emailButton" style="background-color: #3498DB;">
+															<table border="0" cellpadding="0" cellspacing="0" width="50%" class="emailButton" style="background-color:#D1D1C9;">
 																<tr>
 																	<td align="center" valign="middle" class="buttonContent" style="padding-top:15px;padding-bottom:15px;padding-right:15px;padding-left:15px;">
-																		<a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="<?= base_url('correo') . '?token=' . urlencode($token) ?>" target="_blank">Ir a pagar &raquo;</a>
+																		<a style="color:#6F6F6E;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="<?= base_url('correo') . '?token=' . urlencode($token) ?>" target="_blank">Ir a pagar &raquo;</a>
 																	</td>
 																</tr>
 															</table>
@@ -426,22 +426,22 @@ Sizes: [
 															<!-- CONTENT TABLE // -->
 															<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
 																<tr>
-																	<td align="left" valign="top" class="flexibleContainerBox" style="background-color:#5F5F5F;">
+																	<td align="left" valign="top" class="flexibleContainerBox" style="background-color:#CECECD;"> <!--#EFB20F-->
 																		<table border="0" cellpadding="30" cellspacing="0" width="100%" style="max-width:100%;">
 																			<tr>
 																				<td align="left" class="textContent">
 																				
-																					<div style="text-align: justify;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Creamos estrategias de marketing en buscadores y redes sociales que te ayudan generar nuevas oportunidades de venta.</div>
+																					<div style="text-align: justify;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#696969;line-height:135%;">Creamos estrategias de marketing en buscadores y redes sociales que te ayudan generar nuevas oportunidades de venta.</div> 
 																				</td>
 																			</tr>
 																		</table>
 																	</td>
-																	<td align="right" valign="top" class="flexibleContainerBox" style="background-color:#27ae60;">
+																	<td align="right" valign="top" class="flexibleContainerBox" style="background-color:#C5C5C5;"> <!--#0FD12C-->
 																		<table class="flexibleContainerBoxNext" border="0" cellpadding="30" cellspacing="0" width="100%" style="max-width:100%;">
 																			<tr>
 																				<td align="left" class="textContent">
 																				
-																					<div style="text-align: justify;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Sitio web que posicionan a tu marca en los primeros lugares en buscadores y tiendas en línea fáciles de usar para ti y tus clientes.</div>
+																					<div style="text-align: justify;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#696969;line-height:135%;">Sitio web que posicionan a tu marca en los primeros lugares en buscadores y tiendas en línea fáciles de usar para ti y tus clientes.</div>
 																				</td>
 																			</tr>
 																		</table>
