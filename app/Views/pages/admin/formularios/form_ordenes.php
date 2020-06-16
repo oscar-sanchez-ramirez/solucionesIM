@@ -32,16 +32,16 @@
 
     <form action="<?= base_url('/admin/saveOrdenes') ?>" method="POST">
         <div class="form-row">
-
             <div class="form-group col-md-4">
                 <label>Clientes</label>
-                <select id="inputState" name="id_clientes" class="form-control">
+                <select id="inputState" name="id_clientes"  onchange="select_usuario();" class="form-control">
                     <option>ID Clientes</option>
                     <?php foreach ($clientes as $cliente) : ?>
-                        <option value="<?= $cliente['id_clientes'] ?>"><?= $cliente['clientes_nombre'] ?></option>
+                        <option value="<?= $cliente['id_clientes'][0] ?>"><?= $cliente['clientes_nombre'] ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
+
             <div class="form-group col-md-4">
                 <label for="">Status pago</label>
                 <select id="inputState" name="id_status_pago" class="form-control">
@@ -99,6 +99,9 @@
 
 
 <?= $this->include('js/iva') ?>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 
 
 

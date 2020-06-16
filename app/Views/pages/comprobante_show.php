@@ -1,5 +1,8 @@
 <?= $this->extend('templates/default') ?>
 <?= $this->section('content') ?>
+
+<div id="carga"></div>
+
 <br><br>
 <?php foreach ($comprobantes as $comprobante) : ?>
     <div class="container col-md-4">
@@ -47,7 +50,7 @@
                 <div class="text-right list-group-item list-group-item-action">
                     <form action="<?= base_url('comprobantes/email') ?>" method="POST">
                         <input type="hidden" name="id_comprobante" value="<?= $comprobante['id_comprobantes'] ?>">
-                        <button class="btn btn-block btn-success">Enviar Correo Electrónico</button>
+                        <button class="btn btn-block btn-success" onclick="executeAjaxRequest();">Enviar Correo Electrónico</button>
                     </form>
                 </div>
             </div>
@@ -59,4 +62,7 @@
     </div>
 
 <?php endforeach; ?>
+<div id="boxLoading"></div>
+
+<?= $this->include('components/spinner') ?>
 <?= $this->endSection() ?>

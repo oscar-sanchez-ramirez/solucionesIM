@@ -53,12 +53,12 @@ $routes->post('/admin/resOrden', 'Admin::resOrden');
 
 
 
-$routes->get('/admin/listarUsuarios', 'Admin::listarUsuarios');
-$routes->get('/admin/crearUsuario', 'Admin::crearUsuario');
-$routes->post('/admin/saveUsuario', 'Admin::saveUsuario');
-$routes->post('/admin/actualizarUsuario', 'Admin::actualizarUsuario');
-$routes->post('/admin/updateUser', 'Admin::updateUser');
-$routes->post('/admin/deleteUser', 'Admin::deleteUser');
+$routes->get('/admin/listarUsuarios', 'Usuarios::listarUsuarios');
+$routes->get('/admin/crearUsuario', 'Usuarios::crearUsuario');
+$routes->post('/admin/saveUsuario', 'Usuarios::saveUsuario');
+$routes->post('/admin/actualizarUsuario', 'Usuarios::actualizarUsuario');
+$routes->post('/admin/updateUser', 'Usuarios::updateUser');
+$routes->post('/admin/deleteUser', 'Usuarios::deleteUser');
 
 
 
