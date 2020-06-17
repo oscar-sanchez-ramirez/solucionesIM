@@ -23,12 +23,22 @@
                 <li class="nav-item">
                     <div class="dropdown right">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-money-bill-alt">&nbspOrdenes</i>
+                            <i class="fas fa-money-bill-alt">&nbspOrdenes</i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="nav-link" href="<?= base_url('admin/listarOrdenes') ?>"><i class="fas fa-list">&nbsplistar Ordenes</i></a>
+                            <a class="nav-link" href="<?= base_url('admin/listarOrdenes') ?>"><i class="fas fa-list">&nbspListar Ordenes</i></a>
                             <a class="nav-link" href="<?= base_url('admin/vencidasOrdenes') ?>"><i class="fas fa-list">&nbspOrden Vencida</i></a>
                             <a class="nav-link" href="<?= base_url('admin/crearOrdenes') ?>"><i class="fas fa-plus-circle">&nbspCrear Ordenes</i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown right">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-money-bill-alt">&nbspComprobantes</i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" href="<?= base_url('comprobar') ?>"><i class="fas fa-money-check">&nbspListar</i></a>
                         </div>
                     </div>
                 </li>

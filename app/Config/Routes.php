@@ -50,6 +50,13 @@ $routes->post('/admin/updateOrdenes', 'Admin::updateOrdenes');
 $routes->post('/admin/emailOrdenes', 'Admin::emailOrdenes');
 $routes->post('/admin/resOrden', 'Admin::resOrden');
 
+$routes->get('/comprobar', 'Comprobar::index');
+$routes->get('/comprobar/show', 'Comprobar::show');
+$routes->get('/comprobar/comprobantes', 'Comprobar::comprobantes');
+
+
+
+
 
 
 
