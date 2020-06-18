@@ -15,7 +15,7 @@ use nusoap_client;
 
 class Facturacion extends BaseController
 {
-  public  function GeneraCFDI()
+    public  function GeneraCFDI()
     {
 
         try {
@@ -23,38 +23,37 @@ class Facturacion extends BaseController
             date_default_timezone_set('America/Mexico_City');
             $startDate = strval(date("Y-m-d") . 'T' . date("H:i:s"));
 
-            $parametros['CFDIRequest']['DatosCFDI']['Serie'] = "A";   // Fijo SELECT serie= "B" o C
-            $parametros['CFDIRequest']['DatosCFDI']['Folio'] = 0; // Fijo "1" 
-            $parametros['CFDIRequest']['DatosCFDI']['CondicionesDePago'] = "En una sola exhibicion";   // Orden * Cambiar nombre
-            $parametros['CFDIRequest']['DatosCFDI']['FormadePago'] = "04";  // Select
-            $parametros['CFDIRequest']['DatosCFDI']['Subtotal'] = 1230.00;  // Orden *
-            $parametros['CFDIRequest']['DatosCFDI']['Moneda'] = "MXN";  // Orden *
-            $parametros['CFDIRequest']['DatosCFDI']['Total'] = 1230.000000;  // Orden * a 6 decimales
-            $parametros['CFDIRequest']['DatosCFDI']['TipodeComprobante'] = "FA";  // Fijo
-            $parametros['CFDIRequest']['DatosCFDI']['MetodoPago'] = 'PUE';  // Fijo select
-            $parametros['CFDIRequest']['DatosCFDI']['LugarDeExpedicion'] = "56337";  // Fijo * 09000
-            $parametros['CFDIRequest']['DatosCFDI']['Fecha'] = $startDate;   //Fijo
+            $parametros['CFDIRequest']['DatosCFDI']['Serie'] = "B";    // Fijo SELECT serie= "B" o C
+            $parametros['CFDIRequest']['DatosCFDI']['Folio'] = 1;      // Fijo "1" 
+            $parametros['CFDIRequest']['DatosCFDI']['CondicionesDePago'] = "En una sola exhibición"; // Orden * Cambiar nombre
+            $parametros['CFDIRequest']['DatosCFDI']['FormadePago'] = "05"; // Select
+            $parametros['CFDIRequest']['DatosCFDI']['Moneda'] = "MXN";   // Orden *
+            $parametros['CFDIRequest']['DatosCFDI']['Subtotal'] = 1230.00;   // Orden *
+            $parametros['CFDIRequest']['DatosCFDI']['Total'] = 1426.8;   // Orden * a 6 
+            $parametros['CFDIRequest']['DatosCFDI']['TipodeComprobante'] = "FA"; // Fijo
+            $parametros['CFDIRequest']['DatosCFDI']['MetodoPago'] = 'PUE';   // Fijo select
+            $parametros['CFDIRequest']['DatosCFDI']['LugarDeExpedicion'] = "09000";  // Fijo * 09000
+            $parametros['CFDIRequest']['DatosCFDI']['Fecha'] = $startDate;    //Fijo
             $parametros['CFDIRequest']['DatosCFDI']['MensajePDF'] = "Comprobante para facturar"; // Fijo o Orden "input vacio "
 
 
-            $parametros['CFDIRequest']['ReceptorCFDI']['RFC'] = "SIM120209UF9";  // Cliente *
-            $parametros['CFDIRequest']['ReceptorCFDI']['RazonSocial'] = "Soluciones IM NET SA de CU";   //Cliente * o Orden 
-            $parametros['CFDIRequest']['ReceptorCFDI']['UsoCfdi'] = "I04";    // Fijo Select default por definir
-            $parametros['CFDIRequest']['ReceptorCFDI']['Pais'] = "MEXICO";   // Cliente *
-            $parametros['CFDIRequest']['ReceptorCFDI']['Email1'] = "cnavarro@soluciones.net";   // Cliente *
+            $parametros['CFDIRequest']['ReceptorCFDI']['RFC'] = "SIM120209UF9";   // Cliente *
+            $parametros['CFDIRequest']['ReceptorCFDI']['RazonSocial'] = "Soluciones IM NET S.A DE C.V";  //Cliente * o Orden 
+            $parametros['CFDIRequest']['ReceptorCFDI']['UsoCfdi'] = "I04";   // Fijo Select default por definir
+            $parametros['CFDIRequest']['ReceptorCFDI']['Pais'] = "MEXICO";    // Cliente *
+            $parametros['CFDIRequest']['ReceptorCFDI']['Email'] = "cnavarro@soluciones.net";  // Cliente *
 
 
+            $Traslado['Base'] = 1230.00;    // * orden
+            $Traslado['Impuesto'] = '002';   
+            $Traslado['TipoFactor'] = 'Tasa';
+            $Traslado['TasaOCuota'] = 0.160000;
+            $Traslado['Importe'] = 196.8;   // * orden
 
-            $Parte['ClaveProdServ'] = '81111503';  // Fijo = 
-            $Parte['Cantidad'] = 1.0;  // input
-            $Parte['calveUnidad'] = 'E48';  // Fijo = 
-            $Parte['Descripcion'] = 'Equipo de computo';  // input vacio
-            $Parte['ValorUnitario'] = 1230.00;   // Orden 
-            $Parte['Importe'] = 1230.00;   // unitario * valorunitario
 
             $conceptosDatos = array(array(
-                'ClaveProdServ' => '81111503',  
-                'Cantidad' => 1.0,   
+                'ClaveProdServ' => 81111503,
+                'Cantidad' => 1.0,
                 'claveUnidad' => 'E48',
                 'Descripcion' => "Equipo de computo",
                 'ValorUnitario' => 1230.00,
@@ -63,9 +62,8 @@ class Facturacion extends BaseController
 
             foreach ($conceptosDatos as $concepto => $value) {
                 $parametros['CFDIRequest']['ConceptosCFD']['Conceptos']['ConceptoCFDI'][$concepto] = $value;
-                $parametros['CFDIRequest']['ConceptosCFD']['Conceptos']['ConceptoCFDI'][0]['Parte']['Parte'][0] = $Parte;
+                $parametros['CFDIRequest']['ConceptosCFD']['Conceptos']['ConceptoCFDI'][0]['Traslados']['ImpuestoTrasladado'][0] = $Traslado;
             }
-
 
 
             $parametros['CFDIRequest']['Usuario'] = "demo33023@mail.com";
@@ -96,30 +94,28 @@ class Facturacion extends BaseController
                     echo '<b style="color: red">Error encontrado: ' . $error . '</b>';
                 } else {
                     // Creando el archivo XML
-                    $id = 5;
+                    $id = 8;
                     file_put_contents("/var/www/html/solu-ecom/public/uploads/XML/Mixml($id).xml", $result['GeneraCFDIV33Result']['XMLCFDI']);
                     $UUID = $result['GeneraCFDIV33Result']['UUID'];
                     $info = ['title' => 'XML', 'uuid' => $UUID];
                     //return view('pages/facturacion/index', $info);
-                   return redirect()->to('GeneraPDF?uuid=' . $UUID);
-                    
+                    return redirect()->to('GeneraPDF?uuid=' . $UUID);
                 }
-
-
             }
         } catch (Exception $e) {
             echo $e;
             return false;
         }
-       //
+        //
     }
 
 
 
-public  function GeneraPDF(){
+    public  function GeneraPDF()
+    {
 
         $UUID =  $_GET['uuid']; //post
-       
+
         try {
 
 
@@ -156,23 +152,19 @@ public  function GeneraPDF(){
 
                     date_default_timezone_set('America/Mexico_City');
                     $startDate = strval(date("Y-m-d") . 'T' . date("H:i:s"));
-                    $id = 5;
+                    $id = 8;
                     // Creando el archivo PDF
                     $file_name = "miPDF($id).pdf";
                     $data = base64_decode($result['GeneraPDFCFDIV33Result']['PDF']);
                     file_put_contents("/var/www/html/solu-ecom/public/uploads/PDF/" . $file_name, $data);
 
-                    $info = ['title' => "Facturación" , 'pdf' => $file_name];
+                    $info = ['title' => "Facturación", 'pdf' => $file_name];
                     return view('pages/facturacion/pdf', $info);
-                    
                 }
             }
         } catch (Exception $e) {
             echo $e;
             return false;
-        
         }
-
-      
     }
 }
