@@ -1,4 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+            <img alt="Brand" src="img/soluciones.jpg" width="60px">
+        </a>
+    </div>
     <div class="container">
         <a class="navbar-brand" href="<?= base_url('home') ?>">FACTICOM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,4 +32,3 @@
         </div>
     </div>
 </nav>
-

@@ -30,7 +30,7 @@
                 <?php if ($comprobante['comprobantes_metodo_pago'] == 1) : ?>
                    Método de pago: <?php echo "PayPal" ?>                  
                 <?php elseif ($comprobante['comprobantes_metodo_pago'] == 2) : ?>
-                    Método de pago:: <?php echo "Stripe" ?>
+                    Método de pago: <?php echo "Stripe" ?>
                 <?php elseif ($comprobante['comprobantes_metodo_pago'] == 3) : ?>
                     Método de pago: <?php echo "PayU" ?>
                 <?php endif; ?>

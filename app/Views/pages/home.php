@@ -3,8 +3,10 @@
 
 <!-- Page Content  -->
 
+
 <div id="content" class="p-4 p-md-5 pt-5">
     <div class="container d-none d-sm-none d-md-block">
+        <?= $this->include('components/nav')  ?>
         <br><br>
         <div class="row justify-content-center">
          <?= $this->include('components/msj-home.php') ?>

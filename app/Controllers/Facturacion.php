@@ -5,12 +5,14 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\OrdenpagosModel;
 use App\Models\ClientesModel;
+
 //use Nusoap\Nusoap;
 //use Cdfi\Cfdi;
 
 require '../facturacion/vendor/autoload.php';
 
-use Config\Services;
+
+
 use nusoap_client;
 
 class Facturacion extends BaseController
@@ -18,21 +20,19 @@ class Facturacion extends BaseController
   public  function GeneraCFDI()
     {
 
-        try {
-
             date_default_timezone_set('America/Mexico_City');
             $startDate = strval(date("Y-m-d") . 'T' . date("H:i:s"));
 
-            $parametros['CFDIRequest']['DatosCFDI']['Serie'] = "A";   // Fijo SELECT serie= "B" o C
-            $parametros['CFDIRequest']['DatosCFDI']['Folio'] = 0; // Fijo "1" 
+            $parametros['CFDIRequest']['DatosCFDI']['Serie'] = "B"; // Fijo SELECT serie= "B" o C
+            $parametros['CFDIRequest']['DatosCFDI']['Folio'] = 1; // Fijo "1" 
             $parametros['CFDIRequest']['DatosCFDI']['CondicionesDePago'] = "En una sola exhibicion";   // Orden * Cambiar nombre
             $parametros['CFDIRequest']['DatosCFDI']['FormadePago'] = "04";  // Select
-            $parametros['CFDIRequest']['DatosCFDI']['Subtotal'] = 1230.00;  // Orden *
             $parametros['CFDIRequest']['DatosCFDI']['Moneda'] = "MXN";  // Orden *
-            $parametros['CFDIRequest']['DatosCFDI']['Total'] = 1230.000000;  // Orden * a 6 decimales
+            $parametros['CFDIRequest']['DatosCFDI']['Subtotal'] = 1230.00;  // Orden *
+            $parametros['CFDIRequest']['DatosCFDI']['Total'] = 1426.8;  // Orden * a 6 decimales
             $parametros['CFDIRequest']['DatosCFDI']['TipodeComprobante'] = "FA";  // Fijo
             $parametros['CFDIRequest']['DatosCFDI']['MetodoPago'] = 'PUE';  // Fijo select
-            $parametros['CFDIRequest']['DatosCFDI']['LugarDeExpedicion'] = "56337";  // Fijo * 09000
+            $parametros['CFDIRequest']['DatosCFDI']['LugarDeExpedicion'] = "09000";  // Fijo * 09000
             $parametros['CFDIRequest']['DatosCFDI']['Fecha'] = $startDate;   //Fijo
             $parametros['CFDIRequest']['DatosCFDI']['MensajePDF'] = "Comprobante para facturar"; // Fijo o Orden "input vacio "
 
@@ -44,29 +44,34 @@ class Facturacion extends BaseController
             $parametros['CFDIRequest']['ReceptorCFDI']['Email1'] = "cnavarro@soluciones.net";   // Cliente *
 
 
+            $Traslado['Base'] =1230.00;
+            $Traslado['Impuesto'] = '002';
+            $Traslado['TipoFactor'] = 'Tasa';
+            $Traslado['TasaOCuota'] = 0.160000;
+            $Traslado['Importe'] = 196.8;
 
-            $Parte['ClaveProdServ'] = '81111503';  // Fijo = 
-            $Parte['Cantidad'] = 1.0;  // input
-            $Parte['calveUnidad'] = 'E48';  // Fijo = 
-            $Parte['Descripcion'] = 'Equipo de computo';  // input vacio
-            $Parte['ValorUnitario'] = 1230.00;   // Orden 
-            $Parte['Importe'] = 1230.00;   // unitario * valorunitario
+            // $Parte['ClaveProdServ'] = '81111503';  // Fijo = 
+            // $Parte['Cantidad'] = 1.0;  // input
+            // $Parte['calveUnidad'] = 'E48';  // Fijo = 
+            // $Parte['Descripcion'] = 'Equipo de computo';  // input vacio
+            // $Parte['ValorUnitario'] = 1230.00;   // Orden 
+            // $Parte['Importe'] = 1230.00;   // unitario * valorunitario
 
             $conceptosDatos = array(array(
-                'ClaveProdServ' => '81111503',  
-                'Cantidad' => 1.0,   
-                'claveUnidad' => 'E48',
-                'Descripcion' => "Equipo de computo",
-                'ValorUnitario' => 1230.00,
-                'Importe' => 1230.00
-            ));
+                'ClaveProdServ' => '81111503',  // Fijo = 
+                'Cantidad' => 1.0,   // input
+                'claveUnidad' => 'E48', // Fijo = 
+                'Descripcion' => "Equipo de computo", // input vacio
+                'ValorUnitario' => 1230.00,  // Orden 
+                'Importe' => 1230.00 )); // unitario * valorunitario
+            
 
             foreach ($conceptosDatos as $concepto => $value) {
                 $parametros['CFDIRequest']['ConceptosCFD']['Conceptos']['ConceptoCFDI'][$concepto] = $value;
-                $parametros['CFDIRequest']['ConceptosCFD']['Conceptos']['ConceptoCFDI'][0]['Parte']['Parte'][0] = $Parte;
+                // $parametros['CFDIRequest']['ConceptosCFD']['Conceptos']['ConceptoCFDI'][0]['Parte']['Parte'][0] = $Parte;
+                $parametros['CFDIRequest']['ConceptosCFD']['Conceptos']['ConceptoCFDI'][0]['Traslados']['ImpuestoTrasladado'][0] = $Traslado;
+
             }
-
-
 
             $parametros['CFDIRequest']['Usuario'] = "demo33023@mail.com";
             $parametros['CFDIRequest']['Contrasena'] = "12345";
@@ -107,21 +112,18 @@ class Facturacion extends BaseController
 
 
             }
-        } catch (Exception $e) {
-            echo $e;
+     
+     
             return false;
         }
-       //
-    }
+      //
+    
 
 
 
 public  function GeneraPDF(){
 
         $UUID =  $_GET['uuid']; //post
-       
-        try {
-
 
             $parametros['pdfrequest']['Usuario'] = "demo33023@mail.com";
             $parametros['pdfrequest']['Contrasena'] = "12345";
@@ -167,12 +169,11 @@ public  function GeneraPDF(){
                     
                 }
             }
-        } catch (Exception $e) {
-            echo $e;
+        
             return false;
         
         }
 
       
     }
-}
+
