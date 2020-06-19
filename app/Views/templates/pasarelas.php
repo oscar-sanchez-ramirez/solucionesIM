@@ -23,7 +23,7 @@
       width: 100%;
       height: 100%;
       z-index: 9999;
-      background: url('../img/spinner2.webp') 50% 50% no-repeat rgb(249, 249, 249);
+      background: url('./img/spinner2.webp') 50% 50% no-repeat rgb(249, 249, 249);
       opacity: .8;
       background-color: black;
   }

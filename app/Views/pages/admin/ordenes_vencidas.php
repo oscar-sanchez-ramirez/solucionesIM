@@ -28,7 +28,7 @@
                     <th scope="col">Fecha de pago</th>
                     <th scope="col">Concepto</th>
                     <th scope="col">Total</th>
-                    <th colspan="4" class="text-center">Administrador</th>
+                    <th colspan="3" class="text-center">Administrador</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,21 +52,15 @@
                         <td><?= $orden['orden_concepto'] ?></td>
                         <td>$ <?= $orden['orden_total'] ?></td>
                         <td>
-                            <form action="<?= base_url('admin/emailOrdenes') ?>" method="POST">
+                            <form action="<?= base_url('admin/resOrden') ?>" method="POST">
                                 <input type="hidden" name="idOrden" value="<?= $orden['id_orden_pagos'] ?>">
-                                <button class="btn btn-success  btn-sm" onclick="return confirm('¿Estas seguro?')"><i class="fas fa-envelope-square"></i></button>
+                                <button type="submit" class="btn btn-success  btn-sm" onclick="return confirm('¿Estas seguro?')"><i class="far fa-edit">Restaurar</i></button>
                             </form>
                         </td>
                         <td>
                             <form action="<?= base_url('admin/verOrden') ?>" method="POST">
                                 <input type="hidden" name="idOrden" value="<?= $orden['id_orden_pagos'] ?>">
                                 <button type="submit" class="btn btn-primary  btn-sm"><i class="fas fa-eye"></i></button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="<?= base_url('admin/editarOrden') ?>" method="POST">
-                                <input type="hidden" name="idOrden" value="<?= $orden['id_orden_pagos'] ?>">
-                                <button type="submit" class="btn btn-secondary  btn-sm" onclick="return confirm('¿Estas seguro?')"><i class="far fa-edit"></i></button>
                             </form>
                         </td>
                         <td>

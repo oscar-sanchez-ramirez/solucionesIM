@@ -1,4 +1,4 @@
-<?= $this->extend('templates/default') ?>
+<?= $this->extend('templates/correo') ?>
 <?= $this->section('content') ?>
 <br><br>
 <?php foreach ($comprobantes as $comprobante) : ?>
