@@ -2,11 +2,16 @@
 <?= $this->section('content') ?>
 
 <!-- Page Content  -->
-
-
+<style>
+    #carouselExampleControls {
+        -webkit-box-shadow: 0px 0px 37px -10px rgba(0,0,0,1);
+-moz-box-shadow: 0px 0px 37px -10px rgba(0,0,0,1);
+box-shadow: 0px 0px 37px -10px rgba(0,0,0,1);
+    }
+</style>
 <div id="content" class="p-4 p-md-5 pt-5">
     <div class="container d-none d-sm-none d-md-block">
-        <?= $this->include('components/nav')  ?>
+        <?= $this->include('components/home')  ?>
         <br><br>
         <div class="row justify-content-center">
             <?= $this->include('components/msj-home.php') ?>
@@ -54,8 +59,13 @@
 
 
     <div class="container d-block d-sm-block d-md-none">
-        <br><br>
         <div class="row justify-content-center margen" id="car">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Soluciones IM" src="https://www.solucionesim.net/imgusr/logo_solucionesim.png" width="150px">
+                </a>
+            </div>
+            <br>
             <div class="col-sm-8">
                 <div id="carouselExampleControls" class="carousel slide sombra" data-ride="carousel">
                     <div class="carousel-inner">

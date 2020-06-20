@@ -1,7 +1,13 @@
 <?= $this->extend('templates/admin') ?>
 <?= $this->section('content') ?>
-
 <br><br>
+<style>
+     .card {
+          -webkit-box-shadow: 0px 0px 12px -2px rgba(143, 143, 143, 1);
+          -moz-box-shadow: 0px 0px 12px -2px rgba(143, 143, 143, 1);
+          box-shadow: 0px 0px 12px -2px rgba(143, 143, 143, 1);
+     }
+</style>
 <div class="container col-md-4">
     <?php if (!empty($msj['email'])) : ?>
         <div class="alert alert-danger">

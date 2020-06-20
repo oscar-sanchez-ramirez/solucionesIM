@@ -1,6 +1,13 @@
 <?= $this->extend('templates/admin') ?>
 <?= $this->section('content') ?>
 <br>
+<style>
+    .card {
+        -webkit-box-shadow: 0px 0px 12px -2px rgba(143, 143, 143, 1);
+        -moz-box-shadow: 0px 0px 12px -2px rgba(143, 143, 143, 1);
+        box-shadow: 0px 0px 12px -2px rgba(143, 143, 143, 1);
+    }
+</style>
 <div class="container">
     <?php if (session()->get('success')) : ?>
         <div class="alert alert-success">
@@ -21,72 +28,10 @@
     <?php endif; ?>
 </div>
 <br>
-<<<<<<< HEAD
 <div class="container">
     <div class="card text-center">
         <div style="background-color:#EDF0ED" class="card-header">
-            <h2>Alta de órdenes de pago</h2>
-=======
-<div class="container-fluid">
-
-    <form action="<?= base_url('/admin/saveOrdenes') ?>" method="POST">
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label>Clientes</label>
-                <select id="inputState" name="id_clientes"  onchange="select_usuario();" class="form-control">
-                    <option>ID Clientes</option>
-                    <?php foreach ($clientes as $cliente) : ?>
-                        <option value="<?= $cliente['id_clientes'][0] ?>"><?= $cliente['clientes_nombre'] ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-
-            <div class="form-group col-md-4">
-                <label for="">Status pago</label>
-                <select id="inputState" name="id_status_pago" class="form-control">
-                    <!-- <option>ID Status pago</option> -->
-                    <?php foreach ($status as $statu) : ?>
-                        <option value="<?= $statu['id_status_pagos'] ?>"><?= $statu['status_tipo'] ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <div class="form-group col-md-4">
-                <label>Fecha de pago</label>
-                <input type="date" class="form-control" name="orden_fecha_pago" placeholder="Fecha pago" required="required">
-            </div>
-            <div class="form-group col-md-4">
-                <label>Orden concepto </label>
-                <input type="text" class="form-control" name="orden_concepto" placeholder="Orden concepto" required="required">
-            </div>
-            <div class="form-group col-md-4">
-                <label>Condiciones de pago</label>
-                <input type="text" class="form-control" name="CondicionesDePago" placeholder="Condiciones de pago" required="required">
-            </div>
-            <div class="form-group col-md-4">
-                <label>Moneda de pago </label>
-                <input type="text" class="form-control" name="orden_moneda_de_pago" value="MXN" placeholder="Orden modena de pago" required="required">
-            </div>
-            <div class="form-group col-md-4">
-                <label>Cantidad </label>
-                <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="cantidad" required="required">
-            </div>
-            <div class="form-group col-md-4">
-                <label>Importe </label>
-                <input type="number" step='0.01' class="form-control" name="orden_monto" id="importe" placeholder="Orden monto" required="required">
-            </div>
-            <div class="form-group col-md-4">
-                <label>Subtotal</label>
-                <input type="number" class="form-control" name="orden_subtotal" id="subtotal" placeholder="Orden subtotal" required="required">
-            </div>
-            <div class="form-group col-md-4">
-                <label>IVA</label>
-                <input type="number" class="form-control" name="iva" id="iva" placeholder="iva" required="required">
-            </div>
-            <div class="form-group col-md-4">
-                <label>Total</label>
-                <input type="number" class="form-control" name="orden_total" id="total" placeholder="Orden total" required="required">
-            </div>
->>>>>>> b9dd3766920cde88bf831df478bb9b7b3f109d6b
+            <h2><i class="fas fa-angle-double-up">&nbsp Alta de órdenes de pago</i></h2>
         </div>
         <div style="background-color:#F7F7F7;" class="card-body">
             <form action="<?= base_url('/admin/saveOrdenes') ?>" method="POST">
@@ -154,48 +99,14 @@
 
             </form>
         </div>
-<<<<<<< HEAD
     </div>
 
-    <script>
-        window.addEventListener('load', () => {
-            var cantidad = document.querySelector("#cantidad");
-            var importe = document.querySelector("#importe");
-            var subtotal = document.querySelector("#subtotal");
-            var iva = document.querySelector("#iva");
-            var total = document.querySelector("#total");
 
-            importe.addEventListener('change', function() {
-                var can = parseFloat(cantidad.value);
-                var impor = parseFloat(importe.value);
-                var resul = (can * impor);
-                subtotal.value = resul.toFixed(2);
-                var sub = subtotal.value;
-                var subR = parseFloat(sub);
-                let ivaP = parseFloat(0.160000);
-                var ivaR = (subR * ivaP);
-                iva.value = parseFloat(ivaR).toFixed(2);
-                totalR = (subR + ivaR);
-                total.value = totalR.toFixed(2);
-            });
+    <?= $this->include('js/iva') ?>
 
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
+
 
     <?= $this->endSection() ?>
-=======
-
-    </form>
-    <br>
-</div>
-
-
-<?= $this->include('js/iva') ?>
-
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-
-
-
-<?= $this->endSection() ?>
->>>>>>> b9dd3766920cde88bf831df478bb9b7b3f109d6b
