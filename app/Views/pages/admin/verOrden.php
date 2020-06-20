@@ -8,7 +8,7 @@
 
         <div class="container card" id="card">
 
-            <h2 style="text-align: center">Datos de orden de pagos </h2><br>
+            <h2 style="text-align: center">Datos de la orden</h2><br>
             <div class="card-body">
             <div class="text-center">
                     <div class=row>
@@ -19,7 +19,7 @@
                             <p><?= $orden['orden_concepto'] ?> </p>
                         </div>
                         <div class="col-sm-4"> <strong>Forma de pago requerido</strong>
-                            <p><?= $orden['orden_forma_de_pago_requerido'] ?> </p>
+                            <p><?= $orden['CondicionesDePago'] ?> </p>
                         </div>
                     </div>
                     
