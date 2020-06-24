@@ -3,7 +3,7 @@
 
 <div id="carga"></div>
 
-<br><br>
+<br>
 <?php foreach ($comprobantes as $comprobante) : ?>
     <div class="container col-md-4">
         <div class="list-group">
@@ -31,13 +31,21 @@
             <button type="button" class="list-group-item list-group-item-action">RFC: <?= $comprobante['comprobante_rfc_cliente'] ?></button>
             <button type="button" class="list-group-item list-group-item-action">
                 <?php if ($comprobante['comprobantes_metodo_pago'] == 1) : ?>
-                   Método de pago: <?php echo "PayPal" ?>                  
+                    Método de pago: <?php echo "PayPal" ?>
                 <?php elseif ($comprobante['comprobantes_metodo_pago'] == 2) : ?>
                     Método de pago:: <?php echo "Stripe" ?>
                 <?php elseif ($comprobante['comprobantes_metodo_pago'] == 3) : ?>
                     Método de pago: <?php echo "PayU" ?>
                 <?php endif; ?>
             </button>
+            <div>
+                <div class="text-right list-group-item list-group-item-action">
+                    <form action="<?= base_url('facturacion') ?>" method="POST">
+                        <input type="hidden" name="idComprobante" value="<?= $comprobante['id_comprobantes'] ?>">
+                        <button class="btn btn-block btn-primary" onclick="factu();">Facturar</button>
+                    </form>
+                </div>
+            </div>
             <div>
                 <div class="text-right list-group-item list-group-item-action">
                     <form action="<?= base_url('comprobantes/pdf') ?>" method="POST">
@@ -50,7 +58,7 @@
                 <div class="text-right list-group-item list-group-item-action">
                     <form action="<?= base_url('comprobantes/email') ?>" method="POST">
                         <input type="hidden" name="id_comprobante" value="<?= $comprobante['id_comprobantes'] ?>">
-                        <button class="btn btn-block btn-success" onclick="executeAjaxRequest();">Enviar Correo Electrónico</button>
+                        <button class="btn btn-block btn-success" onclick="email();">Enviar Correo Electrónico</button>
                     </form>
                 </div>
             </div>

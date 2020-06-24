@@ -9,4 +9,16 @@
         $("#boxLoading").addClass("loading")
         setTimeout(() => $("#boxLoading").removeClass("loading"), 2000);
     }
+
+    function email() {
+        $("#boxLoading").addClass("loading")
+        setTimeout(() => $("#boxLoading").removeClass("loading"), 50000);
+    }
+
+    function factu() {
+        $("#boxLoading").addClass("loading")
+        setTimeout(() => $("#boxLoading").removeClass("loading"), 50000);
+    }
 </script>
+
+
