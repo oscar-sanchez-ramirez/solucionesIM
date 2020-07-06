@@ -103,6 +103,10 @@ $routes->get('/comprobantes/subir', 'Comprobantes::subir');
 $routes->get('/comprobantes/guardar', 'Comprobantes::guardar');
 $routes->get('/comprobantes/ver', 'Comprobantes::ver');
 $routes->get('/comprobantes/delete', 'Comprobantes::delete');
+$routes->get('/comprobantes/factu', 'Comprobantes::factu');
+$routes->get('/comprobantes/requisitos', 'Comprobantes::Requisitos');
+
+
 
 
 $routes->get('/facturacion/', 'Facturacion::index');

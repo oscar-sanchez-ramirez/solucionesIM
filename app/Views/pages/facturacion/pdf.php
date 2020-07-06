@@ -1,5 +1,16 @@
 <?= $this->extend('templates/default') ?>
 <?= $this->section('content') ?>
+<style>
+    .my-custom-scrollbar {
+        position: relative;
+        height: 500px;
+        overflow: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+</style>
 <br>
 <div class="container margen">
     <h1 class="text-center margen"><i class="fas fa-clipboard-check fa-2x"></i></h1>
@@ -38,8 +49,8 @@
                             </form>
                         </td>
                         <td>
-                            <form action="#" method="POST">
-                                <input type="hidden" name="" value="">
+                            <form action="<?= base_url('comprobantes/requisitos') ?>" method="POST">
+                                <input type="hidden" name="idFactura" value="<?= $factura['id_factura'] ?>">
                                 <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></button>
                             </form>
                         </td>

@@ -10,6 +10,8 @@
     #resultado.ok {
         background-color: green;
     }
+
+   
 </style>
 <br>
 <div class="container col-md-4">
@@ -174,6 +176,7 @@
         </div>
     </div>
     <br>
+    
 
     <?= $this->include('js/facturas') ?>
     <?= $this->endSection() ?>

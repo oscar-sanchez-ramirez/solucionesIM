@@ -104,7 +104,7 @@ class Facturacion extends BaseController
             $data['factura_mensajePDF'] = $req->getPost('factura_mensajePDF');
             $data['factura_RFC'] = $req->getPost('factura_RFC');
             $data['factura_razonSocial'] = $req->getPost('factura_razonSocial');
-            $data['id_usocfdi'] = $req->getPost('id_usocfdi');
+            $data['id_usoCFDI'] = $req->getPost('id_usocfdi');
             $data['factura_pais'] = $req->getPost('factura_pais');
             $data['factura_email'] = $req->getPost('factura_email');
             $data['id_impuesto'] = $req->getPost('id_impuesto');
@@ -138,7 +138,7 @@ class Facturacion extends BaseController
 
                 $parametros['CFDIRequest']['ReceptorCFDI']['RFC'] = $data['factura_RFC'];   //"SIM120209UF9"  Cliente *
                 $parametros['CFDIRequest']['ReceptorCFDI']['RazonSocial'] = $data['factura_razonSocial'];  // "Soluciones IM NET S.A DE C.V"  Cliente * o Orden 
-                $parametros['CFDIRequest']['ReceptorCFDI']['UsoCfdi'] = $data['id_usocfdi'];   // "I04"  Fijo Select default por definir
+                $parametros['CFDIRequest']['ReceptorCFDI']['UsoCfdi'] = $data['id_usoCFDI'];   // "I04"  Fijo Select default por definir
                 $parametros['CFDIRequest']['ReceptorCFDI']['Pais'] = $data['factura_pais'];    //"MEXICO" Cliente *
                 $parametros['CFDIRequest']['ReceptorCFDI']['Email'] = $data['factura_email'];  //"cnavarro@soluciones.net" Cliente *
 

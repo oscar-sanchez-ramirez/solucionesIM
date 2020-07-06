@@ -7,6 +7,8 @@ use App\Models\ComprobantesModel;
 use App\Models\ClientesModel;
 use App\Models\OrdenpagosModel;
 use App\Models\ArchivosModel;
+use App\Models\FacturasModel;
+
 
 
 
@@ -54,45 +56,45 @@ class Comprobantes extends BaseController
     public function pdf()
     {
         // if ($this->session->logged_in) {
-            $req = Services::request();
-            $idComprobante = $req->getPost('id_comprobante');
+        $req = Services::request();
+        $idComprobante = $req->getPost('id_comprobante');
 
-            $model = new ComprobantesModel();
-            $comprobantes = $model->where('id_comprobantes', $idComprobante)->findAll();
-            $comprobantes_id = $model->where('id_comprobantes', $idComprobante)->findColumn('id_comprobantes');
-            $cliente_id = $model->where('id_comprobantes', $idComprobante)->findColumn('id_clientes');
+        $model = new ComprobantesModel();
+        $comprobantes = $model->where('id_comprobantes', $idComprobante)->findAll();
+        $comprobantes_id = $model->where('id_comprobantes', $idComprobante)->findColumn('id_comprobantes');
+        $cliente_id = $model->where('id_comprobantes', $idComprobante)->findColumn('id_clientes');
 
-            $cliente = new ClientesModel();
-            $correo_cliente = $cliente->where('id_clientes', $cliente_id)->findColumn('clientes_direccion_email');
-            $paterno = $cliente->where('id_clientes', $cliente_id)->findColumn('clientes_apellido_paterno');
-            $clientes_nombre = $cliente->where('id_clientes', $cliente_id)->findColumn('clientes_nombre');
+        $cliente = new ClientesModel();
+        $correo_cliente = $cliente->where('id_clientes', $cliente_id)->findColumn('clientes_direccion_email');
+        $paterno = $cliente->where('id_clientes', $cliente_id)->findColumn('clientes_apellido_paterno');
+        $clientes_nombre = $cliente->where('id_clientes', $cliente_id)->findColumn('clientes_nombre');
 
-            $nombre =  $clientes_nombre[0];
-            $apellidos =  $paterno[0];
-            $correo =  $correo_cliente[0];
+        $nombre =  $clientes_nombre[0];
+        $apellidos =  $paterno[0];
+        $correo =  $correo_cliente[0];
 
 
 
-            $data = [
-                'title' => 'Comprobante', 'comprobantes' => $comprobantes, 'id' => $comprobantes_id,
-                'nombre' => $nombre, 'apellidos' => $apellidos, 'correo' => $correo
-            ];
+        $data = [
+            'title' => 'Comprobante', 'comprobantes' => $comprobantes, 'id' => $comprobantes_id,
+            'nombre' => $nombre, 'apellidos' => $apellidos, 'correo' => $correo
+        ];
 
-            $filename = 'comprobante_solucionesIM';
-            // instanciar y usar la clase dompdf
-            $dompdf = new DOMPDF();
-            $dompdf->loadHtml(view('pages/comprobante_pdf', $data));
+        $filename = 'comprobante_solucionesIM';
+        // instanciar y usar la clase dompdf
+        $dompdf = new DOMPDF();
+        $dompdf->loadHtml(view('pages/comprobante_pdf', $data));
 
-            // (Opcional) Configurar el tamaño y la orientación del papel
-            $dompdf->setPaper('A4', 'paisaje');
+        // (Opcional) Configurar el tamaño y la orientación del papel
+        $dompdf->setPaper('A4', 'paisaje');
 
-            // Renderiza el HTML como PDF
-            $dompdf->render();
+        // Renderiza el HTML como PDF
+        $dompdf->render();
 
-            // Salida del PDF generador al navegador
-            $dompdf->stream($filename . ".pdf", array("Attachment" => true));
+        // Salida del PDF generador al navegador
+        $dompdf->stream($filename . ".pdf", array("Attachment" => true));
 
-            return true;
+        return true;
         // }
         // return redirect()->to('login');
     }
@@ -195,22 +197,46 @@ class Comprobantes extends BaseController
 
     public function delete()
     {
-        
+
 
         $req = Services::request();
         $id = $req->getPost('id');
         $model = new ArchivosModel();
         $nombre = $model->where('id_archivos', $id)->findColumn('archivos_file');
-        
+
         $carpeta = './uploads/comprobantes';
-        if(is_file("$carpeta/$nombre[0]")){
-        if (unlink("$carpeta/$nombre[0]")) {
-            
-             $model->delete($id);
-             return redirect()->back()->with('success', 'Comprobante eliminado');
-         }
+        if (is_file("$carpeta/$nombre[0]")) {
+            if (unlink("$carpeta/$nombre[0]")) {
+
+                $model->delete($id);
+                return redirect()->back()->with('success', 'Comprobante eliminado');
+            }
         }
-         $model->delete($id);
-         return redirect()->back()->with('danger', 'Comprobante no eliminado');
+        $model->delete($id);
+        return redirect()->back()->with('danger', 'Comprobante no eliminado');
     }
+
+    public function factu()
+    {
+        $req = Services::request();
+        $id = $req->getPost('idCliente');
+        $model = new FacturasModel();
+        $facturas = $model->where('id_cliente', $id)->findAll();
+        $info = ['facturas' => $facturas, 'title' => 'Facturas'];
+        return view('pages/facturacion/pdf', $info);
+
+    }
+
+    public function Requisitos(){
+        $req = Services::request();
+        $idFactura = $req->getPost('idFactura');
+        
+        $model = new FacturasModel();
+        $facturas = $model->where('id_factura', $idFactura)->findAll();
+
+        $data = ['facturas' => $facturas, 'title' => 'Factura'];
+
+        return view('pages/facturacion/ver', $data);
+    }
+
 }

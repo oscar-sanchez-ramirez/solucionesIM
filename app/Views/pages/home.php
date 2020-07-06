@@ -5,7 +5,7 @@
 
 <div id="content" class="p-4 p-md-5 pt-5">
     <div class="container d-none d-sm-none d-md-block">
-        <br><br>
+    <?= $this->include('components/home')?>
         <div class="row justify-content-center">
             <?= $this->include('components/msj-home.php') ?>
         </div>
@@ -54,6 +54,12 @@
     <div class="container d-block d-sm-block d-md-none">
         <br><br>
         <div class="row justify-content-center margen" id="car">
+            <div class="text-center navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Soluciones IM" src="https://www.solucionesim.net/imgusr/logo_solucionesim.png" width="150px">
+                </a>
+            </div>
+            <br>
             <div class="col-sm-8">
                 <div id="carouselExampleControls" class="carousel slide sombra" data-ride="carousel">
                     <div class="carousel-inner">

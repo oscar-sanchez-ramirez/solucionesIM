@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- <link rel="stylesheet" href="css/style3.css"> -->
     <link rel="stylesheet" href="css/style-home.css">
 </head>
@@ -62,12 +63,20 @@
                             </form>
                         <?php endforeach; ?>
                     </li>
+                    <li>
+                        <?php foreach ($clientes as $cliente) : ?>
+                            <form action="<?= base_url('comprobantes/factu') ?>" method="POST">
+                                <input type="hidden" name="idCliente" value="<?= $cliente['id_clientes'] ?>">
+                                <a><button type="submit" class="btn btn-warning btn-block"><span class="fa fa-credit-card mr-3"> Facturas</span></button></a>
+                            </form>
+                        <?php endforeach; ?>
+                    </li>
                     <br>
                     <li>
                         <a class="btn btn-danger btn-block" href="<?= base_url('/perfil/signout') ?>" onclick="return confirm('Estas seguro');"><span class="fa fa-sign-out mr-3"> Cerrar Sesión</span></a>
                     </li>
                 </ul>
-                
+
                 <!-- <div class="mb-5">
                     <h3 class="h6 mb-3"></h3>
                     <form action="#" class="subscribe-form">

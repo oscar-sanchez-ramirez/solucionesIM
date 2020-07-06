@@ -9,7 +9,7 @@
         total.value = (sub + iv);
     });
 
-
+    
 
     function rfcValido(rfc, aceptarGenerico = true) {
         const re = /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/;
@@ -312,7 +312,7 @@
         if (error > 0) {
             return false;
         } else {
-            
+            factu();
             return true;
         }
 

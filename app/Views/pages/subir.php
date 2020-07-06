@@ -16,7 +16,7 @@
         <form action="<?= base_url('comprobantes/guardar') ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="FormControlInput1">Comentario:</label>
-                <input type="text" class="form-control" name="archivos_descripcion" placeholder="">
+                <input type="text" class="form-control" name="archivos_descripcion" placeholder="" required=required>
                 <input type="hidden" class="form-control" name="id_usuario" value="<?= session('id') ?>">
             </div>
             <div class="text-center">
